@@ -1,0 +1,45 @@
+Function	"RW_Fiscal_YTD_Deductions"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+
+This script will return the Fiscal YTD Deductions total for an employee...
+
+The checkdate should decremented by one month to insure we're not picking up the current month's benefits twice on historical prints...
+
+}
+function returns currency l_total;
+in string l_employee;
+in date l_chequedate;
+in integer l_year;
+
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+local currency l_amt; 
+local date l_SQL_Date;
+
+l_SQL_Date = addmonth(l_chequedate, -1);
+
+l_sql_status = SQL_Connect(l_sql_connect);
+l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+
+l_sql_command = \"select SUM(TTLDDTNS) from EX_PR_Fiscal_Amounts_By_Period \";
+l_sql_command = l_sql_command + \"where EMPLOYID = '\"+ l_employee +\"' and YEAR1 = \"+ string(l_year) + \" and PERDENDT <= '\" + sqlDate(l_SQL_Date) + \"'\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+
+
+l_sql_data_status = SQL_GetData(l_sql_connect,1,l_amt);
+l_total = l_amt;
+
+
+l_sql_status  = SQL_Terminate(l_sql_connect);
+"
+	UserProperties	""
+}

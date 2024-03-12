@@ -1,0 +1,45 @@
+Procedure	"RNC_ddEmpAcctMstr_Delete_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{CTIFP_POP_PO_Delete}
+
+inout table ddEmpAcctMstr;
+in integer table_operation;
+
+if table_operation = TRIGGER_ON_DB_DELETE then
+	clear table RNC_ddEmpAcctMstr_EXT;
+	set 'Employee ID' of table RNC_ddEmpAcctMstr_EXT to 
+		'Employee ID' of table ddEmpAcctMstr;
+	set IndexLong of table RNC_ddEmpAcctMstr_EXT to 	
+		IndexLong of table ddEmpAcctMstr;
+	change table RNC_ddEmpAcctMstr_EXT;
+	if err() = OKAY then
+		remove table RNC_ddEmpAcctMstr_EXT;
+		check error;
+	end if;
+	
+	
+	/* modified by LuisSoto 09.01.2024 */
+	//There is no control over delete process on the window making available that the indexlong was uncontroled by ddEmpAcctMstr
+	
+	release table EX_DD_Banks;
+		'Employee ID' of table EX_DD_Banks = 'Employee ID' of table ddEmpAcctMstr;
+		Index of table EX_DD_Banks = IndexLong of table ddEmpAcctMstr;
+	change table EX_DD_Banks;
+	if err(table EX_DD_Banks) = OKAY then
+		remove table EX_DD_Banks;
+		check error;
+	end if;
+	release table EX_DD_Banks;
+	
+end if;
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

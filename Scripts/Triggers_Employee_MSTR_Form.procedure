@@ -1,0 +1,113 @@
+Procedure	"Triggers_Employee_MSTR_Form"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{
+	all the triggers related to the employee MSTR form will go here...}
+	
+
+
+{	-	-	-		Employee MSTR window		-	-	-	}
+local long l_result;
+local integer l_tag;
+
+l_result = Trigger_RegisterFocus(anonymous('Save Record' of window UPR_Employee_MNT of form UPR_Employee_MNT),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_BEFORE_ORIGINAL, 
+												 script Trig_Emp_MSTR_Save_Pre, l_tag);
+if l_result <> SY_NOERR then
+ warning \"Emp Master window Save PRE Trigger failed to register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+l_result = Trigger_RegisterFocus(anonymous('Save Record' of window UPR_Employee_MNT of form UPR_Employee_MNT),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_Emp_MSTR_Save_Post, l_tag);
+if l_result <> SY_NOERR then
+ warning \"Emp Master window Save POST Trigger failed to register.\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+l_result = Trigger_RegisterFocus(anonymous('Display Existing Record'  of window UPR_Employee_MNT of form UPR_Employee_MNT),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_Emp_MSTR_DER, l_tag);
+if l_result <> SY_NOERR then
+ warning \"Emp Master window Display Existing Record Trigger failed to register.\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+l_result = Trigger_RegisterFocus(anonymous(Inactive  of window UPR_Employee_MNT of form UPR_Employee_MNT),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_Employ_MSTR_Inactive_CHG, l_tag);
+if l_result <> SY_NOERR then
+ warning \"Emp Master field Inactive Change Trigger failed to register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+l_result = Trigger_RegisterFocus(anonymous(window UPR_Employee_MNT of form UPR_Employee_MNT), TRIGGER_FOCUS_ACTIVATE
+, TRIGGER_AFTER_ORIGINAL, script Trig_Employee_Maint_Activate);
+if l_result <> SY_NOERR then
+ warning \"Employee Maintenance From Trigger failed to register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+/*			ADDED for GP 2016 R2					*/
+
+
+l_result = Trigger_RegisterForm(form UPR_Employee_MNT, \"Work Permit Information\", \"\", script EX_Open_WP_Info);
+if l_result<>SY_NOERR then
+    warning \"Form trigger registration failed.\";
+end if;
+
+l_result = Trigger_RegisterForm(form UPR_Print_Checks, \"Export Earning Statements\", \"\", script EX_paysliptopdfwork);
+if l_result<>SY_NOERR then
+    warning \"Form trigger registration failed.\";
+end if;
+
+
+
+{----------------------------------------------
+Triggers for managing meny items
+-----------------------------------------------}
+l_result = Trigger_RegisterProcedure(script 'CreateDefaultMenuStructure', TRIGGER_AFTER_ORIGINAL, script EX_Create_Menus);
+if l_result <> SY_NOERR then
+	warning \"Add_Successful_Login_Record - Procedure trigger registration failed.\";
+end if;
+
+
+
+{----------------------------------------------
+	Triggers for managing commands and command forms
+	-----------------------------------------------}
+
+l_result = Trigger_RegisterProcedure(script OpenCommandForms, TRIGGER_AFTER_ORIGINAL, script EX_Open_Commands_Form);
+if l_result <> SY_NOERR then
+	warning \"Procedure trigger registration for OpenCommandForms failed.\";
+end if;
+
+l_result = Trigger_RegisterProcedure(script CloseCommandForms, TRIGGER_AFTER_ORIGINAL, script EX_Close_Commands_Form);
+if l_result <> SY_NOERR then
+	warning \"Procedure trigger registration for CloseCommandForms failed.\";
+end if;
+
+{Save}
+l_result = Trigger_RegisterFocusByName(414, \"'Save Record' of window HR_Termination of form HR_Termination_V2\", 
+								TRIGGER_FOCUS_CHANGE, 
+								TRIGGER_AFTER_ORIGINAL,  
+								script EX_HR_Termination_Save_Record_Trigger_AFTER);
+if l_result <> SY_NOERR then
+    warning \"The 'EX_HR_Termination_Save_Record_Trigger_AFTER' trigger is not registered. \" + str(l_result);
+end if;
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

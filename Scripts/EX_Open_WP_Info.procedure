@@ -1,0 +1,12 @@
+Procedure	"EX_Open_WP_Info"
+{
+	Core	"System"
+	Documentation	""
+	Script	"open form EX_Employee_Cayman;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

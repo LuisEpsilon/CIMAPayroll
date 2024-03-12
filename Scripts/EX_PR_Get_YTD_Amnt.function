@@ -1,0 +1,65 @@
+Function	"EX_PR_Get_YTD_Amnt"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"function returns currency l_Amount;
+in string l_employID;
+in date l_chekdate;
+in string l_code;
+in integer l_code_type;
+in integer l_ytdType;
+
+
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+local long GPS_error_number, SQL_error_number;
+local string SQL_error_string, ODBC_error_string;
+
+
+l_sql_status = SQL_Connect(l_sql_connect);
+
+if l_sql_status = 0 then
+
+	l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+	if l_sql_status = 0 then
+
+		l_sql_command = \"select dbo.EX_Get_PR_YTD_Amount('\" + sqlDate(l_chekdate) +\"', '\" + l_employID +\"' , '\" + str(l_code) + \"' ,\" + str(l_code_type) + \",\" + str(l_ytdType) + \")\";
+		l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+			if l_sql_status = 0 then
+
+			l_sql_status = SQL_FetchNext(l_sql_connect);
+
+			l_sql_status = SQL_GetData(l_sql_connect, 1, l_Amount);
+
+
+			else
+				error \"An error occurred executing SQL statements.\";
+				{Retrieve the specific error information.}
+				l_sql_status = SQL_GetError(l_sql_connect, GPS_error_number, SQL_error_number, SQL_error_string, ODBC_error_string);
+				if l_sql_status = 0 then
+					warning \"GPS Error: \" + str(GPS_error_number);
+					warning \"SQL Error: \" + str(SQL_error_number) + \" \" + SQL_error_string;
+					warning \"ODBC Error: \" + ODBC_error_string;
+				else
+					error \"Unable to retrieve SQL error information.\";
+				end if;
+		end if;
+
+		else
+		error \"Could not switch to the correct database.\";
+	end if;
+	{Disconnect from the SQL data source.}
+	l_sql_status = SQL_Terminate(l_sql_connect);
+else
+	{An error occurred creating the pass-through SQL connection.}
+	warning \"An error occurred creating the pass-through SQL connection: \" + str(l_sql_status);
+end if;
+"
+	UserProperties	""
+}

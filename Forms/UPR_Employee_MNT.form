@@ -1,0 +1,2732 @@
+= Form	"UPR_Employee_MNT"
+{
+	Datatypes
+	{
+		Datatype	"email_address"		
+		{
+			AllowOddLength	"false"
+			Control	"String"
+			Format	""
+			KeyableLength	"100"
+			StorageLength	"102"
+		}
+	}
+	Fields
+	{
+		Field	"email_address"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) email_address"
+			LookupForm	""
+			PhysicalName	""
+		}
+	}
+	Windows
+	{
+		= Window	"UPR_Employee_MNT"
+		{
+			Fields
+			{
+				= WindowControl	"(L) Abort Close"
+				{
+					ZOrder	"140"
+				}
+				= WindowControl	"(L) Additional Information"
+				{
+					PositionLeft	"666"
+					PositionTop	"397"
+					ZOrder	"69"
+				}
+				= WindowControl	"(L) Additional Positions"
+				{
+					PositionLeft	"298"
+					PositionTop	"397"
+					ZOrder	"66"
+				}
+				= WindowControl	"(L) Address"
+				{
+					PositionLeft	"553"
+					PositionTop	"397"
+					ZOrder	"68"
+				}
+				= WindowControl	"(L) ApprovalButton"
+				{
+					PositionLeft	"963"
+					PositionTop	"72"
+					ZOrder	"188"
+				}
+				= WindowControl	"(L) CompleteSave"
+				{
+					PositionLeft	"963"
+					PositionTop	"91"
+					ZOrder	"189"
+				}
+				= WindowControl	"(L) Department Name"
+				{
+					PositionTop	"316"
+					ZOrder	"42"
+				}
+				= WindowControl	"(L) Division Name"
+				{
+					PositionTop	"297"
+					ZOrder	"40"
+				}
+				= WindowControl	"(L) DoesEmployeeExist"
+				{
+					ZOrder	"162"
+				}
+				= WindowControl	"(L) EmployeeClassDefault"
+				{
+					PositionLeft	"819"
+					PositionTop	"566"
+					ZOrder	"167"
+				}
+				= WindowControl	"(L) GoToEmployeeID"
+				{
+					ZOrder	"165"
+				}
+				= WindowControl	"(L) HR_Hire"
+				{
+					PositionLeft	"963"
+					PositionTop	"357"
+					ZOrder	"191"
+				}
+				= WindowControl	"(L) Human Resources"
+				{
+					PositionLeft	"434"
+					PositionTop	"397"
+					ZOrder	"67"
+				}
+				= WindowControl	"(L) Is Open Change Form"
+				{
+					ZOrder	"202"
+				}
+				= WindowControl	"(L) Is Open HR Change Form"
+				{
+					ZOrder	"154"
+				}
+				= WindowControl	"(L) Location Name"
+				{
+					PositionTop	"354"
+					ZOrder	"46"
+				}
+				= WindowControl	"(L) Note ID2"
+				{
+					ZOrder	"148"
+				}
+				= WindowControl	"(L) OpenReactive"
+				{
+					PositionLeft	"963"
+					ZOrder	"187"
+				}
+				= WindowControl	"(L) Position Name"
+				{
+					PositionTop	"335"
+					ZOrder	"44"
+				}
+				= WindowControl	"(L) ResubmissionNecessary"
+				{
+					PositionLeft	"963"
+					PositionTop	"281"
+					ZOrder	"182"
+				}
+				= WindowControl	"(L) Seniority Date"
+				{
+					ZOrder	"14"
+				}
+				= WindowControl	"(L) Supervisor Name"
+				{
+					PositionTop	"373"
+					ZOrder	"48"
+				}
+				= WindowControl	"(L) Temp Department Name"
+				{
+					ZOrder	"152"
+				}
+				= WindowControl	"(L) Temp Division Name"
+				{
+					ZOrder	"153"
+				}
+				= WindowControl	"(L) Temp Employee Class"
+				{
+					ZOrder	"118"
+				}
+				= WindowControl	"(L) Temp Location Name"
+				{
+					ZOrder	"151"
+				}
+				= WindowControl	"(L) Temp Position Name"
+				{
+					ZOrder	"150"
+				}
+				= WindowControl	"(L) Temp Supervisor Name"
+				{
+					ZOrder	"149"
+				}
+				= WindowControl	"(L) Use Payroll Codes"
+				{
+					ZOrder	"136"
+				}
+				= WindowControl	"(L) Vac/Sick Button"
+				{
+					PositionLeft	"802"
+					PositionTop	"397"
+					ZOrder	"70"
+				}
+				= WindowControl	"(L) WFGetInfo"
+				{
+					PositionLeft	"963"
+					PositionTop	"243"
+					ZOrder	"180"
+				}
+				WindowControl	"(L) email_address"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) email_address"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"372"
+					PositionTop	"272"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"227"
+					TabStop	"true"
+					Tag	"5549"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"39"
+					Zoom	"false"
+				}
+				= WindowControl	"(L) wfActivateInactive"
+				{
+					PositionLeft	"963"
+					PositionTop	"338"
+					ZOrder	"186"
+				}
+				= WindowControl	"(L) wfApprovalFlag"
+				{
+					PositionLeft	"963"
+					PositionTop	"319"
+					ZOrder	"185"
+				}
+				= WindowControl	"(L) wfCanTaskProceed"
+				{
+					PositionLeft	"963"
+					PositionTop	"300"
+					ZOrder	"183"
+				}
+				= WindowControl	"(L) wfEmployeeType"
+				{
+					PositionLeft	"963"
+					PositionTop	"395"
+					ZOrder	"190"
+				}
+				= WindowControl	"(L) wfPerformTask"
+				{
+					PositionLeft	"963"
+					PositionTop	"262"
+					ZOrder	"181"
+				}
+				= WindowPrompt	"109"
+				{
+					PositionTop	"316"
+					ZOrder	"100"
+				}
+				= WindowPrompt	"110"
+				{
+					PositionTop	"335"
+					ZOrder	"101"
+				}
+				= WindowPrompt	"128"
+				{
+					ZOrder	"102"
+				}
+				= WindowPrompt	"146"
+				{
+					PositionLeft	"696"
+					PositionTop	"490"
+					ZOrder	"103"
+				}
+				= WindowPrompt	"147"
+				{
+					PositionLeft	"696"
+					PositionTop	"509"
+					ZOrder	"104"
+				}
+				= WindowPrompt	"24"
+				{
+					ZOrder	"94"
+				}
+				= WindowPrompt	"242"
+				{
+					PositionTop	"82"
+					ZOrder	"105"
+				}
+				= WindowPrompt	"243"
+				{
+					PositionTop	"139"
+					ZOrder	"106"
+				}
+				= WindowPrompt	"244"
+				{
+					PositionTop	"158"
+					ZOrder	"107"
+				}
+				= WindowPrompt	"245"
+				{
+					PositionTop	"215"
+					ZOrder	"108"
+				}
+				= WindowPrompt	"247"
+				{
+					PositionTop	"177"
+					ZOrder	"109"
+				}
+				= WindowPrompt	"258"
+				{
+					PositionTop	"262"
+				}
+				= WindowPrompt	"259"
+				{
+					PositionTop	"281"
+				}
+				= WindowPrompt	"270"
+				{
+					PositionTop	"196"
+					ZOrder	"110"
+				}
+				= WindowPrompt	"291"
+				{
+					ZOrder	"111"
+				}
+				= WindowPrompt	"334"
+				{
+					PositionTop	"177"
+					ZOrder	"121"
+				}
+				= WindowPrompt	"337"
+				{
+					PositionTop	"234"
+					ZOrder	"122"
+				}
+				= WindowPrompt	"338"
+				{
+					PositionTop	"63"
+					ZOrder	"123"
+				}
+				= WindowPrompt	"344"
+				{
+					ZOrder	"124"
+				}
+				= WindowPrompt	"345"
+				{
+					PositionLeft	"24"
+					PositionTop	"642"
+					ZOrder	"125"
+				}
+				= WindowPrompt	"348"
+				{
+					PositionTop	"297"
+					ZOrder	"126"
+				}
+				= WindowPrompt	"349"
+				{
+					PositionTop	"354"
+					ZOrder	"127"
+				}
+				= WindowPrompt	"350"
+				{
+					PositionTop	"373"
+					ZOrder	"128"
+				}
+				= WindowPrompt	"373"
+				{
+					PositionTop	"319"
+					ZOrder	"137"
+				}
+				= WindowPrompt	"376"
+				{
+					PositionLeft	"696"
+					PositionTop	"528"
+					ZOrder	"139"
+				}
+				= WindowLine	"422"
+				{
+					SizeWidth	"904"
+					ZOrder	"155"
+				}
+				= WindowLine	"424"
+				{
+					ZOrder	"156"
+				}
+				= WindowLine	"425"
+				{
+					ZOrder	"157"
+				}
+				= WindowLine	"429"
+				{
+					SizeWidth	"912"
+					ZOrder	"160"
+				}
+				= WindowPrompt	"430"
+				{
+					PositionTop	"253"
+					ZOrder	"161"
+				}
+				= WindowPrompt	"441"
+				{
+					ZOrder	"166"
+				}
+				= WindowPrompt	"445"
+				{
+					ZOrder	"169"
+				}
+				= WindowPrompt	"456"
+				{
+					PositionLeft	"696"
+					PositionTop	"471"
+					ZOrder	"170"
+				}
+				= WindowLine	"489"
+				{
+					ZOrder	"184"
+				}
+				WindowPrompt	"5526"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"631"
+					PositionTop	"57"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"106"
+					Text	"Nationality"
+					Visible	"true"
+					ZOrder	"205"
+					Zoom	"false"
+				}
+				WindowPrompt	"5527"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"631"
+					PositionTop	"76"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"106"
+					Text	"Permit Type"
+					Visible	"true"
+					ZOrder	"206"
+					Zoom	"false"
+				}
+				WindowPrompt	"5528"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"631"
+					PositionTop	"95"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"106"
+					Text	"Date Issued"
+					Visible	"true"
+					ZOrder	"207"
+					Zoom	"false"
+				}
+				WindowPrompt	"5529"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"631"
+					PositionTop	"114"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"106"
+					Text	"Permit Expiry"
+					Visible	"true"
+					ZOrder	"208"
+					Zoom	"false"
+				}
+				WindowPrompt	"5530"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"631"
+					PositionTop	"133"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"106"
+					Text	"Re-Entry Expiry"
+					Visible	"true"
+					ZOrder	"209"
+					Zoom	"false"
+				}
+				WindowPrompt	"5532"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"631"
+					PositionTop	"152"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"106"
+					Text	"Anual Fee Deadline"
+					Visible	"true"
+					ZOrder	"210"
+					Zoom	"false"
+				}
+				WindowPrompt	"5545"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"8"
+					PositionTop	"224"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"120"
+					Text	"Effec Resig/Term Date"
+					Visible	"true"
+					ZOrder	"211"
+					Zoom	"false"
+				}
+				WindowPrompt	"5547"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"8"
+					PositionTop	"243"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"120"
+					Text	"Termination Date"
+					Visible	"true"
+					ZOrder	"212"
+					Zoom	"false"
+				}
+				WindowPrompt	"5550"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"287"
+					PositionTop	"272"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"86"
+					Text	"Email Address"
+					Visible	"true"
+					ZOrder	"213"
+					Zoom	"false"
+				}
+				= WindowPrompt	"65"
+				{
+					ZOrder	"95"
+				}
+				= WindowPrompt	"67"
+				{
+					ZOrder	"96"
+				}
+				= WindowControl	"Address 1"
+				{
+					PositionTop	"82"
+					ZOrder	"28"
+				}
+				= WindowControl	"Address 2"
+				{
+					PositionTop	"101"
+					ZOrder	"29"
+				}
+				= WindowControl	"Address 3"
+				{
+					PositionTop	"120"
+					ZOrder	"30"
+				}
+				= WindowControl	"Address Code"
+				{
+					PositionTop	"63"
+					ZOrder	"27"
+				}
+				= WindowControl	"Ben Adj Date"
+				{
+					ZOrder	"17"
+				}
+				= WindowControl	"BrowseBox"
+				{
+					ZOrder	"77"
+				}
+				= WindowControl	"City"
+				{
+					PositionTop	"139"
+					ZOrder	"31"
+				}
+				WindowControl	"Clear Balance"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	"UPR_Employee_MNT Clear Balance_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Clear Balance"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"952"
+					PositionTop	"433"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"224"
+					TabStop	"true"
+					Tag	"5566"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"218"
+				}
+				= WindowControl	"Clear Button"
+				{
+					ZOrder	"73"
+				}
+				= WindowControl	"Country"
+				{
+					PositionTop	"196"
+					ZOrder	"35"
+				}
+				= WindowControl	"County"
+				{
+					PositionTop	"177"
+					ZOrder	"34"
+				}
+				= WindowControl	"CreateWFHistory"
+				{
+					PositionLeft	"963"
+					PositionTop	"205"
+					ZOrder	"177"
+				}
+				= WindowControl	"Date Employee Inactivated"
+				{
+					PositionTop	"262"
+					ZOrder	"20"
+				}
+				= WindowControl	"Delete Button"
+				{
+					ZOrder	"74"
+				}
+				= WindowControl	"Department"
+				{
+					PositionTop	"316"
+					ZOrder	"43"
+				}
+				= WindowControl	"Display Existing Record"
+				{
+					ZOrder	"99"
+				}
+				= WindowControl	"Division Code"
+				{
+					PositionTop	"297"
+					ZOrder	"41"
+				}
+				= WindowControl	"Doc_Attach_Absent_Note_DDL"
+				{
+					ZOrder	"201"
+				}
+				= WindowControl	"Doc_Attach_Note_DDL"
+				{
+					ZOrder	"199"
+				}
+				= WindowControl	"Dummy Note Show Hide"
+				{
+					ZOrder	"93"
+				}
+				= WindowControl	"Dummy Record Note Show Hide"
+				{
+					ZOrder	"50"
+				}
+				WindowControl	"EX_Caymanian_Flag"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_Caymanian_Flag"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"631"
+					PositionTop	"179"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					TabStop	"true"
+					Tag	"5533"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"57"
+				}
+				WindowControl	"EX_Comments"				
+				{
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"Text"
+					DisableLookup	"false"
+					EditMode	"Editable"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_Comments"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"631"
+					PositionTop	"281"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					ScrollBars	"true"
+					SetChangeFlag	"true"
+					SizeHeight	"103"
+					SizeWidth	"272"
+					TabStop	"true"
+					Tag	"5543"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					WordWrap	"false"
+					ZOrder	"65"
+				}
+				WindowControl	"EX_MarriedToCaymanian_Flag"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_MarriedToCaymanian_Flag"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"631"
+					PositionTop	"198"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"160"
+					TabStop	"true"
+					Tag	"5535"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"59"
+				}
+				WindowControl	"EX_Nationality"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_Nationality"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"5525"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"737"
+					PositionTop	"57"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"135"
+					TabStop	"true"
+					Tag	"5523"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"51"
+					Zoom	"false"
+				}
+				WindowControl	"EX_PR_Skip"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	"UPR_Employee_MNT EX_PR_Skip_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_PR_Skip"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"664"
+					PositionTop	"34"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"112"
+					TabStop	"true"
+					Tag	"5556"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"9"
+				}
+				WindowControl	"EX_PR_Skip_Set_By"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"true"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_PR_Skip_Set_By"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"1096"
+					PositionTop	"72"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					TabStop	"true"
+					Tag	"5563"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"215"
+					Zoom	"false"
+				}
+				WindowControl	"EX_PR_Skip_Set_Date"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ControlType	"Date"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_PR_Skip_Set_Date"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"1096"
+					PositionTop	"53"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"101"
+					TabStop	"true"
+					Tag	"5558"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"214"
+					Zoom	"false"
+				}
+				WindowControl	"EX_PR_Skip_UnSet_By"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"true"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_PR_Skip_UnSet_By"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"1096"
+					PositionTop	"91"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					TabStop	"true"
+					Tag	"5564"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"216"
+					Zoom	"false"
+				}
+				WindowControl	"EX_PR_Skip_UnSet_Date"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ControlType	"Date"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_PR_Skip_UnSet_Date"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"1096"
+					PositionTop	"110"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"101"
+					TabStop	"true"
+					Tag	"5565"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"217"
+					Zoom	"false"
+				}
+				WindowControl	"EX_Permit_Type"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					ControlType	"ComboBox"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	"UPR_Employee_MNT EX_Permit_Type_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_Permit_Type"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"737"
+					PositionTop	"76"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"152"
+					TabStop	"true"
+					Tag	"5551"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					VisibleItems	"8"
+					ZOrder	"52"
+				}
+				WindowControl	"EX_Reason_for_Leaving"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					ControlType	"DropDownList"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	"UPR_Employee_MNT EX_Reason_for_Leaving_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_Reason_for_Leaving"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"127"
+					PositionTop	"281"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"137"
+					TabStop	"true"
+					Tag	"5548"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					VisibleItems	"8"
+					ZOrder	"21"
+				}
+				WindowControl	"EX_WP_AnnualFeeDeadline"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"Date"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_AnnualFeeDeadline"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"737"
+					PositionTop	"152"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"152"
+					TabStop	"true"
+					Tag	"5555"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"56"
+					Zoom	"false"
+				}
+				WindowControl	"EX_WP_Contractor"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_Contractor"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"791"
+					PositionTop	"217"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					TabStop	"true"
+					Tag	"5540"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"62"
+				}
+				WindowControl	"EX_WP_Exempted"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_Exempted"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"791"
+					PositionTop	"198"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					TabStop	"true"
+					Tag	"5536"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"60"
+				}
+				WindowControl	"EX_WP_Expiry_Date"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"Date"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_Expiry_Date"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"737"
+					PositionTop	"114"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"152"
+					TabStop	"true"
+					Tag	"5553"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"54"
+					Zoom	"false"
+				}
+				WindowControl	"EX_WP_Holder_Flag"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_Holder_Flag"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"791"
+					PositionTop	"179"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"116"
+					TabStop	"true"
+					Tag	"5541"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"58"
+				}
+				WindowControl	"EX_WP_Issue_Date"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"Date"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_Issue_Date"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"737"
+					PositionTop	"95"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"152"
+					TabStop	"true"
+					Tag	"5552"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"53"
+					Zoom	"false"
+				}
+				WindowControl	"EX_WP_Perm_Res"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_Perm_Res"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"631"
+					PositionTop	"217"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"144"
+					TabStop	"true"
+					Tag	"5538"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"61"
+				}
+				WindowControl	"EX_WP_Perm_Res_WERC"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_Perm_Res_WERC"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"631"
+					PositionTop	"236"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"176"
+					TabStop	"true"
+					Tag	"5539"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"63"
+				}
+				WindowControl	"EX_WP_ReEntryExpiryDate"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"Date"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_WP_ReEntryExpiryDate"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"737"
+					PositionTop	"133"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"152"
+					TabStop	"true"
+					Tag	"5554"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"55"
+					Zoom	"false"
+				}
+				= WindowControl	"Employee Suffix"
+				{
+					ZOrder	"13"
+				}
+				= WindowControl	"End of File Button - Toolbar"
+				{
+					ZOrder	"81"
+				}
+				WindowControl	"Ex_Mrd_to_CaymanianWERC"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Ex_Mrd_to_CaymanianWERC"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"631"
+					PositionTop	"255"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"192"
+					TabStop	"true"
+					Tag	"5537"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"64"
+				}
+				= WindowControl	"First Name"
+				{
+					ZOrder	"11"
+				}
+				= WindowControl	"Go To Button"
+				{
+					PositionLeft	"870"
+					ZOrder	"83"
+				}
+				= WindowControl	"Handle Changes"
+				{
+					ZOrder	"97"
+				}
+				= WindowControl	"Inactive"
+				{
+					PositionTop	"34"
+				}
+				= WindowControl	"Job Title"
+				{
+					PositionTop	"335"
+					ZOrder	"45"
+				}
+				= WindowControl	"Label_Presence[1]"
+				{
+					ZOrder	"192"
+				}
+				= WindowControl	"Label_Presence[2]"
+				{
+					ZOrder	"198"
+				}
+				= WindowControl	"Last Day Worked"
+				{
+					ZOrder	"18"
+				}
+				= WindowControl	"Last Name"
+				{
+					ZOrder	"10"
+				}
+				= WindowControl	"Location ID"
+				{
+					PositionTop	"354"
+					ZOrder	"47"
+				}
+				= WindowControl	"Lookup Button 1"
+				{
+					ZOrder	"87"
+				}
+				= WindowControl	"Lookup Button 10"
+				{
+					PositionTop	"63"
+					ZOrder	"134"
+				}
+				= WindowControl	"Lookup Button 11"
+				{
+					PositionLeft	"934"
+					PositionTop	"470"
+					ZOrder	"171"
+				}
+				WindowControl	"Lookup Button 12"				
+				{
+					Alignment	"center"
+					Appearance	"2D Border"
+					BackColor	"System - Button Face"
+					Border	"true"
+					ButtonStyle	"GraphicOnly"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"UPR_Employee_MNT Lookup Button 12_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Lookup Button 12"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"5523"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"871"
+					PositionTop	"57"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"18"
+					TabStop	"true"
+					Tag	"5525"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"204"
+					Zoom	"false"
+				}
+				= WindowControl	"Lookup Button 2"
+				{
+					ZOrder	"88"
+				}
+				= WindowControl	"Lookup Button 3"
+				{
+					PositionTop	"316"
+					ZOrder	"89"
+				}
+				= WindowControl	"Lookup Button 4"
+				{
+					PositionTop	"335"
+					ZOrder	"90"
+				}
+				= WindowControl	"Lookup Button 5"
+				{
+					PositionLeft	"934"
+					PositionTop	"490"
+					ZOrder	"91"
+				}
+				= WindowControl	"Lookup Button 6"
+				{
+					PositionLeft	"934"
+					PositionTop	"509"
+					ZOrder	"92"
+				}
+				= WindowControl	"Lookup Button 7"
+				{
+					PositionTop	"297"
+					ZOrder	"119"
+				}
+				= WindowControl	"Lookup Button 8"
+				{
+					PositionTop	"354"
+					ZOrder	"129"
+				}
+				= WindowControl	"Lookup Button 9"
+				{
+					PositionTop	"373"
+					ZOrder	"130"
+				}
+				= WindowControl	"MapPoint"
+				{
+					PositionTop	"63"
+					ZOrder	"163"
+				}
+				= WindowControl	"MapPointList"
+				{
+					PositionTop	"63"
+					ZOrder	"164"
+				}
+				= WindowControl	"Middle Name"
+				{
+					ZOrder	"12"
+				}
+				= WindowControl	"Next Button - Toolbar"
+				{
+					ZOrder	"80"
+				}
+				= WindowControl	"Node ID"
+				{
+					ZOrder	"141"
+				}
+				= WindowControl	"Note Absent Button - Toolbar "
+				{
+					PositionLeft	"855"
+					ZOrder	"76"
+				}
+				= WindowControl	"Note Absent Button - Window Area"
+				{
+					ZOrder	"86"
+				}
+				= WindowControl	"Note Index"
+				{
+					ZOrder	"112"
+				}
+				= WindowControl	"Note Index2"
+				{
+					ZOrder	"142"
+				}
+				= WindowControl	"Note Present Button - Toolbar"
+				{
+					PositionLeft	"855"
+					ZOrder	"75"
+				}
+				= WindowControl	"Note Present Button- Window Area"
+				{
+					ZOrder	"85"
+				}
+				= WindowControl	"NoteObject"
+				{
+					ZOrder	"145"
+				}
+				= WindowControl	"OLE Enabled"
+				{
+					ZOrder	"147"
+				}
+				= WindowControl	"OLE Filename"
+				{
+					ZOrder	"146"
+				}
+				= WindowControl	"OLE Note Absent Button"
+				{
+					ZOrder	"200"
+				}
+				= WindowControl	"OLE Note Present Button"
+				{
+					ZOrder	"138"
+				}
+				= WindowControl	"OLENoteOpened"
+				{
+					ZOrder	"143"
+				}
+				= WindowControl	"OLEPathReturn"
+				{
+					ZOrder	"144"
+				}
+				= WindowControl	"PB_Presence_Button[1]"
+				{
+					ZOrder	"194"
+				}
+				= WindowControl	"PB_Presence_Button[2]"
+				{
+					PositionTop	"374"
+					ZOrder	"197"
+				}
+				= WindowControl	"Phone 1"
+				{
+					PositionTop	"215"
+					ZOrder	"36"
+				}
+				= WindowControl	"Phone 2"
+				{
+					PositionTop	"234"
+					ZOrder	"37"
+				}
+				= WindowControl	"Phone 3"
+				{
+					PositionTop	"253"
+					ZOrder	"38"
+				}
+				= WindowControl	"PresenceChangeEventTrigger"
+				{
+					ZOrder	"193"
+				}
+				= WindowControl	"Previous Button - Toolbar"
+				{
+					ZOrder	"79"
+				}
+				= WindowControl	"Print_BDL"
+				{
+					PositionLeft	"860"
+					ZOrder	"196"
+				}
+				= WindowControl	"Reason Employee Inactivated"
+				{
+					PositionLeft	"815"
+					PositionTop	"547"
+					TabStop	"false"
+					ZOrder	"23"
+				}
+				= WindowControl	"Reason for Change"
+				{
+					ZOrder	"203"
+				}
+				= WindowControl	"Save Button"
+				{
+					ZOrder	"71"
+				}
+				= WindowControl	"Save Record"
+				{
+					ZOrder	"98"
+				}
+				= WindowControl	"Social Security Number"
+				{
+					Editable	"false"
+					PositionLeft	"815"
+					PositionTop	"528"
+					Required	"false"
+					TabStop	"false"
+					Visible	"false"
+					ZOrder	"15"
+				}
+				= WindowControl	"Sort By"
+				{
+					ZOrder	"84"
+				}
+				= WindowControl	"Start Date"
+				{
+					ZOrder	"16"
+				}
+				= WindowControl	"State"
+				{
+					PositionTop	"158"
+					ZOrder	"32"
+				}
+				= WindowControl	"Status Code"
+				{
+					PositionLeft	"815"
+					PositionTop	"471"
+					TabStop	"false"
+					ZOrder	"24"
+				}
+				= WindowControl	"Submit For Approval Button"
+				{
+					ZOrder	"72"
+				}
+				= WindowControl	"SubmitForApproval"
+				{
+					PositionLeft	"963"
+					PositionTop	"186"
+					ZOrder	"178"
+				}
+				= WindowControl	"Supervisor Code"
+				{
+					PositionTop	"373"
+					ZOrder	"49"
+				}
+				= WindowControl	"Suta State"
+				{
+					PositionLeft	"815"
+					PositionTop	"490"
+					TabStop	"false"
+					ZOrder	"25"
+				}
+				WindowControl	"TerminationDate"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"Date"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"TerminationDate"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"127"
+					PositionTop	"243"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"137"
+					TabStop	"true"
+					Tag	"5546"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"19"
+					Zoom	"false"
+				}
+				= WindowControl	"Top of File Button - Toolbar"
+				{
+					ZOrder	"78"
+				}
+				= WindowControl	"Type of Employment"
+				{
+					PositionTop	"319"
+				}
+				= WindowControl	"UserHasTask"
+				{
+					PositionLeft	"963"
+					PositionTop	"167"
+					ZOrder	"176"
+				}
+				= WindowControl	"WindowHelp"
+				{
+					PositionLeft	"879"
+					ZOrder	"158"
+				}
+				= WindowControl	"WindowPrint"
+				{
+					PositionLeft	"836"
+					ZOrder	"159"
+				}
+				= WindowControl	"Workers Comp"
+				{
+					PositionLeft	"815"
+					PositionTop	"509"
+					TabStop	"false"
+					ZOrder	"26"
+				}
+				= WindowControl	"Workflow Approval Status"
+				{
+					PositionLeft	"963"
+					PositionTop	"129"
+					ZOrder	"174"
+				}
+				= WindowControl	"Workflow Name"
+				{
+					PositionLeft	"963"
+					PositionTop	"376"
+					ZOrder	"195"
+				}
+				= WindowControl	"Workflow Priority"
+				{
+					PositionLeft	"963"
+					PositionTop	"148"
+					ZOrder	"175"
+				}
+				= WindowControl	"World Button"
+				{
+					PositionTop	"63"
+					ZOrder	"120"
+				}
+				= WindowControl	"Zip Code"
+				{
+					PositionTop	"177"
+					ZOrder	"33"
+				}
+				= WindowControl	"Zoom Buttons[10]"
+				{
+					PositionTop	"63"
+					ZOrder	"135"
+				}
+				= WindowControl	"Zoom Buttons[11]"
+				{
+					PositionLeft	"696"
+					PositionTop	"471"
+					ZOrder	"172"
+				}
+				= WindowControl	"Zoom Buttons[1]"
+				{
+					PositionTop	"34"
+					ZOrder	"113"
+				}
+				= WindowControl	"Zoom Buttons[2]"
+				{
+					PositionTop	"316"
+					ZOrder	"114"
+				}
+				= WindowControl	"Zoom Buttons[3]"
+				{
+					PositionTop	"335"
+					ZOrder	"115"
+				}
+				= WindowControl	"Zoom Buttons[4]"
+				{
+					PositionLeft	"695"
+					PositionTop	"490"
+					ZOrder	"116"
+				}
+				= WindowControl	"Zoom Buttons[5]"
+				{
+					PositionLeft	"695"
+					PositionTop	"509"
+					ZOrder	"117"
+				}
+				= WindowControl	"Zoom Buttons[6]"
+				{
+					ZOrder	"168"
+				}
+				= WindowControl	"Zoom Buttons[7]"
+				{
+					PositionTop	"297"
+					ZOrder	"131"
+				}
+				= WindowControl	"Zoom Buttons[8]"
+				{
+					PositionTop	"354"
+					ZOrder	"132"
+				}
+				= WindowControl	"Zoom Buttons[9]"
+				{
+					PositionTop	"373"
+					ZOrder	"133"
+				}
+				= WindowControl	"coWriteLettersBDL"
+				{
+					ZOrder	"82"
+				}
+				= WindowControl	"wfResetWorkflowHandler"
+				{
+					PositionLeft	"963"
+					PositionTop	"110"
+					ZOrder	"173"
+				}
+				= WindowControl	"wfVerifySuccess"
+				{
+					PositionLeft	"963"
+					PositionTop	"224"
+					ZOrder	"179"
+				}
+			}
+			LastTag	"5566"
+			SizeWidth	"914"
+		}
+		= Window	"UPR_Employee_MNT_HR"
+		{
+			Fields
+			{
+				= WindowControl	"(L) Contacts"
+				{
+					PositionTop	"116"
+				}
+				= WindowControl	"(L) Extra Fields"
+				{
+					PositionTop	"116"
+				}
+				= WindowControl	"(L) VET100Box"
+				{
+					PositionTop	"230"
+				}
+				= WindowPrompt	"17"
+				{
+					PositionTop	"67"
+				}
+				= WindowPrompt	"18"
+				{
+					PositionTop	"86"
+				}
+				= WindowPrompt	"19"
+				{
+					PositionTop	"67"
+				}
+				= WindowPrompt	"20"
+				{
+					PositionTop	"86"
+				}
+				= WindowPrompt	"21"
+				{
+					PositionTop	"220"
+				}
+				= WindowShape	"23"
+				{
+					PositionTop	"230"
+				}
+				= WindowLine	"36"
+				{
+					PositionTop	"146"
+				}
+				= WindowPrompt	"42"
+				{
+					PositionTop	"218"
+				}
+				= WindowPrompt	"44"
+				{
+					PositionTop	"318"
+				}
+				= WindowControl	"Armed Forces Service Medal Veteran"
+				{
+					PositionTop	"279"
+				}
+				= WindowControl	"Citizen"
+				{
+					PositionTop	"239"
+				}
+				= WindowControl	"Date Of Last Review"
+				{
+					PositionTop	"67"
+				}
+				= WindowControl	"Date Of Next Review"
+				{
+					PositionTop	"86"
+				}
+				= WindowControl	"Disabled Veteran"
+				{
+					PositionTop	"239"
+				}
+				= WindowControl	"HR Status"
+				{
+					PositionTop	"67"
+				}
+				= WindowControl	"Handicapped"
+				{
+					PositionTop	"259"
+				}
+				= WindowControl	"I9renew"
+				{
+					PositionTop	"86"
+				}
+				= WindowControl	"Military Discharge Date"
+				{
+					PositionTop	"318"
+				}
+				= WindowControl	"Note Absent Button - Toolbar"
+				{
+					PositionTop	"148"
+				}
+				= WindowControl	"Note Present Button - Toolbar"
+				{
+					PositionTop	"148"
+				}
+				= WindowControl	"OK Button"
+				{
+					PositionTop	"150"
+				}
+				= WindowControl	"Other Veterans"
+				{
+					PositionTop	"259"
+				}
+				= WindowControl	"Smoker"
+				{
+					PositionTop	"279"
+				}
+				= WindowControl	"Verified"
+				{
+					PositionTop	"299"
+				}
+				= WindowControl	"Veteran"
+				{
+					PositionTop	"319"
+				}
+				= WindowControl	"Vietnam Veteran"
+				{
+					PositionTop	"240"
+				}
+				= WindowControl	"WindowHelp"
+				{
+					PositionTop	"148"
+				}
+				= WindowControl	"WindowNote"
+				{
+					PositionTop	"202"
+				}
+				= WindowControl	"WindowPrint"
+				{
+					PositionTop	"148"
+				}
+			}
+			SizeHeight	"178"
+		}
+	}
+	~EventScripts
+	{
+		EventScript	"UPR_Employee_MNT Clear Balance_CHG"		
+		{
+			Documentation	""
+			Script	"{modified	20Jan98		TDAHNKE		Removed product in use checks
+			04/15/99	bfitzger	55UPR08 - moved Gender, 'Ethnic Origin', 'Marital Status', and
+										'Which Cash Account For Pay' to new windows.  Also
+										'Gender' and 'Ethnic Origin' now default to \"N/A\".	
+			04/21/99	bfitzger	Added OLE Note.  Removed code referencing 'Module Loaded'[UPR]
+										since this the module is always loaded.
+			30Apr99		BGLEN		Added window UPR_Employee_MNT_Address refs.	
+			17Jan00		bfitzger	Added disabling of Attendance button if HR attendance is being used.
+			14Apr99		bfitzger	Added code to globalize the window if not US or Canadian version.			
+			25May00		Smcintyr	PR19213: moved UPR not registered disabling of fields from FORM_PRE
+										to WIN_PRE and added code to disable their zoom buttons
+			05Nov00     JMiranda    Added code to hide 'Other Veterans'	if not US version.						
+			04Sep01		nGONZALE	PR#25157 Class ID will be enabled when there is UPR or Project Accounting								
+			19Mar03		MADRIANO	PR35156: Clear button calling a delete script within Employee Maint 
+			07Apr03		WEDWARDS	PR38405 Letter Wizard feature adding to Daytona
+			16Dec03		KSTERN		PR#41410, Implementation of MapPoint for products other than SBM
+			14Dec04		dmasse		Bug#9494 HR Merge
+			03Feb05		dmasse		Bug#11642 - Required field not being caught on Restart of form.
+			04Apr05		MADRIANO	Bug9500: Attendance Integration
+			13May05		v-robjac	PR14605	Added aditional catagories.
+}
+
+local long 		lTemp;
+local boolean 	result;
+
+{Hook to clear out the current messenger address fields and remove them from reference list}
+PresenceChangeEventTrigger = -1;
+run script PresenceChangeEventTrigger;
+run script Label_Presence[1];
+
+{--------------------------------------------------------------------------------
+	Check for a note, and display the proper note button.
+--------------------------------------------------------------------------------}
+run script 'Dummy Note Show Hide';
+
+{--------------------------------------------------------------------------------
+	Since there is no record being displayed yet there can't be a record note.
+--------------------------------------------------------------------------------}
+hide 'Note Present Button- Window Area';
+show 'Note Absent Button - Window Area';
+
+{--------------------------------------------------------------------------------
+	Initialize the window.
+--------------------------------------------------------------------------------}
+clear coWriteLettersBDL;
+add item getmsg(5413), 1 to coWriteLettersBDL;		{Preoare an Employee Letter}
+{--- Don't show if Small Business Manager ---}
+if 'SQL Server' of globals <> DYNAMICSLITE then
+	if ('Module Registered'[UPR] of globals and 'Module Loaded'[UPR] of globals)
+		or RegisteredHR(SUPPRESS_MESSAGE) then
+		add item getmsg(7998), 2 to coWriteLettersBDL;  	{Prepare an Employee Benefits and Deductions Letter}
+	end if;
+	{--- Only show if HR is loaded and registerd ---}
+	if RegisteredHR(SUPPRESS_MESSAGE) then
+		add item getmsg(7999), 3 to coWriteLettersBDL;		{Prepare an Employee Skills and Tests Letter}
+		add item getmsg(8090), 4 to coWriteLettersBDL;		{Prepare an Employee Reviews Letter}
+	end if;
+end if;
+add item getmsg(5401), 5 to coWriteLettersBDL;
+
+run script Inactive;
+
+'Work Hours Per Year' of window UPR_Employee_MNT_Additional = 2080;
+Gender of window UPR_Employee_MNT_Additional = 3;  			{N/A}
+'Ethnic Origin' of window UPR_Employee_MNT_Additional = 7;	{N/A}
+'MaritalStatus' of window UPR_Employee_MNT_Additional = 3;	{N/A}
+'HR Status' of window UPR_Employee_MNT_HR = 1; 			  	{Active}
+'Type of Employment' = 1; 									{Full Time Regular}
+run script 'Which Cash Account For Pay' of window UPR_Employee_MNT_Additional;
+
+if isopen(window 'UPR_Employee_MNT_Vacation/Sick') then
+	run script 'Auto Accrue Vacation' of window 'UPR_Employee_MNT_Vacation/Sick';
+	run script 'Auto Accrue Sick Time' of window 'UPR_Employee_MNT_Vacation/Sick';
+end if;
+
+if isopen(window UPR_Employee_MNT_Address) then
+	clear window UPR_Employee_MNT_Address;
+end if;
+
+if not 'Module Registered'[UPR] of globals then
+{Changes for HR Stand Alone for Employee Maintenance window}
+		{04Sep01 Start}
+		if not 'Module Registered'[PA] of globals then 		
+			disable 'Employee Class' of window UPR_Employee_MNT;
+			disable 'Zoom Buttons'[1];
+		end if;
+		{04Sep01 End}
+		disable 'Suta State' of window UPR_Employee_MNT;
+		disable 'Zoom Buttons'[4];
+		disable 'Zoom Buttons'[5];
+		disable 'Workers Comp' of window UPR_Employee_MNT;
+		disable '(L) Vac/Sick Button' of window UPR_Employee_MNT;
+{Changes for HR Stand Alone for Employee Additional Info Maintenance window}	
+		disable 'Calc Min Wage Bal' of window UPR_Employee_MNT_Additional;
+		disable 'Minimum Net Pay' of window UPR_Employee_MNT_Additional;
+		disable 'Which Cash Account For Pay' of window UPR_Employee_MNT_Additional;
+		disable 'Account Description' of window UPR_Employee_MNT_Additional;	
+end if;
+
+
+if RegisteredHR(SUPPRESS_MESSAGE) then
+	{--------------------------------------------------------------------------------
+		If HR is registered and HR accruals are being used, then lock vac/sick button.
+	--------------------------------------------------------------------------------}
+	{Bug9500}
+	if uprIsAttendanceUsingHR() then
+		call HideVacationSickFields of form UPR_Employee_MNT;
+
+		if '(L) fEmpLinkedTimeExist' of window UPR_Employee_MNT_Reactivate then
+			lock '(L) Time Records' of window UPR_Employee_MNT_Reactivate;
+		end if;
+	else
+		hide '(L) Time Records' of window UPR_Employee_MNT_Reactivate;
+		disable '(L) Time Records' of window UPR_Employee_MNT_Reactivate;
+	end if;
+
+	{--------------------------------------------------------------------------------
+		If HR is registered and not the US or Canadian version, then hide US only fields.
+	--------------------------------------------------------------------------------}	
+	if not(getmsg(9999) = ENGLISH_US or getmsg(9999) = ENGLISH_CANADA) then
+		hide 'Suta State',
+			 'Lookup Button 5',
+			 'Workers Comp',
+			 'Lookup Button 6',
+			 'Employee Class',
+			 'Lookup Button 2';
+		hide 'Vietnam Veteran' of window UPR_Employee_MNT_HR of form UPR_Employee_MNT,
+			 'Disabled Veteran' of window UPR_Employee_MNT_HR of form UPR_Employee_MNT,
+			 'Other Veterans' of window UPR_Employee_MNT_HR of form UPR_Employee_MNT; {--JMiranda --05Nov00 --}
+		hide 'Calc Min Wage Bal' of window UPR_Employee_MNT_Additional of form UPR_Employee_MNT,
+			 'Minimum Net Pay' of window UPR_Employee_MNT_Additional of form UPR_Employee_MNT,
+			 'Which Cash Account For Pay' of window UPR_Employee_MNT_Additional of form UPR_Employee_MNT,
+			 'Account Number' of window UPR_Employee_MNT_Additional of form UPR_Employee_MNT,
+			 'Account Description' of window UPR_Employee_MNT_Additional of form UPR_Employee_MNT,
+			 'Lookup Button 7' of window UPR_Employee_MNT_Additional of form UPR_Employee_MNT,
+			 'Expansion Button' of window UPR_Employee_MNT_Additional of form UPR_Employee_MNT;
+		lock '(L) Vac/Sick Button';
+		
+		'Work Hours Per Year' of window UPR_Employee_MNT_Additional = 0;
+	end if;
+else
+	hide '(L) Time Records' of window UPR_Employee_MNT_Reactivate;
+	disable '(L) Time Records' of window UPR_Employee_MNT_Reactivate;
+end if;
+
+{
+{--------------------------------------------------------------------------------
+	Check to see if module is loaded, and act accordingly.
+--------------------------------------------------------------------------------}
+if not 'Module Loaded' [UPR] of globals then
+	disable '(L) Vac/Sick Button'.
+	disable '(L) Tax Info Button'.
+	disable '(L) Pay Codes Button'.
+	disable '(L) Deductions Button'.
+	disable '(L) Benefits Button'.
+	disable 'Summary Button'.
+	disable 'Workers Comp'.
+	disable 'Suta State'.
+	disable 'Lookup Button 5'.
+	disable 'Lookup Button 6'.
+	disable 'Zoom Buttons'[4].
+	disable 'Zoom Buttons'[5].
+end if.
+}
+
+{--------------------------------------------------------------------------------
+	added for OLE note
+		Only show OLE note for Windows platforms and record level note.
+		Clean up Changed flag for OLE note buttons and 'OLE Filename'. 
+ --------------------------------------------------------------------------------}
+set 'OLE Enabled' to false;
+clear 'OLE Filename';
+
+if NoteSystemEnabled() of form OLENoteObj then	{OLE Notes available only for Windows platform}
+	show 'OLE Note Absent Button';
+	hide 'OLE Note Present Button';
+	
+	{----------------------------------------------------------------------------
+		Script on 'OLEPathReturn' expects the path up to but not including the
+		OLE note filename itself. (This is what GetAndCreateOLEFilepath will
+		return).
+	 ----------------------------------------------------------------------------}
+	clear lTemp;
+	set 'OLEPathReturn' to GetFullPathToOLENote(lTemp) of form OLENoteObj;
+	if empty('OLEPathReturn') then
+
+		{----------------------------------------------------------------------------
+			If OLEPath is still empty, ask the user.  Do this by opening a form
+			that will allow the user to browse for the directory.
+			This will only happen if the user has deleted the \"OLEPath=\" entry from
+			their Dex.ini and they do not have a \"Pathname=\" entry present.
+			(SQL installs do not have a \"Pathname=\" line).
+			Since we can't proceed until they have entered a path, or have canceled,
+			the rest of this script is located on '(L) OLEPathReturn'.  That script
+			expects either an empty string or a valid OLE path to be placed in its 
+			field before the script is ran.  That script must be called in either 
+			case to finish the initialization of the OLE note system.
+		 ----------------------------------------------------------------------------}
+		call GetAndCreateOLEFilepath of form SY_OLE_Filepath, 'OLEPathReturn';
+	else
+		run script delayed 'OLEPathReturn';
+	end if;
+else
+	hide 'OLE Note Present Button';
+	hide 'OLE Note Absent Button';
+end if;
+
+set '(L) DoesEmployeeExist' to false; {PR35156}
+
+{ Set Defaults for MapPoint Buttons }
+if 'SQL Server' of globals = DYNAMICSLITE then
+	hide MapPoint;
+	hide MapPointList;
+else
+	case MapPointVisibility() of form syMapPoint
+		in [USE_MAPPOINT_WEB of form syMapPoint]
+			hide MapPointList;
+		in [USE_MAPPOINT_LOCAL of form syMapPoint]
+			{ Do Nothing }
+		in [USE_MAPPOINT_NONE of form syMapPoint]
+			hide MapPoint;
+			hide MapPointList;
+	end case;
+end if;
+				
+if 'Module Registered'[UPR] of globals or 'Module Registered'[PA] of globals then
+	result = Field_SetBooleanProperty('Work Hours Per Year' of window UPR_Employee_MNT_Additional, FIELD_PROP_REQUIRED, true);			
+end if;
+
+{-- Added for Workflow --}
+'(L) wfApprovalFlag' = false;
+
+{-- setup workflow buttons --}
+call ShowWorkflowButtons of form UPR_Employee_MNT;
+
+{--if (WF_GetEnabledStatus(WF_ENABLED_EMP_PERSONNEL) = WF_ENABLED_STATUS_DISABLED) and
+   (WF_GetEnabledStatus(WF_ENABLED_EMP_ONBOARD) = WF_ENABLED_STATUS_DISABLED) then
+   		hide 'Submit For Approval Button';
+end if; --}
+"
+			UserProperties	""
+		}
+		EventScript	"UPR_Employee_MNT EX_PR_Skip_CHG"		
+		{
+			Documentation	""
+			Script	"{--------------------------------------------------------
+		Cannot inactivate if activity exists for employee.
+	--------------------------------------------------------}
+if EX_PR_Skip of window UPR_Employee_MNT of form UPR_Employee_MNT then
+
+	set 'Employee ID' of file UPR_WORK_HDR to 'Employee ID';
+	get file UPR_WORK_HDR by UPR_WORK_HDR_Key3;
+	if err() = OKAY then
+	
+		{debug technicalname(table UPR_WORK_HDR);}
+
+		call Warning_Dialog, 10265, \"\",\"\",\"\";
+		{For: Sorry, the employee record cannot be inactivated or deleted.
+				Pay run activity in progress for this employee.}
+									
+		{set Inactive to false;}
+		
+		EX_PR_Skip = false;
+		abort script;
+	else
+		EX_PR_Skip = true;
+		EX_PR_Skip_Set_By = 'User ID' of globals;
+		EX_PR_Skip_Set_Date = sysdate();
+	end if;
+	
+	{--------------------------------------------------------------------
+		Cannot delete if there are any records in the batch detail file.
+	--------------------------------------------------------------------}
+	clear file UPR_TRX_Batch_Detail;
+	set 'Employee ID' of file UPR_TRX_Batch_Detail to 'Employee ID';
+	get next file UPR_TRX_Batch_Detail by UPR_TRX_Batch_Detail_Key4;
+	if err() = OKAY and 'Employee ID' of file UPR_TRX_Batch_Detail = 'Employee ID' then
+
+		{debug technicalname(table UPR_TRX_Batch_Detail);}
+		
+		call Warning_Dialog,10010,\"\",\"\",\"\";
+		{For:  Sorry, there are unposted transactions for this employee.
+				The employee record cannot be deleted or inactivated.}
+
+		{set Inactive to false;}
+		
+		EX_PR_Skip = false;
+		abort script;
+	else
+		EX_PR_Skip = true;
+		EX_PR_Skip_Set_By = 'User ID' of globals;
+		EX_PR_Skip_Set_Date = sysdate();
+	end if;
+else	
+	EX_PR_Skip_UnSet_By = 'User ID' of globals;
+	EX_PR_Skip_UnSet_Date = sysdate();
+end if;	"
+			UserProperties	""
+		}
+		EventScript	"UPR_Employee_MNT EX_Permit_Type_CHG"		
+		{
+			Documentation	""
+			Script	"local integer l_ask;
+
+if finditem(EX_Permit_Type, EX_Permit_Type) = 0 then	
+	l_ask = ask(\"Are you sure you want to add this permit type?\", \"Yes\", \"No\",\"\");
+
+	if l_ask = 1 then
+		add item EX_Permit_Type to field EX_Permit_Type of window UPR_Employee_MNT of form UPR_Employee_MNT;
+		redraw field EX_Permit_Type;
+	else
+		clear field EX_Permit_Type;
+	end if;
+end if;"
+			UserProperties	""
+		}
+		EventScript	"UPR_Employee_MNT EX_Reason_for_Leaving_CHG"		
+		{
+			Documentation	""
+			Script	"'Reason Employee Inactivated' = itemname(field EX_Reason_for_Leaving, EX_Reason_for_Leaving);"
+			UserProperties	""
+		}
+		EventScript	"UPR_Employee_MNT Lookup Button 12_CHG"		
+		{
+			Documentation	""
+			Script	"open form EX_Nationality_LU return to EX_Nationality;"
+			UserProperties	""
+		}
+	}
+}

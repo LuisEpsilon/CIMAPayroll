@@ -1,0 +1,417 @@
+= Form	"UPR_Employee_MNT_Pay_Type"
+{
+	Windows
+	{
+		= Window	"UPR_Employee_MNT_Pay_Type"
+		{
+			Fields
+			{
+				= WindowControl	"(L) Added"
+				{
+					PositionTop	"485"
+				}
+				= WindowControl	"(L) Change By Default"
+				{
+					PositionTop	"468"
+				}
+				= WindowControl	"(L) Change Pay Rate"
+				{
+					PositionTop	"553"
+				}
+				= WindowControl	"(L) Change Shift Code"
+				{
+					PositionTop	"571"
+				}
+				= WindowControl	"(L) Changed Employee ID"
+				{
+					PositionTop	"519"
+				}
+				= WindowControl	"(L) Changes - Non Inactive"
+				{
+					PositionTop	"519"
+				}
+				= WindowControl	"(L) Control Code Used"
+				{
+					PositionTop	"451"
+				}
+				= WindowControl	"(L) Dummy Accrue Box"
+				{
+					PositionTop	"639"
+				}
+				= WindowControl	"(L) Dummy Flat Tax Box"
+				{
+					PositionTop	"604"
+				}
+				= WindowControl	"(L) Dummy Flat Tax Words"
+				{
+					PositionTop	"655"
+				}
+				= WindowControl	"(L) Dummy Tax Box"
+				{
+					PositionTop	"587"
+				}
+				= WindowControl	"(L) Dummy Wages Box"
+				{
+					PositionTop	"621"
+				}
+				= WindowControl	"(L) HR Registered"
+				{
+					PositionTop	"587"
+				}
+				= WindowControl	"(L) HRChangeFlag"
+				{
+					PositionTop	"570"
+				}
+				= WindowControl	"(L) HumanResourcesPB"
+				{
+					PositionTop	"540"
+				}
+				= WindowControl	"(L) Just Lookuped"
+				{
+					PositionTop	"502"
+				}
+				= WindowControl	"(L) Old Employee ID"
+				{
+					PositionTop	"536"
+				}
+				= WindowControl	"(L) Old Pay Rate Amount"
+				{
+					PositionTop	"470"
+				}
+				= WindowControl	"(L) Old Pay Record"
+				{
+					PositionTop	"553"
+				}
+				= WindowControl	"(L) PayStepChanged"
+				{
+					PositionTop	"589"
+				}
+				= WindowControl	"(L) PayStepTableIDCHGRunning"
+				{
+					PositionTop	"451"
+				}
+				= WindowControl	"(L) PosPayLinkPB"
+				{
+					PositionTop	"468"
+				}
+				= WindowControl	"(L) Pre Inactive State"
+				{
+					PositionTop	"536"
+				}
+				= WindowControl	"(L) Report As Wages"
+				{
+					PositionLeft	"692"
+					PositionTop	"214"
+				}
+				= WindowControl	"(L) RollDown"
+				{
+					PositionTop	"604"
+				}
+				= WindowControl	"(L) SalaryHistoryPB"
+				{
+					PositionTop	"502"
+				}
+				= WindowControl	"(L) Switch Record"
+				{
+					PositionTop	"485"
+				}
+				= WindowControl	"(L) Tax Code Change"
+				{
+					PositionTop	"502"
+				}
+				= WindowControl	"(L) Temp Employee ID"
+				{
+					PositionTop	"468"
+				}
+				= WindowControl	"(L) Temp Pay Record"
+				{
+					PositionTop	"451"
+				}
+				= WindowControl	"(L) hrIsAttendanceInactiveStatusChanged"
+				{
+					PositionTop	"644"
+				}
+				= WindowShape	"124"
+				{
+					PositionLeft	"687"
+					PositionTop	"53"
+				}
+				= WindowPrompt	"125"
+				{
+					PositionLeft	"694"
+					PositionTop	"130"
+				}
+				= WindowPrompt	"126"
+				{
+					PositionLeft	"694"
+					PositionTop	"152"
+				}
+				= WindowPrompt	"127"
+				{
+					PositionLeft	"694"
+					PositionTop	"171"
+				}
+				= WindowPrompt	"200"
+				{
+					PositionLeft	"849"
+					PositionTop	"131"
+				}
+				= WindowPrompt	"206"
+				{
+					PositionLeft	"690"
+					PositionTop	"243"
+				}
+				= WindowPrompt	"207"
+				{
+					PositionLeft	"690"
+					PositionTop	"262"
+				}
+				= WindowShape	"229"
+				{
+					PositionLeft	"687"
+					PositionTop	"141"
+				}
+				= WindowPrompt	"23"
+				{
+					PositionLeft	"693"
+					PositionTop	"44"
+				}
+				= WindowShape	"271"
+				{
+					PositionLeft	"682"
+					PositionTop	"224"
+				}
+				= WindowLine	"292"
+				{
+					PositionTop	"407"
+				}
+				= WindowPrompt	"5337"
+				{
+					PositionLeft	"690"
+					PositionTop	"243"
+				}
+				= WindowPrompt	"5338"
+				{
+					PositionLeft	"690"
+					PositionTop	"243"
+				}
+				= WindowPrompt	"5339"
+				{
+					PositionLeft	"690"
+					PositionTop	"243"
+				}
+				= WindowPrompt	"5340"
+				{
+					PositionLeft	"690"
+					PositionTop	"262"
+				}
+				= WindowPrompt	"5341"
+				{
+					PositionLeft	"690"
+					PositionTop	"262"
+				}
+				= WindowPrompt	"5342"
+				{
+					PositionLeft	"690"
+					PositionTop	"262"
+				}
+				= WindowShape	"55"
+				{
+					PositionLeft	"842"
+					PositionTop	"141"
+				}
+				= WindowLine	"95"
+				{
+					PositionTop	"715"
+				}
+				= WindowControl	"Accrue Sick Time"
+				{
+					PositionLeft	"854"
+					PositionTop	"171"
+				}
+				= WindowControl	"Accrue Vacation"
+				{
+					PositionLeft	"854"
+					PositionTop	"152"
+				}
+				= WindowControl	"BrowseBox"
+				{
+					PositionTop	"412"
+				}
+				= WindowControl	"Display Existing Record"
+				{
+					PositionTop	"519"
+				}
+				= WindowControl	"Dummy Note Show Hide"
+				{
+					PositionTop	"468"
+				}
+				= WindowControl	"Dummy Record Note Show Hide"
+				{
+					PositionTop	"485"
+				}
+				= WindowControl	"End of File Button - Toolbar"
+				{
+					PositionTop	"413"
+				}
+				= WindowControl	"Flat Federal Tax Rate"
+				{
+					PositionLeft	"762"
+					PositionTop	"152"
+				}
+				= WindowControl	"Flat State Tax Rate"
+				{
+					PositionLeft	"762"
+					PositionTop	"171"
+				}
+				= WindowControl	"Handle Changes"
+				{
+					PositionTop	"502"
+				}
+				= WindowControl	"History Button"
+				{
+					PositionTop	"377"
+				}
+				= WindowControl	"Index"
+				{
+					PositionTop	"490"
+				}
+				= WindowControl	"Next Button - Toolbar"
+				{
+					PositionTop	"413"
+				}
+				= WindowControl	"Next Button NP"
+				{
+					PositionLeft	"875"
+					PositionTop	"243"
+				}
+				= WindowControl	"Note Absent Button - Toolbar "
+				{
+					PositionTop	"409"
+				}
+				= WindowControl	"Note Index"
+				{
+					PositionTop	"451"
+				}
+				= WindowControl	"Note Present Button - Toolbar"
+				{
+					PositionTop	"409"
+				}
+				= WindowControl	"Pay Type"
+				{
+					PositionTop	"606"
+				}
+				= WindowControl	"Previous Button - Toolbar"
+				{
+					PositionTop	"413"
+				}
+				= WindowControl	"Previous Button NP"
+				{
+					PositionLeft	"769"
+					PositionTop	"243"
+				}
+				= WindowControl	"Report As Wages"
+				{
+					PositionLeft	"692"
+					PositionTop	"214"
+				}
+				= WindowControl	"Save Record"
+				{
+					PositionTop	"536"
+				}
+				= WindowControl	"Sort By"
+				{
+					PositionTop	"412"
+				}
+				= WindowControl	"Subject To Federal Tax"
+				{
+					PositionLeft	"698"
+					PositionTop	"63"
+				}
+				= WindowControl	"Subject To Futa"
+				{
+					PositionLeft	"915"
+					PositionTop	"63"
+				}
+				= WindowControl	"Subject To Local Tax"
+				{
+					PositionLeft	"819"
+					PositionTop	"82"
+				}
+				= WindowControl	"Subject To Medicare"
+				{
+					PositionLeft	"698"
+					PositionTop	"101"
+				}
+				= WindowControl	"Subject To Social Security"
+				{
+					PositionLeft	"698"
+					PositionTop	"82"
+				}
+				= WindowControl	"Subject To State Tax"
+				{
+					PositionLeft	"819"
+					PositionTop	"63"
+				}
+				= WindowControl	"Subject To Suta"
+				{
+					PositionLeft	"915"
+					PositionTop	"82"
+				}
+				= WindowControl	"Summary Button"
+				{
+					PositionTop	"377"
+				}
+				= WindowControl	"Top of File Button - Toolbar"
+				{
+					PositionTop	"413"
+				}
+				= WindowControl	"W2 Box Label"
+				{
+					PositionLeft	"790"
+					PositionTop	"262"
+				}
+				= WindowControl	"W2 Box Label 2"
+				{
+					PositionLeft	"790"
+					PositionTop	"262"
+				}
+				= WindowControl	"W2 Box Label 3"
+				{
+					PositionLeft	"790"
+					PositionTop	"262"
+				}
+				= WindowControl	"W2 Box Label 4"
+				{
+					PositionLeft	"790"
+					PositionTop	"262"
+				}
+				= WindowControl	"W2 Box Number"
+				{
+					PositionLeft	"790"
+					PositionTop	"243"
+				}
+				= WindowControl	"W2 Box Number 2"
+				{
+					PositionLeft	"790"
+					PositionTop	"243"
+				}
+				= WindowControl	"W2 Box Number 3"
+				{
+					PositionLeft	"790"
+					PositionTop	"243"
+				}
+				= WindowControl	"W2 Box Number 4"
+				{
+					PositionLeft	"790"
+					PositionTop	"243"
+				}
+				= WindowControl	"WindowHelp"
+				{
+					PositionTop	"409"
+				}
+			}
+			SizeHeight	"444"
+		}
+	}
+}

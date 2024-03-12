@@ -1,0 +1,24 @@
+Function	"RW_GetEmployeeLastFirstName"
+{
+	Core	"System"
+	Documentation	""
+	Script	"function returns string full_name;
+
+in string Employee_ID;
+local string first_name;
+local string last_name;
+
+release table UPR_MSTR;
+range clear table UPR_MSTR;
+set 'Employee ID' of table UPR_MSTR to Employee_ID;
+range start table UPR_MSTR;
+range end table UPR_MSTR;
+get first table UPR_MSTR;
+
+if err() <> MISSING then
+	set first_name to 'First Name' of table UPR_MSTR;
+	set last_name to 'Last Name' of table UPR_MSTR;
+	set full_name to last_name + \",\" + \" \" + first_name;
+end if;"
+	UserProperties	""
+}

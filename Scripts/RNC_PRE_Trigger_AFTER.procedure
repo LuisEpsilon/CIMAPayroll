@@ -1,0 +1,13 @@
+Procedure	"RNC_PRE_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+run script WINPRE of window ddEmpEntry of form ddEmpEntry;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

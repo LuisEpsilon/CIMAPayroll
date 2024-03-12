@@ -1,0 +1,13 @@
+Procedure	"Trig_Emp_MSTR_Save_Pre"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{ Just in case we need it...}
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

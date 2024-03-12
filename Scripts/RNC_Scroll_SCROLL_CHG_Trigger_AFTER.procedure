@@ -1,0 +1,45 @@
+Procedure	"RNC_Scroll_SCROLL_CHG_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+local	text sql	;
+local	string	sTable;
+
+sTable = Table_GetOSName(table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry));
+
+clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+set 'Employee ID' of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+set IndexLong of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to IndexLong of window Scroll of form ddEmpEntry;
+change table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+set RNC_DD_CheckBox of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) 
+	to RNC_DD_CheckBox of window Scroll of form ddEmpEntry;
+save table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+check error;
+
+{clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong of window Scroll of form ddEmpEntry;
+change table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+set 'Bank ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 
+	'Bank ID' of window Scroll of form ddEmpEntry;
+save table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+check error;
+}
+
+sql = \"if exists (select * from \" + sTable + \" where EMPLOYID = '\" + 'Employee ID' of window ddEmpEntry of form ddEmpEntry + \"' and INDEX1  = \" + str(IndexLong of window Scroll of form ddEmpEntry) + \")\";
+sql = sql + char(13) + char (9) + \"update \" + sTable;
+sql = sql + char(13) + char (9) + \"set BANKID = '\" + 'Bank ID' of window Scroll of form ddEmpEntry + \"'\";
+sql = sql + char(13) + char (9) + \"where EMPLOYID = '\" + 'Employee ID' of window ddEmpEntry of form ddEmpEntry + \"' and INDEX1 = \" + str(IndexLong of window Scroll of form ddEmpEntry);
+sql = sql + char(13) + \"else\";
+sql = sql + char(13) + char (9) + \"insert into \" + sTable;
+sql = sql + char(13) + char (9) + \"values ('\" + 'Employee ID' of window ddEmpEntry of form ddEmpEntry + \"',\" + str(IndexLong of window Scroll of form ddEmpEntry) + \",'\" + 'Bank ID' of window Scroll of form ddEmpEntry + \"')\";
+Execute_SQL(sql);	
+	"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

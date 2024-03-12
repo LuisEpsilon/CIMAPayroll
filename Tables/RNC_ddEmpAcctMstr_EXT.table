@@ -1,0 +1,76 @@
+Table	"RNC_ddEmpAcctMstr_EXT"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"RNC_ddEmpAcctMstr_EXT"
+	FourByteHeader	"true"
+	PhysicalName	"RNC_DD00200"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"IndexLong"		
+		{
+			Encrypt	"false"
+			Field	"IndexLong"
+			Position	"1"
+		}
+		TableField	"RNC_DD_CheckBox"		
+		{
+			Encrypt	"false"
+			Field	"RNC_DD_CheckBox"
+			Position	"2"
+		}
+	}
+	~Keys
+	{
+		Key	"RNC_ddEmpAcctMstr_EXT_Key12"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"IndexLong"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

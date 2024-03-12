@@ -1,0 +1,61 @@
+Table	"EX_CM_Bank_MSTR"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"Metrics CM bank Master"
+	FourByteHeader	"true"
+	PhysicalName	"CMSY0410"
+	Restriction	""
+	Series	"Financial"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Bank ID"		
+		{
+			Encrypt	"false"
+			Field	"Bank ID"
+			Position	"0"
+		}
+		TableField	"EX_CM_Exclude_Bank_ACH_CB"		
+		{
+			Encrypt	"false"
+			Field	"EX_CM_Exclude_Bank_ACH_CB"
+			Position	"1"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_CM_Bank_MSTR_Key1"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Bank ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

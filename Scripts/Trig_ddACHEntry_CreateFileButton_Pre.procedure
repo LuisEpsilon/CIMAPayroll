@@ -1,0 +1,144 @@
+Procedure	"Trig_ddACHEntry_CreateFileButton_Pre"
+{
+	Core	"System"
+	Documentation	"this table needs to be created in the destination DB
+
+CREATE TABLE [dbo].[EX_DD10500_External](
+	[INDXLONG] [int] NOT NULL,
+	[DDITEM] [smallint] NOT NULL,
+	[EMPLOYID] [char](15) NOT NULL,
+	[DDTRANS] [char](3) NOT NULL,
+	[DDTRANUM] [char](9) NOT NULL,
+	[DDACTNUM] [char](17) NOT NULL,
+	[DDAMTDLR] [numeric](19, 5) NOT NULL,
+	[DDINDID] [char](15) NOT NULL,
+	[DDINDNAM] [char](23) NOT NULL,
+	[DDTRACE] [char](15) NOT NULL,
+	[DEX_ROW_ID] [int]  NOT NULL,
+ CONSTRAINT [EX__PKDD10500] PRIMARY KEY NONCLUSTERED 
+(
+	[INDXLONG] ASC,
+	[DDITEM] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+grant select, insert, update on EX_DD10500_External to DYNGRP"
+	Script	"
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+local long delay;
+
+
+
+l_sql_status = SQL_Connect(l_sql_connect);
+l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+
+/*						Changed Oct 4 2021, to address issue with duplicate key on insert)
+l_sql_command = \"DELETE  [EX_DD10500_External] \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+l_sql_command = \"INSERT INTO [dbo].[EX_DD10500_External] \";
+*/
+
+l_sql_command = \"DELETE  [EX_DD10500_External] \";
+l_sql_command = l_sql_command + \"INSERT INTO [dbo].[EX_DD10500_External] \";
+l_sql_command = l_sql_command + \"  ([INDXLONG] \";
+l_sql_command = l_sql_command + \" ,[DDITEM] \";
+l_sql_command = l_sql_command + \" ,[EMPLOYID] \";
+l_sql_command = l_sql_command + \" ,[DDTRANS] \";
+l_sql_command = l_sql_command + \" ,[DDTRANUM] \";
+l_sql_command = l_sql_command + \" ,[DDACTNUM] \";
+l_sql_command = l_sql_command + \" ,[DDAMTDLR] \";
+l_sql_command = l_sql_command + \" ,[DDINDID] \";
+l_sql_command = l_sql_command + \" ,[DDINDNAM] \";
+l_sql_command = l_sql_command + \" ,[DDTRACE] \";
+l_sql_command = l_sql_command + \" ,[DEX_ROW_ID]) \";
+l_sql_command = l_sql_command + \" select * from DD10500 \";
+l_sql_command = l_sql_command + \" where DEX_ROW_ID not in(select DEX_ROW_ID from  [EX_DD10500_External]) \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+/*debug l_sql_command;
+*/
+/*
+l_sql_command = \"update DD10500  \";
+l_sql_command = l_sql_command + \"  set DDAMTDLR = 0 where  \";
+l_sql_command = l_sql_command + \"  DDTRANUM in (select DDTRANUM from SY04100 \";
+l_sql_command = l_sql_command + \"  where BANKID in (  \";
+l_sql_command = l_sql_command + \"  select BANKID from CMSY0410 where EX_CM_Exclude_Bank_ACH_C  = 1)) \";
+*/
+delay = Timer_Sleep(5000);
+l_sql_command = \"delete DD10500 \";
+l_sql_command = l_sql_command + \"  where (DDTRANUM in (select DDTRANUM from SY04100  \";
+l_sql_command = l_sql_command + \"  where BANKID in (   \";
+l_sql_command = l_sql_command + \"  select BANKID from CMSY0410 where EX_CM_Exclude_Bank_ACH_C  = 1) \";
+l_sql_command = l_sql_command + \"  ))  \";
+l_sql_command = l_sql_command + \"  and (INDXLONG in (select INDXLONG from DD10400 where INCLPYMT = 1)) and (EMPLOYID <> '') \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+delay = Timer_Sleep(5000);
+l_sql_command = \"update DD10500 set DDAMTDLR =  total from \";
+l_sql_command = l_sql_command + \"  ( \";
+l_sql_command = l_sql_command + \"  select INDXLONG, sum(DDAMTDLR) Total from DD10500 a where \";
+l_sql_command = l_sql_command + \"  DDTRANUM in ( \";
+				l_sql_command = l_sql_command + \"  select DDTRANUM from SY04100   \";
+				l_sql_command = l_sql_command + \"  where BANKID not in (    \";
+									l_sql_command = l_sql_command + \"  select BANKID from CMSY0410 where EX_CM_Exclude_Bank_ACH_C  = 1 \";
+								l_sql_command = l_sql_command + \"  )  \";
+			l_sql_command = l_sql_command + \"  )  \";
+ l_sql_command = l_sql_command + \"  and  EMPLOYID <> ''  \";
+ l_sql_command = l_sql_command + \"  and a.INDXLONG in (select a.INDXLONG from DD10400 where INCLPYMT = 1)  \";
+l_sql_command = l_sql_command + \"  and a.INDXLONG in (select INDXLONG from DD10500 where EMPLOYID = '') \";
+ l_sql_command = l_sql_command + \"  group by INDXLONG \";
+ l_sql_command = l_sql_command + \"  )  \";
+ l_sql_command = l_sql_command + \"  t  join DD10500 on t.INDXLONG = DD10500.INDXLONG \";
+ l_sql_command = l_sql_command + \"  where EMPLOYID = '' \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+delay = Timer_Sleep(5000);
+l_sql_command = \"DELETE EXDD1050 \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+delay = Timer_Sleep(5000);
+l_sql_command = \"INSERT INTO [dbo].EXDD1050 \";
+l_sql_command = l_sql_command + \"  ([INDXLONG]  \";
+l_sql_command = l_sql_command + \"  ,[DDITEM]  \";
+l_sql_command = l_sql_command + \"  ,[EMPLOYID] \"; 
+l_sql_command = l_sql_command + \"  ,[DDTRANS]  \";
+l_sql_command = l_sql_command + \"  ,[DDTRANUM]  \";
+l_sql_command = l_sql_command + \"  ,[DDACTNUM]  \";
+l_sql_command = l_sql_command + \"  ,[DDAMTDLR]  \";
+l_sql_command = l_sql_command + \"  ,[DDINDID]  \";
+l_sql_command = l_sql_command + \"  ,[DDINDNAM]  \";
+l_sql_command = l_sql_command + \"  ,[DDTRACE] )  \";
+l_sql_command = l_sql_command + \"  select a.[INDXLONG]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDITEM]   \";
+l_sql_command = l_sql_command + \"  ,a.[EMPLOYID]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDTRANS]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDTRANUM]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDACTNUM]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDAMTDLR]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDINDID]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDINDNAM]   \";
+l_sql_command = l_sql_command + \"  ,a.[DDTRACE] \";
+l_sql_command = l_sql_command + \"  from DD10500 a \";
+l_sql_command = l_sql_command + \"  where a.INDXLONG in (select INDXLONG from DD10400 where INCLPYMT = 1) \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+delay = Timer_Sleep(5000);
+
+/*debug l_sql_command;*/
+
+l_sql_status = SQL_Clear(l_sql_connect);
+l_sql_status  = SQL_Terminate(l_sql_connect);
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

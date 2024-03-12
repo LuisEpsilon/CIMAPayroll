@@ -1,0 +1,22 @@
+Function	"Get_Employee_Name"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"function returns string r_Employee_Name;
+
+in string i_Employee_ID;
+
+local string l_Employee_Full_Name;
+
+release table UPR_MSTR;
+range clear table UPR_MSTR;
+set 'Employee ID' of table UPR_MSTR to i_Employee_ID;
+range start table UPR_MSTR;
+range end table UPR_MSTR;
+get first table UPR_MSTR;
+if err() = OKAY then
+	set l_Employee_Full_Name to trim('Last Name' of table UPR_MSTR) + \", \" + trim('First Name' of table UPR_MSTR);
+	r_Employee_Name = l_Employee_Full_Name;
+end if;"
+	UserProperties	""
+}

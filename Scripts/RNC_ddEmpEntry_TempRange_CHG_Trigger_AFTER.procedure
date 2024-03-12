@@ -1,0 +1,71 @@
+Procedure	"RNC_ddEmpEntry_TempRange_CHG_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+local integer nCntRecs;
+local	text	sql;
+local	string	sBankID;
+set nCntRecs to 0;
+
+{Delete table ddEmpLineTemp}
+range clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+remove range table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+
+{EX_DD_Banks_Temp}
+range clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+remove range table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+
+{BFITZGER-Start}
+clear table RNC_ddEmpAcctMstr_EXT;
+{BFITZGER-Stop}
+
+range clear table ddEmpAcctMstr;
+	set 'Employee ID' of table ddEmpAcctMstr to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+	clear IndexLong of table ddEmpAcctMstr;
+range start table ddEmpAcctMstr;
+	set 'Employee ID' of table ddEmpAcctMstr to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+	fill IndexLong of table ddEmpAcctMstr;
+range end table ddEmpAcctMstr;
+get first table ddEmpAcctMstr;
+
+while err() = OKAY and 'Employee ID' of table ddEmpAcctMstr = 'Employee ID' of window ddEmpEntry of form ddEmpEntry do
+	set nCntRecs to nCntRecs + 1;
+	
+	clear table RNC_ddEmpAcctMstr_EXT;
+	set 'Employee ID' of table RNC_ddEmpAcctMstr_EXT to 'Employee ID' of table ddEmpAcctMstr;
+	set IndexLong of table RNC_ddEmpAcctMstr_EXT to IndexLong of table ddEmpAcctMstr;
+	get table RNC_ddEmpAcctMstr_EXT;
+	copy from table RNC_ddEmpAcctMstr_EXT to table (('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry));
+	save table (('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry));
+	check error;
+	
+	{clear table EX_DD_Banks;
+	set 'Employee ID' of table EX_DD_Banks to 'Employee ID' of table ddEmpAcctMstr;
+	set Index of table EX_DD_Banks to IndexLong of table ddEmpAcctMstr;
+	get table EX_DD_Banks;
+	copy from table EX_DD_Banks to table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	save table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);}
+	
+	sql = \"SELECT BANKID FROM EX00200\";
+	sql = sql + char(13) + \" where EMPLOYID = '\" + 'Employee ID' of table ddEmpAcctMstr + \"' and INDEX1 = \" + str(IndexLong of table ddEmpAcctMstr);
+	sBankID = Execute_SQL_RetStr(sql);
+	
+	clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of table ddEmpAcctMstr;
+	set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong of table ddEmpAcctMstr;
+	set 'Bank ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to sBankID;
+	save table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	check error;
+	
+	get next table ddEmpAcctMstr;
+end while;
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

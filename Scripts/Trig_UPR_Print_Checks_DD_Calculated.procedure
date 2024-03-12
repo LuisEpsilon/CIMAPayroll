@@ -1,0 +1,14 @@
+Procedure	"Trig_UPR_Print_Checks_DD_Calculated"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"if ('(L) DD Calculated' of window UPR_Print_Checks of form UPR_Print_Checks) then
+	run script delayed '(L) EX_GL_Reports' of window UPR_Print_Checks of form UPR_Print_Checks ;
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

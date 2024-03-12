@@ -1,0 +1,13 @@
+Function	"RW_Get_Max_DD_Index"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"function returns integer l_max_index;
+
+release table ddACHItems;
+get last table ddACHItems;
+
+l_max_index = IndexLong of table ddACHItems;
+"
+	UserProperties	""
+}

@@ -1,0 +1,30 @@
+Procedure	"Create_Table"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"inout	anonymous	table		Table;
+
+local 	integer status;
+local	string	l_tablename;
+local	long	sprocstatus;
+
+l_tablename = physicalname(table Table);
+status = Table_Compare(table Table);
+if status = STATUS_SUCCESS then
+	get first table Table;
+	close table Table;
+		
+else
+	if status = 0 then
+		call Open_Table, table Table;
+	end if;
+end if;
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

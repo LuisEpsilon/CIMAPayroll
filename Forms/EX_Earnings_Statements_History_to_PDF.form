@@ -1,0 +1,1523 @@
+Form	"EX_Earnings_Statements_History_to_PDF"
+{
+	Commands
+	{
+	}
+	ConfigurableMenus	"false"
+	Constants
+	{
+	}
+	Datatypes
+	{
+		Datatype	"DDL0"		
+		{
+			Control	"DropDownList"
+			Sort	"true"
+			StaticType	"Text"
+			~StaticItems
+			{
+				TextItem	"00001"				
+				{
+					Item	"Fiscal"
+				}
+				TextItem	"00002"				
+				{
+					Item	"Calendar"
+				}
+			}
+		}
+		Datatype	"screen_only"		
+		{
+			Control	"CheckBox"
+			StaticType	"Text"
+			~StaticItems
+			{
+				TextItem	"00001"				
+				{
+					Item	"Print to Screen"
+				}
+			}
+		}
+		Datatype	"status"		
+		{
+			AllowOddLength	"false"
+			Control	"String"
+			Format	""
+			KeyableLength	"255"
+			StorageLength	"256"
+		}
+	}
+	EventPost	""
+	EventPre	""
+	Fields
+	{
+		Field	"DDL0"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) DDL0"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"screen_only"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) screen_only"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"status"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) status"
+			LookupForm	""
+			PhysicalName	""
+		}
+	}
+	Menus
+	{
+	}
+	Series	"3rdParty"
+	Tables
+	{
+		FormTable	"EX_UPR_Work_Check"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"8"
+			Table	"EX_UPR_Work_Check"
+		}
+		FormTable	"EX_ddDeposits"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"3"
+			Table	"EX_ddDeposits"
+		}
+		FormTable	"EX_uprWorkChkDesc"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"6"
+			Table	"EX_uprWorkChkDesc"
+		}
+		FormTable	"EX_uprWorkChkYTD"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"2"
+			Table	"EX_uprWorkChkYTD"
+		}
+		FormTable	"UPR_SETP_Benefit"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"4"
+			Table	"UPR_SETP_Benefit"
+		}
+		FormTable	"UPR_SETP_Deduction"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"5"
+			Table	"UPR_SETP_Deduction"
+		}
+		FormTable	"UPR_SETP_Pay_Type"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"7"
+			Table	"UPR_SETP_Pay_Type"
+		}
+		FormTable	"UPR_Transaction_HIST"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"9"
+			Table	"UPR_Transaction_HIST"
+		}
+		FormTable	"ddTrxHistDetail"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"1"
+			Table	"ddTrxHistDetail"
+		}
+	}
+	Windows
+	{
+		Window	"EX_Earnings_Statements_History_to_PDF"		
+		{
+			AutoLinkTable	""
+			AutoOpen	"true"
+			BackGround	"true"
+			CloseBox	"true"
+			ControlArea	"true"
+			DisplayName	" Export historical Earnings Statements"
+			EventActivate	""
+			EventContextMenu	""
+			EventPost	""
+			EventPre	""
+			EventPrint	""
+			Fields
+			{
+				WindowControl	"(L) DDL0"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					ControlType	"DropDownList"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	"EX_Earnings_Statements_History_to_PDF l_DDL0_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) DDL0"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"184"
+					PositionTop	"91"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"128"
+					TabStop	"true"
+					Tag	"8"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					VisibleItems	"8"
+					ZOrder	"7"
+				}
+				WindowControl	"(L) screen_only"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) screen_only"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"296"
+					PositionTop	"34"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"112"
+					TabStop	"true"
+					Tag	"11"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"10"
+				}
+				WindowControl	"(L) status"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					Border	"false"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) status"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"72"
+					PositionTop	"148"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"336"
+					TabStop	"true"
+					Tag	"10"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"9"
+					Zoom	"false"
+				}
+				WindowLine	"1"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"0"
+					PositionTop	"24"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"0"
+					SizeWidth	"448"
+					ZOrder	"0"
+				}
+				WindowPrompt	"13"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"536"
+					PositionTop	"120"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"112"
+					Text	"Employee ID"
+					Visible	"true"
+					ZOrder	"12"
+					Zoom	"false"
+				}
+				WindowLine	"4"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"80"
+					PositionTop	"3"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"19"
+					SizeWidth	"0"
+					ZOrder	"3"
+				}
+				WindowPrompt	"7"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"72"
+					PositionTop	"63"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"112"
+					Text	"Audit Trail Code"
+					Visible	"true"
+					ZOrder	"6"
+					Zoom	"false"
+				}
+				WindowPrompt	"9"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"72"
+					PositionTop	"91"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"112"
+					Text	"YTD Amounts"
+					Visible	"true"
+					ZOrder	"8"
+					Zoom	"false"
+				}
+				WindowControl	"Audit Control Code"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Audit Control Code"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"185"
+					PositionTop	"63"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"112"
+					TabStop	"true"
+					Tag	"5"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"4"
+					Zoom	"false"
+				}
+				WindowControl	"Cancel Button C"				
+				{
+					Alignment	"center"
+					Appearance	"3D Highlight"
+					BackColor	"System - Toolbar"
+					Border	"true"
+					ButtonStyle	"TextOnRight"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"EX_Earnings_Statements_History_to_PDF Cancel Button C_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Cancel Button C"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"81"
+					PositionTop	"0"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"24"
+					SizeWidth	"80"
+					TabStop	"true"
+					Tag	"3"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"2"
+					Zoom	"false"
+				}
+				WindowControl	"Employee ID"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Employee ID"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"648"
+					PositionTop	"120"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					TabStop	"true"
+					Tag	"12"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"11"
+					Zoom	"false"
+				}
+				WindowControl	"Lookup Button 1"				
+				{
+					Alignment	"center"
+					Appearance	"2D Border"
+					BackColor	"System - Button Face"
+					Border	"true"
+					ButtonStyle	"GraphicOnly"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"Window1 Lookup Button 1_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Lookup Button 1"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"296"
+					PositionTop	"63"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"18"
+					TabStop	"true"
+					Tag	"6"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"5"
+					Zoom	"false"
+				}
+				WindowControl	"Lookup Button 2"				
+				{
+					Alignment	"center"
+					Appearance	"2D Border"
+					BackColor	"System - Button Face"
+					Border	"true"
+					ButtonStyle	"GraphicOnly"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Lookup Button 2"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"743"
+					PositionTop	"120"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"18"
+					TabStop	"true"
+					Tag	"16"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"13"
+					Zoom	"false"
+				}
+				WindowControl	"Process Button P"				
+				{
+					Alignment	"center"
+					Appearance	"3D Highlight"
+					BackColor	"System - Toolbar"
+					Border	"true"
+					ButtonStyle	"TextOnRight"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"EX_Earnings_Statements_History_to_PDF Process Button P_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Process Button P"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"0"
+					PositionTop	"0"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"24"
+					SizeWidth	"80"
+					TabStop	"true"
+					Tag	"2"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"1"
+					Zoom	"false"
+				}
+			}
+			LastTag	"16"
+			Position	"1"
+			PositionLeft	"368"
+			PositionTop	"280"
+			Resizable	"false"
+			SizeHeight	"178"
+			SizeWidth	"424"
+			WindowType	"Primary"
+		}
+	}
+	~EventScripts
+	{
+		EventScript	"EX_Earnings_Statements_History_to_PDF Cancel Button C_CHG"		
+		{
+			Documentation	""
+			Script	"close form EX_Earnings_Statements_History_to_PDF;"
+			UserProperties	""
+		}
+		EventScript	"EX_Earnings_Statements_History_to_PDF Process Button P_CHG"		
+		{
+			Documentation	""
+			Script	"local string l_where;
+local integer l_paycode_count;
+local integer l_deduction_count;
+local integer l_benefit_count;
+local integer l_state_tax_count;
+local integer l_local_tax_count;
+
+local integer l_dd_count;
+
+local currency l_ytd;
+
+local boolean result;
+local string l_Path;
+local string l_emp;
+
+local string l_filename;
+local string l_date;
+
+if not empty ('Audit Control Code') then
+
+else
+	warning \"Not Audit Trail Code selected\";
+end if;
+
+call  Create_Work_HDR of form EX_Earnings_Statements_History_to_PDF;
+
+
+{/* build the rest of the data.... */}
+
+release table EX_UPR_Work_Check;
+range clear table EX_UPR_Work_Check;
+change first table EX_UPR_Work_Check;
+
+while err() = 0 do
+	
+	l_where = \"AUCTRLCD = '\" + 'Audit Control Code' + \"' and EMPLOYID = '\" + 'Employee ID' of table EX_UPR_Work_Check +\"'\";
+	release table UPR_Transaction_HIST;
+	range clear table UPR_Transaction_HIST;
+	range table UPR_Transaction_HIST where l_where;
+	
+	get first table UPR_Transaction_HIST;
+	
+	while err() = 0 do
+		
+		'(L) status' = \"Getting Data for Employee: \"  + 'Employee ID' of table EX_UPR_Work_Check;
+		
+		release table EX_uprWorkChkDesc;
+		clear table EX_uprWorkChkDesc;
+		set 'User ID' of table EX_uprWorkChkDesc to 'User ID' of globals;
+		set 'Employee ID' of table EX_uprWorkChkDesc to 'Employee ID' of table EX_UPR_Work_Check;
+		change table EX_uprWorkChkDesc;
+		
+		l_ytd = 0;
+		release table EX_uprWorkChkYTD;
+		clear table EX_uprWorkChkYTD;
+		set 'User ID' of table EX_uprWorkChkYTD to 'User ID' of globals;
+		set 'Employee ID' of table EX_uprWorkChkYTD to 'Employee ID' of table EX_UPR_Work_Check;
+		change table EX_uprWorkChkYTD;
+		
+		case 'Payroll Record Type' of table UPR_Transaction_HIST
+			in [1] {/* paycode */}
+			
+				increment l_paycode_count;
+				
+				set 'Pay Rate Array'[l_paycode_count] of table EX_UPR_Work_Check to 'Pay Rate' of table UPR_Transaction_HIST;
+				set 'Pay Hours Array'[l_paycode_count] of table EX_UPR_Work_Check to ('Units To Pay' of table UPR_Transaction_HIST * 100);
+				set 'Pay Earnings Array'[l_paycode_count] of table EX_UPR_Work_Check to 'UPR TRX Amount' of table UPR_Transaction_HIST;
+				
+				set 'Pay Code Array'[l_paycode_count] of table EX_uprWorkChkDesc to 'Payroll Code' of table UPR_Transaction_HIST;
+				
+				release table UPR_SETP_Pay_Type;
+				clear table UPR_SETP_Pay_Type;
+				set 'Pay Record' of table UPR_SETP_Pay_Type to 'Payroll Code' of table UPR_Transaction_HIST;
+				get table UPR_SETP_Pay_Type;
+				
+				if err() = 0 then
+					set 'Pay Code Description Array'[l_paycode_count] of table EX_uprWorkChkDesc to Description of table UPR_SETP_Pay_Type;
+				else
+					set 'Pay Code Description Array'[l_paycode_count] of table EX_uprWorkChkDesc to \"*** Description Missing ***\";
+				end if;
+				
+				
+				l_ytd = EX_PR_Get_YTD_Amnt('Employee ID' of table EX_UPR_Work_Check, 'Check Date' of table UPR_Transaction_HIST,'Payroll Code' of table UPR_Transaction_HIST,'Payroll Record Type' of table UPR_Transaction_HIST,'(L) DDL0');
+				if l_ytd <> 0 then
+					
+					set 'Pay YTD Array'[l_paycode_count] of table EX_uprWorkChkYTD  to  l_ytd;
+										
+				end if;
+				
+			in [2] {/* deductions */}
+				
+				increment l_deduction_count;
+				
+				set 'Deduction Amount Array'[l_deduction_count] of table EX_UPR_Work_Check to 'UPR TRX Amount' of table UPR_Transaction_HIST;
+				
+				set 'Deduction Code Array'[l_deduction_count] of table EX_uprWorkChkDesc to 'Payroll Code' of table UPR_Transaction_HIST;
+				
+				release table UPR_SETP_Deduction;
+				clear table UPR_SETP_Deduction;
+				set 'Deduction' of table UPR_SETP_Deduction to 'Payroll Code' of table UPR_Transaction_HIST;
+				get table UPR_SETP_Deduction;
+				
+				if err() = 0 then
+					set 'Deduction Description Array'[l_deduction_count] of table EX_uprWorkChkDesc to Description of table UPR_SETP_Deduction;
+				else
+					set 'Deduction Description Array'[l_deduction_count] of table EX_uprWorkChkDesc to \"*** Description Missing ***\";
+				end if;
+				
+				l_ytd = EX_PR_Get_YTD_Amnt('Employee ID' of table EX_UPR_Work_Check, 'Check Date' of table UPR_Transaction_HIST,'Payroll Code' of table UPR_Transaction_HIST,'Payroll Record Type' of table UPR_Transaction_HIST,'(L) DDL0');
+				if l_ytd <> 0 then
+					
+					set 'Deduction Amount YTD Array'[l_deduction_count] of table EX_uprWorkChkYTD  to  l_ytd;
+	
+				end if;
+					
+			in [3]{ /* benefits */}
+			
+				increment l_benefit_count;
+				
+				set 'Benefit Amount Array'[l_benefit_count] of table EX_UPR_Work_Check to 'UPR TRX Amount' of table UPR_Transaction_HIST;
+				
+				set 'Benefit Code Array'[l_benefit_count] of table EX_uprWorkChkDesc to 'Payroll Code' of table UPR_Transaction_HIST;
+				
+				release table UPR_SETP_Benefit;
+				clear table UPR_SETP_Benefit;
+				set 'Benefit' of table UPR_SETP_Benefit to 'Payroll Code' of table UPR_Transaction_HIST;
+				get table UPR_SETP_Benefit;
+				
+				if err() = 0 then
+					set 'Benefit Description Array'[l_benefit_count] of table EX_uprWorkChkDesc to Description of table UPR_SETP_Benefit;
+				else
+					set 'Benefit Description Array'[l_benefit_count] of table EX_uprWorkChkDesc to \"*** Description Missing ***\";
+				end if;
+				
+				l_ytd = EX_PR_Get_YTD_Amnt('Employee ID' of table EX_UPR_Work_Check, 'Check Date' of table UPR_Transaction_HIST,'Payroll Code' of table UPR_Transaction_HIST,'Payroll Record Type' of table UPR_Transaction_HIST,'(L) DDL0');
+				if l_ytd <> 0 then
+					
+					set 'Benefit Amount YTD Array'[l_benefit_count] of table EX_uprWorkChkYTD  to  l_ytd;
+									
+				end if;
+				
+			in [4]{	/* state taxes */}
+			
+				increment l_state_tax_count;
+				
+				set 'State Tax Withholding Array'[l_state_tax_count] of table EX_UPR_Work_Check to 'UPR TRX Amount' of table UPR_Transaction_HIST;
+				
+				l_ytd = EX_PR_Get_YTD_Amnt('Employee ID' of table EX_UPR_Work_Check, 'Check Date' of table UPR_Transaction_HIST,'Payroll Code' of table UPR_Transaction_HIST,'Payroll Record Type' of table UPR_Transaction_HIST,'(L) DDL0');
+				if l_ytd <> 0 then
+					
+					set 'State Tax YTD'[l_state_tax_count] of table EX_uprWorkChkYTD  to  l_ytd;
+									
+				end if;
+				
+			in [5] {/* local taxes */}
+				increment l_local_tax_count;
+				
+				set 'Local Tax Withholding Array'[l_local_tax_count] of table EX_UPR_Work_Check to 'UPR TRX Amount' of table UPR_Transaction_HIST;
+				
+				l_ytd = EX_PR_Get_YTD_Amnt('Employee ID' of table EX_UPR_Work_Check, 'Check Date' of table UPR_Transaction_HIST,'Payroll Code' of table UPR_Transaction_HIST,'Payroll Record Type' of table UPR_Transaction_HIST,'(L) DDL0');
+				if l_ytd <> 0 then
+					
+					set 'Local Tax YTD'[l_local_tax_count] of table EX_uprWorkChkYTD  to  l_ytd;
+							
+				end if;
+				
+		end case;
+		
+		if ('Gross Wages YTD' of table EX_uprWorkChkYTD = 0) or ('Net Wages YTD' of table EX_uprWorkChkYTD = 0) then
+			{ Gross YTD}
+			l_ytd = EX_PR_Get_YTD_Amnt('Employee ID' of table EX_UPR_Work_Check, 'Check Date' of table UPR_Transaction_HIST,'Payroll Code' of table UPR_Transaction_HIST,1,'(L) DDL0' + 2);
+			set 'Gross Wages YTD' of table EX_uprWorkChkYTD to l_ytd;
+			{net ytd}
+			l_ytd = l_ytd - EX_PR_Get_YTD_Amnt('Employee ID' of table EX_UPR_Work_Check, 'Check Date' of table UPR_Transaction_HIST,'Payroll Code' of table UPR_Transaction_HIST,2,'(L) DDL0' + 2);
+			set 'Net Wages YTD' of table EX_uprWorkChkYTD to  l_ytd; 
+		end if;
+		
+		save table EX_uprWorkChkYTD;
+		save table EX_uprWorkChkDesc;
+		get next table UPR_Transaction_HIST;
+	end while;
+	
+	
+	
+	
+	'(L) status' = \"Getting Direct Deposit History\";
+	l_dd_count = 0;
+	l_where = \"CHEKNMBR = '\" + 'Check Number' of table EX_UPR_Work_Check+ \" ' and EMPLOYID = '\" + 'Employee ID' of table EX_UPR_Work_Check +\"'\";
+	release table ddTrxHistDetail;
+	range clear table ddTrxHistDetail;
+	range table  ddTrxHistDetail where l_where;
+	get first table ddTrxHistDetail;
+	
+	while err() = 0 do
+		increment l_dd_count;
+		
+		release table EX_ddDeposits;
+		clear table EX_ddDeposits;
+		set 'User ID' of table EX_ddDeposits to 'User ID' of globals;
+		set 'Employee ID' of table EX_ddDeposits to 'Employee ID' of table EX_UPR_Work_Check;
+		change table EX_ddDeposits;
+		
+		set 'Check Number'  of table EX_ddDeposits to 'Check Number' of table EX_UPR_Work_Check;
+		set 'DD Array12 Transaction Code'[l_dd_count] of table EX_ddDeposits to 'DD Transaction Code' of table ddTrxHistDetail;
+		set 'DD Array12 Transit Number'[l_dd_count] of table EX_ddDeposits to 'DD Transit Number' of table ddTrxHistDetail;
+		set 'DD Array12 Account Number'[l_dd_count] of table EX_ddDeposits to 'DD Account Number' of table ddTrxHistDetail;
+		set 'DD Array12 Amount'[l_dd_count] of table EX_ddDeposits to 'DD AmountDlr' of table ddTrxHistDetail;
+		save table EX_ddDeposits;
+		
+		get next table ddTrxHistDetail;
+	end while;
+	
+	
+	l_paycode_count = 0;
+	l_deduction_count = 0;
+	l_benefit_count = 0;
+	l_state_tax_count = 0;
+	l_local_tax_count  = 0;
+	save table EX_UPR_Work_Check;
+	
+	change next table EX_UPR_Work_Check;
+end while;
+
+
+
+
+
+{/* send in the audit trail code??? }
+if '(L) screen_only' then
+	run report 'Direct Deposit Statement of Earnings Historical';
+else
+	 result = Path_SelectPathname(l_Path);
+	if result = true then
+
+	release table EX_UPR_Work_Check;
+	range clear table EX_UPR_Work_Check;
+
+		get first table  EX_UPR_Work_Check;
+
+		while err() = 0 do
+			'(L) status' = \"Exporting Earnings Statement for Employee: \"  + 'Employee ID' of table EX_UPR_Work_Check;
+			l_emp = 'Employee ID' of table EX_UPR_Work_Check;
+			l_date = pad(string(day('Check Date'of table EX_UPR_Work_Check)),LEADING,\"0\",2) + \"-\" 
+			+ pad(string(month('Check Date'of table EX_UPR_Work_Check)),LEADING,\"0\",2) + \"-\" + string(year('Check Date'of table EX_UPR_Work_Check)) ;
+					
+			l_filename = \"Payslip \" + l_emp + \" \" + l_date + \".pdf\";
+			
+			run report 'Direct Deposit Statement of Earnings Historical' with restriction 'Employee ID' of table EX_UPR_Work_Check = l_emp 
+			destination false, false, PDFFILE, l_Path+l_filename;
+
+
+			get next table EX_UPR_Work_Check;
+		end while;
+		'(L) status' = \"PDFs have been sent to your Adobe PDF printer\";
+	end if;
+end if;"
+			UserProperties	""
+		}
+		EventScript	"EX_Earnings_Statements_History_to_PDF l_DDL0_CHG"		
+		{
+			Documentation	""
+			Script	"/*warning (str('(L) DDL0'));*/"
+			UserProperties	""
+		}
+		EventScript	"Window1 Lookup Button 1_CHG"		
+		{
+			Documentation	""
+			Script	"open form UPR_Audit_Control_Code_Lookup return to 'Audit Control Code';
+run script 'Redisplay Button' of window UPR_Audit_Control_Code_Lookup of form UPR_Audit_Control_Code_Lookup;"
+			UserProperties	""
+		}
+	}
+	~Functions
+	{
+	}
+	~Procedures
+	{
+		Procedure	"Create_Work_HDR"		
+		{
+			Documentation	"Create procedure [dbo].[EX_sproc_EX_Work_Cheque] 
+@audit varchar(50)
+
+as
+
+DELETE [dbo].[EXUPR10208]
+DElETE [dbo].[EXDD10100]
+DELETE [dbo].[EXUPR10213]
+DELETE [dbo].[EXUPR10214]
+
+
+INSERT INTO [dbo].[EXUPR10208]
+                      ([PRINTED]
+                      ,[VOIDED]
+                      ,[USERID]
+                      ,[EMPLOYID]
+                      ,[EMPLNAME]
+                      ,[LASTNAME]
+                      ,[FRSTNAME]
+                      ,[MIDLNAME]
+                      ,[CHEKDATE]
+                      ,[CHEKNMBR]
+                      ,[PYADNMBR]
+                      ,[DEPRTMNT]
+                      ,[EMPLCLAS]
+                      ,[SOCSCNUM]
+                      ,[PAYRTARR_1]
+                      ,[PAYRTARR_2]
+                      ,[PAYRTARR_3]
+                      ,[PAYRTARR_4]
+                      ,[PAYRTARR_5]
+                      ,[PAYRTARR_6]
+                      ,[PAYRTARR_7]
+                      ,[PAYRTARR_8]
+                      ,[PAYRTARR_9]
+                      ,[PAYRTARR_10]
+                      ,[PAYRTARR_11]
+                      ,[PAYRTARR_12]
+                      ,[PAYRTARR_13]
+                      ,[PAYRTARR_14]
+                      ,[PAYRTARR_15]
+                      ,[PAYRTARR_16]
+                      ,[PAYRTARR_17]
+                      ,[PAYRTARR_18]
+                      ,[PAYRTARR_19]
+                      ,[PAYRTARR_20]
+                      ,[PAYRTARR_21]
+                      ,[PAYRTARR_22]
+                      ,[PAYRTARR_23]
+                      ,[PAYRTARR_24]
+                      ,[PAYRTARR_25]
+                      ,[PAYHRSAR_1]
+                      ,[PAYHRSAR_2]
+                      ,[PAYHRSAR_3]
+                      ,[PAYHRSAR_4]
+                      ,[PAYHRSAR_5]
+                      ,[PAYHRSAR_6]
+                      ,[PAYHRSAR_7]
+                      ,[PAYHRSAR_8]
+                      ,[PAYHRSAR_9]
+                      ,[PAYHRSAR_10]
+                      ,[PAYHRSAR_11]
+                      ,[PAYHRSAR_12]
+                      ,[PAYHRSAR_13]
+                      ,[PAYHRSAR_14]
+                      ,[PAYHRSAR_15]
+                      ,[PAYHRSAR_16]
+                      ,[PAYHRSAR_17]
+                      ,[PAYHRSAR_18]
+                      ,[PAYHRSAR_19]
+                      ,[PAYHRSAR_20]
+                      ,[PAYHRSAR_21]
+                      ,[PAYHRSAR_22]
+                      ,[PAYHRSAR_23]
+                      ,[PAYHRSAR_24]
+                      ,[PAYHRSAR_25]
+                      ,[PAYERNAR_1]
+                      ,[PAYERNAR_2]
+                      ,[PAYERNAR_3]
+                      ,[PAYERNAR_4]
+                      ,[PAYERNAR_5]
+                      ,[PAYERNAR_6]
+                      ,[PAYERNAR_7]
+                      ,[PAYERNAR_8]
+                      ,[PAYERNAR_9]
+                      ,[PAYERNAR_10]
+                      ,[PAYERNAR_11]
+                      ,[PAYERNAR_12]
+                      ,[PAYERNAR_13]
+                      ,[PAYERNAR_14]
+                      ,[PAYERNAR_15]
+                      ,[PAYERNAR_16]
+                      ,[PAYERNAR_17]
+                      ,[PAYERNAR_18]
+                      ,[PAYERNAR_19]
+                      ,[PAYERNAR_20]
+                      ,[PAYERNAR_21]
+                      ,[PAYERNAR_22]
+                      ,[PAYERNAR_23]
+                      ,[PAYERNAR_24]
+                      ,[PAYERNAR_25]
+                      ,[TFICATWH]
+                      ,[FCASWPR]
+                      ,[FICAMWPR]
+                      ,[FDWDGPRN]
+                      ,[STWHDARR_1]
+                      ,[STWHDARR_2]
+                      ,[STWHDARR_3]
+                      ,[STWHDARR_4]
+                      ,[STWHDARR_5]
+                      ,[STWHDARR_6]
+                      ,[STWHDARR_7]
+                      ,[STWHDARR_8]
+                      ,[STWHDARR_9]
+                      ,[STWHDARR_10]
+                      ,[STWHDARR_11]
+                      ,[STWHDARR_12]
+                      ,[STWHDARR_13]
+                      ,[STWHDARR_14]
+                      ,[STWHDARR_15]
+                      ,[STWHDARR_16]
+                      ,[STWHDARR_17]
+                      ,[STWHDARR_18]
+                      ,[STWHDARR_19]
+                      ,[STWHDARR_20]
+                      ,[STWHDARR_21]
+                      ,[STWHDARR_22]
+                      ,[STWHDARR_23]
+                      ,[STWHDARR_24]
+                      ,[STWHDARR_25]
+                      ,[LTXWHGAR_1]
+                      ,[LTXWHGAR_2]
+                      ,[LTXWHGAR_3]
+                      ,[LTXWHGAR_4]
+                      ,[LTXWHGAR_5]
+                      ,[LTXWHGAR_6]
+                      ,[LTXWHGAR_7]
+                      ,[LTXWHGAR_8]
+                      ,[LTXWHGAR_9]
+                      ,[LTXWHGAR_10]
+                      ,[LTXWHGAR_11]
+                      ,[LTXWHGAR_12]
+                      ,[LTXWHGAR_13]
+                      ,[LTXWHGAR_14]
+                      ,[LTXWHGAR_15]
+                      ,[LTXWHGAR_16]
+                      ,[LTXWHGAR_17]
+                      ,[LTXWHGAR_18]
+                      ,[LTXWHGAR_19]
+                      ,[LTXWHGAR_20]
+                      ,[LTXWHGAR_21]
+                      ,[LTXWHGAR_22]
+                      ,[LTXWHGAR_23]
+                      ,[LTXWHGAR_24]
+                      ,[LTXWHGAR_25]
+                      ,[DEDAMARR_1]
+                      ,[DEDAMARR_2]
+                      ,[DEDAMARR_3]
+                      ,[DEDAMARR_4]
+                      ,[DEDAMARR_5]
+                      ,[DEDAMARR_6]
+                      ,[DEDAMARR_7]
+                      ,[DEDAMARR_8]
+                      ,[DEDAMARR_9]
+                      ,[DEDAMARR_10]
+                      ,[DEDAMARR_11]
+                      ,[DEDAMARR_12]
+                      ,[DEDAMARR_13]
+                      ,[DEDAMARR_14]
+                      ,[DEDAMARR_15]
+                      ,[DEDAMARR_16]
+                      ,[DEDAMARR_17]
+                      ,[DEDAMARR_18]
+                      ,[DEDAMARR_19]
+                      ,[DEDAMARR_20]
+                      ,[DEDAMARR_21]
+                      ,[DEDAMARR_22]
+                      ,[DEDAMARR_23]
+                      ,[DEDAMARR_24]
+                      ,[DEDAMARR_25]
+                      ,[BNFAMARR_1]
+                      ,[BNFAMARR_2]
+                      ,[BNFAMARR_3]
+                      ,[BNFAMARR_4]
+                      ,[BNFAMARR_5]
+                      ,[BNFAMARR_6]
+                      ,[BNFAMARR_7]
+                      ,[BNFAMARR_8]
+                      ,[BNFAMARR_9]
+                      ,[BNFAMARR_10]
+                      ,[BNFAMARR_11]
+                      ,[BNFAMARR_12]
+                      ,[BNFAMARR_13]
+                      ,[BNFAMARR_14]
+                      ,[BNFAMARR_15]
+                      ,[BNFAMARR_16]
+                      ,[BNFAMARR_17]
+                      ,[BNFAMARR_18]
+                      ,[BNFAMARR_19]
+                      ,[BNFAMARR_20]
+                      ,[BNFAMARR_21]
+                      ,[BNFAMARR_22]
+                      ,[BNFAMARR_23]
+                      ,[BNFAMARR_24]
+                      ,[BNFAMARR_25]
+                      ,[TIMEAVAILARRAY_1]
+                      ,[TIMEAVAILARRAY_2]
+                      ,[TIMEAVAILARRAY_3]
+                      ,[TIMEAVAILARRAY_4]
+                      ,[TIMEAVAILARRAY_5]
+                      ,[TIMEAVAILARRAY_6]
+                      ,[TIMEAVAILARRAY_7]
+                      ,[TIMEAVAILARRAY_8]
+                      ,[TIMEAVAILARRAY_9]
+                      ,[TIMEAVAILARRAY_10]
+                      ,[TIMEAVAILARRAY_11]
+                      ,[TIMEAVAILARRAY_12]
+                      ,[TIMEAVAILARRAY_13]
+                      ,[TIMEAVAILARRAY_14]
+                      ,[TIMEAVAILARRAY_15]
+                      ,[TIMEAVAILARRAY_16]
+                      ,[TIMEAVAILARRAY_17]
+                      ,[TIMEAVAILARRAY_18]
+                      ,[TIMEAVAILARRAY_19]
+                      ,[TIMEAVAILARRAY_20]
+                      ,[TIMEAVAILARRAY_21]
+                      ,[TIMEAVAILARRAY_22]
+                      ,[TIMEAVAILARRAY_23]
+                      ,[TIMEAVAILARRAY_24]
+                      ,[TIMEAVAILARRAY_25]
+                      ,[TTLHOURS]
+                      ,[TTLERNGS]
+                      ,[TOTLTAXS]
+                      ,[TTLDDTNS]
+                      ,[TTLBNFTS]
+                      ,[NTWPYRN]
+                      ,[GRWGPRN]
+                      ,[REGHOURS]
+                      ,[REGERNGS]
+                      ,[OVRTMHRS]
+                      ,[OVTMEARN]
+                      ,[DBLTMHRS]
+                      ,[DBLTMERN]
+                      ,[EICERNGS]
+                      ,[COMMERNG]
+                      ,[BSNEXERN]
+                      ,[PNSNERNG]
+                      ,[HOLDYHRS]
+                      ,[HLDYEARN]
+                      ,[VACTNHRS]
+                      ,[VCTNERNG]
+                      ,[SKTIMHRS]
+                      ,[SKTMERNG]
+                      ,[PCWKUNIT]
+                      ,[PCWKERNG]
+                      ,[SPCLERNG]
+                      ,[CHGTPERN]
+                      ,[REPTPERN]
+                      ,[MNWGBLER]
+                      ,[VACAVLBL]
+                      ,[SIKTIMAV]
+                      ,[STTPYPRD]
+                      ,[ENPAYPRD]
+                      ,[Uncollected_FICAMed_TaxP]
+                      ,[Uncollected_FICASS_TaxP]
+                      ,[RSNCHKVD]
+                      ,[AMTINWDS])
+          
+                      SELECT 0
+                      ,0
+                      ,suser_sname() 
+                      ,A.EMPLOYID
+                      ,rtrim(B.FRSTNAME) + ' ' + rtrim(B.LASTNAME)
+                      ,B.LASTNAME
+                      ,B.FRSTNAME
+                      ,B.MIDLNAME
+                      ,A.CHEKDATE
+                      ,A.CHEKNMBR
+                      ,A.PYADNMBR
+                      ,A.DEPRTMNT
+                      ,B.EMPLCLAS
+                      ,A.SOCSCNUM
+                      ,0--<PAYRTARR_1, numeric(19,5),>
+                      ,0--<PAYRTARR_2, numeric(19,5),>
+                      ,0--<PAYRTARR_3, numeric(19,5),>
+                      ,0--<PAYRTARR_4, numeric(19,5),>
+                      ,0--<PAYRTARR_5, numeric(19,5),>
+                      ,0--<PAYRTARR_6, numeric(19,5),>
+                      ,0--<PAYRTARR_7, numeric(19,5),>
+                      ,0--<PAYRTARR_8, numeric(19,5),>
+                      ,0--<PAYRTARR_9, numeric(19,5),>
+                      ,0--<PAYRTARR_10, numeric(19,5),>
+                      ,0--<PAYRTARR_11, numeric(19,5),>
+                      ,0--<PAYRTARR_12, numeric(19,5),>
+                      ,0--<PAYRTARR_13, numeric(19,5),>
+                      ,0--<PAYRTARR_14, numeric(19,5),>
+                      ,0--<PAYRTARR_15, numeric(19,5),>
+                      ,0--<PAYRTARR_16, numeric(19,5),>
+                      ,0--<PAYRTARR_17, numeric(19,5),>
+                      ,0--<PAYRTARR_18, numeric(19,5),>
+                      ,0--<PAYRTARR_19, numeric(19,5),>
+                      ,0--<PAYRTARR_20, numeric(19,5),>
+                      ,0--<PAYRTARR_21, numeric(19,5),>
+                      ,0--<PAYRTARR_22, numeric(19,5),>
+                      ,0--<PAYRTARR_23, numeric(19,5),>
+                      ,0--<PAYRTARR_24, numeric(19,5),>
+                      ,0--<PAYRTARR_25, numeric(19,5),>
+                      ,0--<PAYHRSAR_1, int,>
+                      ,0--<PAYHRSAR_2, int,>
+                      ,0--<PAYHRSAR_3, int,>
+                      ,0--<PAYHRSAR_4, int,>
+                      ,0--<PAYHRSAR_5, int,>
+                      ,0--<PAYHRSAR_6, int,>
+                      ,0--<PAYHRSAR_7, int,>
+                      ,0--<PAYHRSAR_8, int,>
+                      ,0--<PAYHRSAR_9, int,>
+                      ,0--<PAYHRSAR_10, int,>
+                      ,0--<PAYHRSAR_11, int,>
+                      ,0--<PAYHRSAR_12, int,>
+                      ,0--<PAYHRSAR_13, int,>
+                      ,0--<PAYHRSAR_14, int,>
+                      ,0--<PAYHRSAR_15, int,>
+                      ,0--<PAYHRSAR_16, int,>
+                      ,0--<PAYHRSAR_17, int,>
+                      ,0--<PAYHRSAR_18, int,>
+                      ,0--<PAYHRSAR_19, int,>
+                      ,0--<PAYHRSAR_20, int,>
+                      ,0--<PAYHRSAR_21, int,>
+                      ,0--<PAYHRSAR_22, int,>
+                      ,0--<PAYHRSAR_23, int,>
+                      ,0--<PAYHRSAR_24, int,>
+                      ,0--<PAYHRSAR_25, int,>
+                      ,0--<PAYERNAR_1, numeric(19,5),>
+                      ,0--<PAYERNAR_2, numeric(19,5),>
+                      ,0--<PAYERNAR_3, numeric(19,5),>
+                      ,0--<PAYERNAR_4, numeric(19,5),>
+                      ,0--<PAYERNAR_5, numeric(19,5),>
+                      ,0--<PAYERNAR_6, numeric(19,5),>
+                      ,0--<PAYERNAR_7, numeric(19,5),>
+                      ,0--<PAYERNAR_8, numeric(19,5),>
+                      ,0--<PAYERNAR_9, numeric(19,5),>
+                      ,0--<PAYERNAR_10, numeric(19,5),>
+                      ,0--<PAYERNAR_11, numeric(19,5),>
+                      ,0--<PAYERNAR_12, numeric(19,5),>
+                      ,0--<PAYERNAR_13, numeric(19,5),>
+                      ,0--<PAYERNAR_14, numeric(19,5),>
+                      ,0--<PAYERNAR_15, numeric(19,5),>
+                      ,0--<PAYERNAR_16, numeric(19,5),>
+                      ,0--<PAYERNAR_17, numeric(19,5),>
+                      ,0--<PAYERNAR_18, numeric(19,5),>
+                      ,0--<PAYERNAR_19, numeric(19,5),>
+                      ,0--<PAYERNAR_20, numeric(19,5),>
+                      ,0--<PAYERNAR_21, numeric(19,5),>
+                      ,0--<PAYERNAR_22, numeric(19,5),>
+                      ,0--<PAYERNAR_23, numeric(19,5),>
+                      ,0--<PAYERNAR_24, numeric(19,5),>
+                      ,0--<PAYERNAR_25, numeric(19,5),>
+                      ,A.EFICASSWH + A.EFICAMWPR
+                      ,A.FCASWPR
+                      ,A.FICAMWPR
+                      ,A.FDWDGPRN
+                      ,0--<STWHDARR_1, numeric(19,5),>
+                      ,0--<STWHDARR_2, numeric(19,5),>
+                      ,0--<STWHDARR_3, numeric(19,5),>
+                      ,0--<STWHDARR_4, numeric(19,5),>
+                      ,0--<STWHDARR_5, numeric(19,5),>
+                      ,0--<STWHDARR_6, numeric(19,5),>
+                      ,0--<STWHDARR_7, numeric(19,5),>
+                      ,0--<STWHDARR_8, numeric(19,5),>
+                      ,0--<STWHDARR_9, numeric(19,5),>
+                      ,0--<STWHDARR_10, numeric(19,5),>
+                      ,0--<STWHDARR_11, numeric(19,5),>
+                      ,0--<STWHDARR_12, numeric(19,5),>
+                      ,0--<STWHDARR_13, numeric(19,5),>
+                      ,0--<STWHDARR_14, numeric(19,5),>
+                      ,0--<STWHDARR_15, numeric(19,5),>
+                      ,0--<STWHDARR_16, numeric(19,5),>
+                      ,0--<STWHDARR_17, numeric(19,5),>
+                      ,0--<STWHDARR_18, numeric(19,5),>
+                      ,0--<STWHDARR_19, numeric(19,5),>
+                      ,0--<STWHDARR_20, numeric(19,5),>
+                      ,0--<STWHDARR_21, numeric(19,5),>
+                      ,0--<STWHDARR_22, numeric(19,5),>
+                      ,0--<STWHDARR_23, numeric(19,5),>
+                      ,0--<STWHDARR_24, numeric(19,5),>
+                      ,0--<STWHDARR_25, numeric(19,5),>
+                      ,0--<LTXWHGAR_1, numeric(19,5),>
+                      ,0--<LTXWHGAR_2, numeric(19,5),>
+                      ,0--<LTXWHGAR_3, numeric(19,5),>
+                      ,0--<LTXWHGAR_4, numeric(19,5),>
+                      ,0--<LTXWHGAR_5, numeric(19,5),>
+                      ,0--<LTXWHGAR_6, numeric(19,5),>
+                      ,0--<LTXWHGAR_7, numeric(19,5),>
+                      ,0--<LTXWHGAR_8, numeric(19,5),>
+                      ,0--<LTXWHGAR_9, numeric(19,5),>
+                      ,0--<LTXWHGAR_10, numeric(19,5),>
+                      ,0--<LTXWHGAR_11, numeric(19,5),>
+                      ,0--<LTXWHGAR_12, numeric(19,5),>
+                      ,0--<LTXWHGAR_13, numeric(19,5),>
+                      ,0--<LTXWHGAR_14, numeric(19,5),>
+                      ,0--<LTXWHGAR_15, numeric(19,5),>
+                      ,0--<LTXWHGAR_16, numeric(19,5),>
+                      ,0--<LTXWHGAR_17, numeric(19,5),>
+                      ,0--<LTXWHGAR_18, numeric(19,5),>
+                      ,0--<LTXWHGAR_19, numeric(19,5),>
+                      ,0--<LTXWHGAR_20, numeric(19,5),>
+                      ,0--<LTXWHGAR_21, numeric(19,5),>
+                      ,0--<LTXWHGAR_22, numeric(19,5),>
+                      ,0--<LTXWHGAR_23, numeric(19,5),>
+                      ,0--<LTXWHGAR_24, numeric(19,5),>
+                      ,0--<LTXWHGAR_25, numeric(19,5),>
+                      ,0--<DEDAMARR_1, numeric(19,5),>
+                      ,0--<DEDAMARR_2, numeric(19,5),>
+                      ,0--<DEDAMARR_3, numeric(19,5),>
+                      ,0--<DEDAMARR_4, numeric(19,5),>
+                      ,0--<DEDAMARR_5, numeric(19,5),>
+                      ,0--<DEDAMARR_6, numeric(19,5),>
+                      ,0--<DEDAMARR_7, numeric(19,5),>
+                      ,0--<DEDAMARR_8, numeric(19,5),>
+                      ,0--<DEDAMARR_9, numeric(19,5),>
+                      ,0--<DEDAMARR_10, numeric(19,5),>
+                      ,0--<DEDAMARR_11, numeric(19,5),>
+                      ,0--<DEDAMARR_12, numeric(19,5),>
+                      ,0--<DEDAMARR_13, numeric(19,5),>
+                      ,0--<DEDAMARR_14, numeric(19,5),>
+                      ,0--<DEDAMARR_15, numeric(19,5),>
+                      ,0--<DEDAMARR_16, numeric(19,5),>
+                      ,0--<DEDAMARR_17, numeric(19,5),>
+                      ,0--<DEDAMARR_18, numeric(19,5),>
+                      ,0--<DEDAMARR_19, numeric(19,5),>
+                      ,0--<DEDAMARR_20, numeric(19,5),>
+                      ,0--<DEDAMARR_21, numeric(19,5),>
+                      ,0--<DEDAMARR_22, numeric(19,5),>
+                      ,0--<DEDAMARR_23, numeric(19,5),>
+                      ,0--<DEDAMARR_24, numeric(19,5),>
+                      ,0--<DEDAMARR_25, numeric(19,5),>
+                      ,0--<BNFAMARR_1, numeric(19,5),>
+                      ,0--<BNFAMARR_2, numeric(19,5),>
+                      ,0--<BNFAMARR_3, numeric(19,5),>
+                      ,0--<BNFAMARR_4, numeric(19,5),>
+                      ,0--<BNFAMARR_5, numeric(19,5),>
+                      ,0--<BNFAMARR_6, numeric(19,5),>
+                      ,0--<BNFAMARR_7, numeric(19,5),>
+                      ,0--<BNFAMARR_8, numeric(19,5),>
+                      ,0--<BNFAMARR_9, numeric(19,5),>
+                      ,0--<BNFAMARR_10, numeric(19,5),>
+                      ,0--<BNFAMARR_11, numeric(19,5),>
+                      ,0--<BNFAMARR_12, numeric(19,5),>
+                      ,0--<BNFAMARR_13, numeric(19,5),>
+                      ,0--<BNFAMARR_14, numeric(19,5),>
+                      ,0--<BNFAMARR_15, numeric(19,5),>
+                      ,0--<BNFAMARR_16, numeric(19,5),>
+                      ,0--<BNFAMARR_17, numeric(19,5),>
+                      ,0--<BNFAMARR_18, numeric(19,5),>
+                      ,0--<BNFAMARR_19, numeric(19,5),>
+                      ,0--<BNFAMARR_20, numeric(19,5),>
+                      ,0--<BNFAMARR_21, numeric(19,5),>
+                      ,0--<BNFAMARR_22, numeric(19,5),>
+                      ,0--<BNFAMARR_23, numeric(19,5),>
+                      ,0--<BNFAMARR_24, numeric(19,5),>
+                      ,0--<BNFAMARR_25, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_1, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_2, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_3, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_4, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_5, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_6, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_7, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_8, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_9, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_10, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_11, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_12, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_13, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_14, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_15, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_16, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_17, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_18, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_19, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_20, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_21, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_22, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_23, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_24, numeric(19,5),>
+                      ,0--<TIMEAVAILARRAY_25, numeric(19,5),>
+                      ,0--<TTLHOURS, int,>
+                      ,A.GRWGPRN--<TTLERNGS, numeric(19,5),>
+                      ,A.TOTLTAXS
+                      ,A.TTLDDTNS
+                      ,A.TTLBNFTS
+                      ,A.NTWPYRN
+                      ,A.GRWGPRN
+                      ,0--<REGHOURS, int,>
+                      ,0--<REGERNGS, numeric(19,5),>
+                      ,0--<OVRTMHRS, int,>
+                      ,0--<OVTMEARN, numeric(19,5),>
+                      ,0--<DBLTMHRS, int,>
+                      ,0--<DBLTMERN, numeric(19,5),>
+                      ,0--<EICERNGS, numeric(19,5),>
+                      ,0--<COMMERNG, numeric(19,5),>
+                      ,0--<BSNEXERN, numeric(19,5),>
+                      ,0--<PNSNERNG, numeric(19,5),>
+                      ,0--<HOLDYHRS, int,>
+                      ,0--<HLDYEARN, numeric(19,5),>
+                      ,0--<VACTNHRS, int,>
+                      ,0--<VCTNERNG, numeric(19,5),>
+                      ,0--<SKTIMHRS, int,>
+                      ,0--<SKTMERNG, numeric(19,5),>
+                      ,0--<PCWKUNIT, int,>
+                      ,0--<PCWKERNG, numeric(19,5),>
+                      ,0--<SPCLERNG, numeric(19,5),>
+                      ,0--<CHGTPERN, numeric(19,5),>
+                      ,0--<REPTPERN, numeric(19,5),>
+                      ,0--<MNWGBLER, numeric(19,5),>
+                      ,0--<VACAVLBL, int,>
+                      ,0--<SIKTIMAV, int,>
+                      ,A.CHEKDATE--PayPeriodBeginDate--<STTPYPRD, datetime,>
+                      ,A.CHEKDATE--PayPeriodEndDate--<ENPAYPRD, datetime,>
+                      ,0--<Uncollected_FICAMed_TaxP, numeric(19,5),>
+                      ,0--<Uncollected_FICASS_TaxP, numeric(19,5),>
+                      ,0--<RSNCHKVD, char(31),>
+                      ,''--<AMTINWDS, text,>
+         from UPR30100 A INNER JOIN UPR00100 B ON A.EMPLOYID = B.EMPLOYID
+         where AUCTRLCD = @audit
+"
+			Script	"local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command;
+local long sproc_status;
+
+local string l_audit;
+
+l_audit = 'Audit Control Code' of window EX_Earnings_Statements_History_to_PDF of form EX_Earnings_Statements_History_to_PDF;
+
+call EX_sproc_EX_Work_Cheque, sproc_status,l_audit;
+ "
+			UserProperties	""
+		}
+	}
+}

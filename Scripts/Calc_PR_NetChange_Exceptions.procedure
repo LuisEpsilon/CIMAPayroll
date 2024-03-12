@@ -1,0 +1,359 @@
+Procedure	"Calc_PR_NetChange_Exceptions"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"
+out date oWorkCheckDate;
+out date l_Date;
+out string oAuditCode;
+local string l_auditCode;
+
+local date 		lcurrentcheckdate;
+local date 		default_date;
+local currency 	TemptNetWages;	
+
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+l_sql_status = SQL_Connect(l_sql_connect);
+l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+
+default_date = mkdate(01,01,1900);
+ 
+l_sql_command = \"select top 1 isnull(AUCTRLCD,'') from UPR30400 where AUCTRLCD like 'UPRCC%' order by DEX_ROW_ID DESC\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+
+l_sql_data_status = SQL_GetData(l_sql_connect,1,l_auditCode);
+oAuditCode = l_auditCode;
+
+l_sql_status = SQL_Clear(l_sql_connect);
+
+get first table UPR_WORK_Check;
+set lcurrentcheckdate to 'Check Date' of table UPR_WORK_Check;
+
+{remove old data...}
+l_sql_command = \"delete EXPCTD\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+l_sql_command = \"delete EXPCTE\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status  = SQL_Terminate(l_sql_connect);
+
+l_Date = EX_Get_Audit_Code_Date(l_auditCode);
+
+release table UPR_Transaction_HIST;
+range clear table UPR_Transaction_HIST;
+set 'Audit Control Code' of table UPR_Transaction_HIST to l_auditCode;
+clear 'Payroll Record Type' of table UPR_Transaction_HIST;
+clear 'Payroll Code' of table UPR_Transaction_HIST;
+clear 'Employee ID' of table UPR_Transaction_HIST;
+range start table UPR_Transaction_HIST;
+fill 'Payroll Record Type' of table UPR_Transaction_HIST;
+fill 'Payroll Code' of table UPR_Transaction_HIST;
+fill 'Employee ID' of table UPR_Transaction_HIST;
+range end table UPR_Transaction_HIST;
+get first table UPR_Transaction_HIST;
+while err() = OKAY do
+			
+		if 'UPR TRX Amount' of table UPR_Transaction_HIST<>0 then {05/31/2006}
+			if 'Payroll Record Type' of table UPR_Transaction_HIST = 1 then
+				set EX_Pay_Code of table EX_PayrollChangesTrxDetail to 'Payroll Code' of table UPR_Transaction_HIST;
+				set EX_Deduction_Code of table EX_PayrollChangesTrxDetail to \"\";
+				set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to \"\";
+				set EX_LocalTax_Code of table EX_PayrollChangesTrxDetail to \"\";
+			elseif'Payroll Record Type' of table UPR_Transaction_HIST = 2 then
+				set EX_Deduction_Code of table EX_PayrollChangesTrxDetail to 'Payroll Code' of table UPR_Transaction_HIST;
+				set EX_Pay_Code of table EX_PayrollChangesTrxDetail to \"\";
+				set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to \"\";
+				set EX_LocalTax_Code of table EX_PayrollChangesTrxDetail to \"\";
+			elseif'Payroll Record Type' of table UPR_Transaction_HIST = 3 then
+				set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to 'Payroll Code' of table UPR_Transaction_HIST;
+				set EX_Deduction_Code of table EX_PayrollChangesTrxDetail to \"\";
+				set EX_Pay_Code of table EX_PayrollChangesTrxDetail to \"\";
+				set EX_LocalTax_Code of table EX_PayrollChangesTrxDetail to \"\";
+			elseif'Payroll Record Type' of table UPR_Transaction_HIST = 5 then
+				set EX_LocalTax_Code of table EX_PayrollChangesTrxDetail to 'Payroll Code' of table UPR_Transaction_HIST;
+				set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to 'Payroll Code' of table UPR_Transaction_HIST;
+				set EX_Deduction_Code of table EX_PayrollChangesTrxDetail to \"\";
+				set EX_Pay_Code of table EX_PayrollChangesTrxDetail to \"\";
+			end if;
+			set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_Transaction_HIST;
+			set 'Employee Name' of table EX_PayrollChangesTrxDetail to Get_Employee_Name('Employee ID' of table UPR_Transaction_HIST);
+			set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 'Payroll Record Type' of table UPR_Transaction_HIST;
+			{set EX_Pay_Code of table EX_PayrollChangesTrxDetail to 'Payroll Code' of table UPR_Transaction_HIST;}
+			set EXHistCodeAmt of table EX_PayrollChangesTrxDetail to 'UPR TRX Amount' of table UPR_Transaction_HIST;
+			set 'Audit Control Code' of table EX_PayrollChangesTrxDetail to 'Audit Control Code' of table UPR_Transaction_HIST;
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 0;
+			set Diff of table EX_PayrollChangesTrxDetail to 'UPR TRX Amount' of table UPR_Transaction_HIST;
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to sysdate();
+			set 'Hist Check Date' of table EX_PayrollChangesTrxDetail to 'Check Date' of table UPR_Transaction_HIST;
+			set Department of table EX_PayrollChangesTrxDetail to Department of table UPR_Transaction_HIST; {add 09/26/2006}
+			set 'Job Title' of table EX_PayrollChangesTrxDetail to 'Job Title' of table UPR_Transaction_HIST; {add 09/26/2006}
+			
+			release table UPR_Check_HIST;
+			range clear table UPR_Check_HIST;
+			set 'Employee ID' of table UPR_Check_HIST to 'Employee ID' of table UPR_Transaction_HIST;
+			set 'Audit Control Code' of table UPR_Check_HIST to 'Audit Control Code' of table UPR_Transaction_HIST;
+			range start table UPR_Check_HIST by number 7;
+			range end table UPR_Check_HIST by number 7;
+			get first table UPR_Check_HIST by number 7;
+			if err() = OKAY then
+				set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 'Net Wages/Pay Run' of table UPR_Check_HIST;
+				set EX_NetDiff of table EX_PayrollChangesTrxDetail to 'Net Wages/Pay Run' of table UPR_Check_HIST;
+				set 'Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;
+			{else {Add this changeorder#1}
+				set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;
+				set EX_NetDiff of table EX_PayrollChangesTrxDetail to 0;
+				set 'Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;}
+			end if;
+			
+			
+			save table EX_PayrollChangesTrxDetail;
+		end if;	{05/31/2006}
+	
+	get next table UPR_Transaction_HIST;
+end while;
+
+release table UPR_Check_HIST;
+range clear table UPR_Check_HIST;
+
+get first table UPR_WORK_Pay_Type;
+while err() = OKAY do
+	if 'Total Pay' of table UPR_WORK_Pay_Type <> 0 then
+		set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;
+		release table EX_PayrollChangesTrxDetail;
+		range clear table EX_PayrollChangesTrxDetail;
+		set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Pay_Type;
+		set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 1;
+		set EX_Pay_Code of table EX_PayrollChangesTrxDetail to 'Pay Record' of table UPR_WORK_Pay_Type;
+		set Department of table EX_PayrollChangesTrxDetail to Department of table UPR_WORK_Pay_Type;
+		range start table EX_PayrollChangesTrxDetail by number 7;
+		range end table EX_PayrollChangesTrxDetail by number 7;
+		change first table EX_PayrollChangesTrxDetail by number 7;
+		if err() = OKAY then
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 
+				EX_CodeNetAmount of table EX_PayrollChangesTrxDetail +'Total Pay' of table UPR_WORK_Pay_Type; {change:08/09/05}
+			 {MEME: tried did not work...due to the line thinngy....}
+			{set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Pay' of table UPR_WORK_Pay_Type;} {change:08/09/05}	
+				
+			set Diff of table EX_PayrollChangesTrxDetail to (EX_CodeNetAmount of table EX_PayrollChangesTrxDetail -
+					EXHistCodeAmt of table EX_PayrollChangesTrxDetail);
+			save table EX_PayrollChangesTrxDetail;
+		else
+			set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Pay_Type;
+			set 'Employee Name' of table EX_PayrollChangesTrxDetail to Get_Employee_Name('Employee ID' of table UPR_WORK_Pay_Type);
+			set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 1;
+			set EX_Pay_Code of table EX_PayrollChangesTrxDetail to 'Pay Record' of table UPR_WORK_Pay_Type;
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Pay' of table UPR_WORK_Pay_Type;
+			set EXHistCodeAmt of table EX_PayrollChangesTrxDetail to 0;
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set 'Hist Check Date' of table EX_PayrollChangesTrxDetail to default_date;
+			set 'Audit Control Code' of table EX_PayrollChangesTrxDetail to \"\";
+			set Diff of table EX_PayrollChangesTrxDetail to 'Total Pay' of table UPR_WORK_Pay_Type;
+			set Department of table EX_PayrollChangesTrxDetail to Department of table UPR_WORK_Pay_Type; {09/26/2006}
+			set 'Job Title' of table EX_PayrollChangesTrxDetail to 'Job Title' of table UPR_WORK_Pay_Type; {add 09/26/2006}
+			set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;
+			set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to \"\";
+			
+			save table EX_PayrollChangesTrxDetail;
+		end if;
+	end if;
+	get next table UPR_WORK_Pay_Type;
+end while;
+
+get first table UPR_WORK_Deduction;
+while err() = OKAY do
+	if 'Total Deduction' of table UPR_WORK_Deduction <> 0 then
+		set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;
+		release table EX_PayrollChangesTrxDetail;
+		range clear table EX_PayrollChangesTrxDetail;
+		set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Deduction;
+		set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 2;
+		set EX_Deduction_Code of table EX_PayrollChangesTrxDetail to Deduction of table UPR_WORK_Deduction;
+		range start table EX_PayrollChangesTrxDetail by number 3;
+		range end table EX_PayrollChangesTrxDetail by number 3;
+		change first table EX_PayrollChangesTrxDetail by number 3;
+		if err() = OKAY then
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Deduction' of table UPR_WORK_Deduction;
+			set Diff of table EX_PayrollChangesTrxDetail to (EX_CodeNetAmount of table EX_PayrollChangesTrxDetail -
+					EXHistCodeAmt of table EX_PayrollChangesTrxDetail);
+			save table EX_PayrollChangesTrxDetail;
+		else
+			set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Deduction;
+			set 'Employee Name' of table EX_PayrollChangesTrxDetail to Get_Employee_Name('Employee ID' of table UPR_WORK_Deduction);
+			set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 2;
+			set EX_Deduction_Code of table EX_PayrollChangesTrxDetail to Deduction of table UPR_WORK_Deduction;
+			set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to \"\";{18th Jan 2006}
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Deduction' of table UPR_WORK_Deduction;
+			set EXHistCodeAmt of table EX_PayrollChangesTrxDetail to 0;
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set 'Hist Check Date' of table EX_PayrollChangesTrxDetail to default_date;
+			set 'Audit Control Code' of table EX_PayrollChangesTrxDetail to \"\";
+			set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;{mm}
+			set Diff of table EX_PayrollChangesTrxDetail to 'Total Deduction' of table UPR_WORK_Deduction;
+			set EX_NetDiff of table EX_PayrollChangesTrxDetail to 0; {mm}
+			save table EX_PayrollChangesTrxDetail;
+			
+		end if;
+	end if;
+	get next table UPR_WORK_Deduction;
+end while;
+
+get first table UPR_WORK_Benefit;
+while err() = OKAY do
+		
+
+	if 'Total Benefit' of table UPR_WORK_Benefit <> 0 then
+		release table EX_PayrollChangesTrxDetail;
+		range clear table EX_PayrollChangesTrxDetail;
+		set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Benefit;
+		set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 3;
+		set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to Benefit of table UPR_WORK_Benefit;
+		range start table EX_PayrollChangesTrxDetail by number 4;
+		range end table EX_PayrollChangesTrxDetail by number 4;
+		change first table EX_PayrollChangesTrxDetail by number 4;
+		if err() = OKAY then
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Benefit' of table UPR_WORK_Benefit;
+			set Diff of table EX_PayrollChangesTrxDetail to (EX_CodeNetAmount of table EX_PayrollChangesTrxDetail -
+					EXHistCodeAmt of table EX_PayrollChangesTrxDetail);
+			save table EX_PayrollChangesTrxDetail;
+		else
+			set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Benefit;
+			set 'Employee Name' of table EX_PayrollChangesTrxDetail to Get_Employee_Name('Employee ID' of table UPR_WORK_Benefit);
+			set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 3;
+			set EX_Benefit_Code of table EX_PayrollChangesTrxDetail to Benefit of table UPR_WORK_Benefit;
+			set EX_Deduction_Code of table EX_PayrollChangesTrxDetail to \"\";{18th Jan 2006}
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Benefit' of table UPR_WORK_Benefit;
+			set EXHistCodeAmt of table EX_PayrollChangesTrxDetail to 0;
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set 'Hist Check Date' of table EX_PayrollChangesTrxDetail to default_date;
+			set 'Audit Control Code' of table EX_PayrollChangesTrxDetail to \"\";
+			set Diff of table EX_PayrollChangesTrxDetail to 'Total Benefit' of table UPR_WORK_Benefit;
+			set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;{mm}
+			set EX_NetDiff of table EX_PayrollChangesTrxDetail to 0; {mm}
+			save table EX_PayrollChangesTrxDetail;
+		end if;
+	end if;
+	get next table UPR_WORK_Benefit;
+end while;
+
+{
+get first table UPR_WORK_Local_Tax;
+while err() = OKAY do
+	if 'Total Local Tax' of table UPR_WORK_Local_Tax <> 0 then
+		release table EX_PayrollChangesTrxDetail;
+		range clear table EX_PayrollChangesTrxDetail;
+		set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Local_Tax;
+		set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 5;
+		set EX_LocalTax_Code of table EX_PayrollChangesTrxDetail to 'Local Tax' of table UPR_WORK_Local_Tax;
+		range start table EX_PayrollChangesTrxDetail by number 5;
+		range end table EX_PayrollChangesTrxDetail by number 5;
+		change first table EX_PayrollChangesTrxDetail by number 5;
+		if err() = OKAY then
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Local Tax' of table UPR_WORK_Local_Tax;
+			set Diff of table EX_PayrollChangesTrxDetail to (EX_CodeNetAmount of table EX_PayrollChangesTrxDetail -
+					EXHistCodeAmt of table EX_PayrollChangesTrxDetail);
+			save table EX_PayrollChangesTrxDetail;
+		else
+			set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Local_Tax;
+			set 'Employee Name' of table EX_PayrollChangesTrxDetail to Get_Employee_Name('Employee ID' of table UPR_WORK_Local_Tax);
+			set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 5;
+			set EX_LocalTax_Code of table EX_PayrollChangesTrxDetail to 'Local Tax' of table UPR_WORK_Local_Tax;
+			set EX_CodeNetAmount of table EX_PayrollChangesTrxDetail to 'Total Local Tax' of table UPR_WORK_Local_Tax;
+			set EXHistCodeAmt of table EX_PayrollChangesTrxDetail to 0;
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set 'Hist Check Date' of table EX_PayrollChangesTrxDetail to default_date;
+			set 'Audit Control Code' of table EX_PayrollChangesTrxDetail to \"\";
+			set Diff of table EX_PayrollChangesTrxDetail to 'Total Local Tax' of table UPR_WORK_Local_Tax;
+			set 'Check Date' of table EX_PayrollChangesTrxDetail to lcurrentcheckdate;
+			set 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 0;
+			set EX_NetDiff of table EX_PayrollChangesTrxDetail to 0; {mm}
+			save table EX_PayrollChangesTrxDetail;
+		end if;
+	end if;
+	get next table UPR_WORK_Local_Tax;
+end while;
+}
+
+{original script}
+get first table UPR_WORK_Check;
+while err() = OKAY do
+	oWorkCheckDate = 'Check Date' of table UPR_WORK_Check;
+	release table EX_PayrollChangesTrxDetail;
+	range clear table EX_PayrollChangesTrxDetail;
+	set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Check;
+	clear 'Payroll Record Type' of table EX_PayrollChangesTrxDetail;
+	range start table EX_PayrollChangesTrxDetail;
+	fill 'Payroll Record Type' of table EX_PayrollChangesTrxDetail;
+	range end table EX_PayrollChangesTrxDetail;
+	change first table EX_PayrollChangesTrxDetail;
+	
+	while err() = OKAY do
+		set 'Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+		{set EX_NetDiff of table EX_PayrollChangesTrxDetail to 'Net Wages/Pay Run' of table UPR_WORK_Check - 
+		'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail;}
+		save table EX_PayrollChangesTrxDetail;
+		change next table EX_PayrollChangesTrxDetail;
+	end while;
+	get next table UPR_WORK_Check;
+end while;
+
+{release the tables}
+release table UPR_WORK_Check;
+range clear table UPR_WORK_Check;
+
+release table EX_PayrollChangesTrxDetail;
+range clear table EX_PayrollChangesTrxDetail;
+
+{run the this again to calculate the diff right}
+get first table UPR_WORK_Check;
+while err() = OKAY do
+	oWorkCheckDate = 'Check Date' of table UPR_WORK_Check;
+	release table EX_PayrollChangesTrxDetail;
+	range clear table EX_PayrollChangesTrxDetail;
+	set 'Employee ID' of table EX_PayrollChangesTrxDetail to 'Employee ID' of table UPR_WORK_Check;
+	{set 'Payroll Record Type' of table EX_PayrollChangesTrxDetail to 1;}
+	clear 'Payroll Record Type' of table EX_PayrollChangesTrxDetail;
+	range start table EX_PayrollChangesTrxDetail;
+	fill 'Payroll Record Type' of table EX_PayrollChangesTrxDetail;
+	range end table EX_PayrollChangesTrxDetail;
+	change first table EX_PayrollChangesTrxDetail;
+	
+	while err() = OKAY do
+		
+		if 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail <> 0 then
+			TemptNetWages = 'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail;
+		elseif 	'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail = 0 then
+			'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail = TemptNetWages;
+		end if;
+	
+		set 'Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+		set EX_NetDiff of table EX_PayrollChangesTrxDetail to 'Net Wages/Pay Run' of table UPR_WORK_Check - 
+		'Historical Net Wages/Pay Run' of table EX_PayrollChangesTrxDetail;
+				
+		save table EX_PayrollChangesTrxDetail;
+		
+		change next table EX_PayrollChangesTrxDetail;
+	end while;
+	TemptNetWages = 0;
+	get next table UPR_WORK_Check;
+end while;
+
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

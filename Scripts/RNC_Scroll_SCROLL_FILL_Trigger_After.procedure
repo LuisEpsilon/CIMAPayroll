@@ -1,0 +1,42 @@
+Procedure	"RNC_Scroll_SCROLL_FILL_Trigger_After"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"local	string sTable;
+{}
+{debug 'Employee ID' of window ddEmpEntry of form ddEmpEntry;}
+
+release table RNC_ddEmpAcctMstr_TMP;
+get first table RNC_ddEmpAcctMstr_TMP;
+sTable = Table_GetOSName(table RNC_ddEmpAcctMstr_TMP);
+
+
+clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+set 'Employee ID' of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+set IndexLong of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to IndexLong of table ddEmpLineTemp;
+get table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+if err() = OKAY then
+	set RNC_DD_CheckBox of window Scroll of form ddEmpEntry to 
+		RNC_DD_CheckBox of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+else
+	clear RNC_DD_CheckBox of window Scroll of form ddEmpEntry;
+end if;
+
+
+clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong of table ddEmpLineTemp;
+get table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+if err() = OKAY then
+	set 'Bank ID' of window Scroll of form ddEmpEntry to 
+		'Bank ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+else
+	clear 'Bank ID' of window Scroll of form ddEmpEntry;
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

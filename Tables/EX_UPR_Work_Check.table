@@ -1,0 +1,802 @@
+Table	"EX_UPR_Work_Check"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"Metrics Payroll Work Check"
+	FourByteHeader	"true"
+	PhysicalName	"EXUPR10208"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Amount in Words"		
+		{
+			Encrypt	"false"
+			Field	"Amount in Words"
+			Position	"62"
+		}
+		TableField	"Benefit Amount Array"		
+		{
+			Encrypt	"false"
+			Field	"Benefit Amount Array"
+			Position	"24"
+		}
+		TableField	"Business Expense Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Business Expense Earnings"
+			Position	"41"
+		}
+		TableField	"Charged Tips Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Charged Tips Earnings"
+			Position	"52"
+		}
+		TableField	"Check Date"		
+		{
+			Encrypt	"false"
+			Field	"Check Date"
+			Position	"8"
+		}
+		TableField	"Check Number"		
+		{
+			Encrypt	"false"
+			Field	"Check Number"
+			Position	"9"
+		}
+		TableField	"Commission Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Commission Earnings"
+			Position	"40"
+		}
+		TableField	"Deduction Amount Array"		
+		{
+			Encrypt	"false"
+			Field	"Deduction Amount Array"
+			Position	"23"
+		}
+		TableField	"Department"		
+		{
+			Encrypt	"false"
+			Field	"Department"
+			Position	"11"
+		}
+		TableField	"Double Time Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Double Time Earnings"
+			Position	"38"
+		}
+		TableField	"Double Time Hours"		
+		{
+			Encrypt	"false"
+			Field	"Double Time Hours"
+			Position	"37"
+		}
+		TableField	"EIC Earnings"		
+		{
+			Encrypt	"false"
+			Field	"EIC Earnings"
+			Position	"39"
+		}
+		TableField	"Employee Class"		
+		{
+			Encrypt	"false"
+			Field	"Employee Class"
+			Position	"12"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"3"
+		}
+		TableField	"Employee Name"		
+		{
+			Encrypt	"false"
+			Field	"Employee Name"
+			Position	"4"
+		}
+		TableField	"End Pay Period"		
+		{
+			Encrypt	"false"
+			Field	"End Pay Period"
+			Position	"58"
+		}
+		TableField	"FICA/Medicare Withholding/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"FICA/Medicare Withholding/Pay Run"
+			Position	"19"
+		}
+		TableField	"FICA/Social Security Withholding/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"FICA/Social Security Withholding/Pay Run"
+			Position	"18"
+		}
+		TableField	"Federal Withholding/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Federal Withholding/Pay Run"
+			Position	"20"
+		}
+		TableField	"First Name"		
+		{
+			Encrypt	"false"
+			Field	"First Name"
+			Position	"6"
+		}
+		TableField	"Gross Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Gross Wages/Pay Run"
+			Position	"32"
+		}
+		TableField	"Holiday Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Holiday Earnings"
+			Position	"44"
+		}
+		TableField	"Holiday Hours"		
+		{
+			Encrypt	"false"
+			Field	"Holiday Hours"
+			Position	"43"
+		}
+		TableField	"Last Name"		
+		{
+			Encrypt	"false"
+			Field	"Last Name"
+			Position	"5"
+		}
+		TableField	"Local Tax Withholding Array"		
+		{
+			Encrypt	"false"
+			Field	"Local Tax Withholding Array"
+			Position	"22"
+		}
+		TableField	"Middle Name"		
+		{
+			Encrypt	"false"
+			Field	"Middle Name"
+			Position	"7"
+		}
+		TableField	"Min Wage Bal Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Min Wage Bal Earnings"
+			Position	"54"
+		}
+		TableField	"Net Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Net Wages/Pay Run"
+			Position	"31"
+		}
+		TableField	"Overtime Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Overtime Earnings"
+			Position	"36"
+		}
+		TableField	"Overtime Hours"		
+		{
+			Encrypt	"false"
+			Field	"Overtime Hours"
+			Position	"35"
+		}
+		TableField	"Pay Earnings Array"		
+		{
+			Encrypt	"false"
+			Field	"Pay Earnings Array"
+			Position	"16"
+		}
+		TableField	"Pay Hours Array"		
+		{
+			Encrypt	"false"
+			Field	"Pay Hours Array"
+			Position	"15"
+		}
+		TableField	"Pay Rate Array"		
+		{
+			Encrypt	"false"
+			Field	"Pay Rate Array"
+			Position	"14"
+		}
+		TableField	"Payment/Adjustment Number"		
+		{
+			Encrypt	"false"
+			Field	"Payment/Adjustment Number"
+			Position	"10"
+		}
+		TableField	"Pension Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Pension Earnings"
+			Position	"42"
+		}
+		TableField	"Piecework Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Piecework Earnings"
+			Position	"50"
+		}
+		TableField	"Piecework Units"		
+		{
+			Encrypt	"false"
+			Field	"Piecework Units"
+			Position	"49"
+		}
+		TableField	"Printed"		
+		{
+			Encrypt	"false"
+			Field	"Printed"
+			Position	"0"
+		}
+		TableField	"Reason Check Voided"		
+		{
+			Encrypt	"false"
+			Field	"Reason Check Voided"
+			Position	"61"
+		}
+		TableField	"Regular Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Regular Earnings"
+			Position	"34"
+		}
+		TableField	"Regular Hours"		
+		{
+			Encrypt	"false"
+			Field	"Regular Hours"
+			Position	"33"
+		}
+		TableField	"Reported Tips Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Reported Tips Earnings"
+			Position	"53"
+		}
+		TableField	"Sick Time Available"		
+		{
+			Encrypt	"false"
+			Field	"Sick Time Available"
+			Position	"56"
+		}
+		TableField	"Sick Time Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Sick Time Earnings"
+			Position	"48"
+		}
+		TableField	"Sick Time Hours"		
+		{
+			Encrypt	"false"
+			Field	"Sick Time Hours"
+			Position	"47"
+		}
+		TableField	"Social Security Number"		
+		{
+			Encrypt	"false"
+			Field	"Social Security Number"
+			Position	"13"
+		}
+		TableField	"Special Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Special Earnings"
+			Position	"51"
+		}
+		TableField	"Start Pay Period"		
+		{
+			Encrypt	"false"
+			Field	"Start Pay Period"
+			Position	"57"
+		}
+		TableField	"State Tax Withholding Array"		
+		{
+			Encrypt	"false"
+			Field	"State Tax Withholding Array"
+			Position	"21"
+		}
+		TableField	"Time Available Array"		
+		{
+			Encrypt	"false"
+			Field	"Time Available Array"
+			Position	"25"
+		}
+		TableField	"Total Benefits"		
+		{
+			Encrypt	"false"
+			Field	"Total Benefits"
+			Position	"30"
+		}
+		TableField	"Total Deductions"		
+		{
+			Encrypt	"false"
+			Field	"Total Deductions"
+			Position	"29"
+		}
+		TableField	"Total Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Total Earnings"
+			Position	"27"
+		}
+		TableField	"Total FICA Tax Withheld"		
+		{
+			Encrypt	"false"
+			Field	"Total FICA Tax Withheld"
+			Position	"17"
+		}
+		TableField	"Total Hours"		
+		{
+			Encrypt	"false"
+			Field	"Total Hours"
+			Position	"26"
+		}
+		TableField	"Total Taxes"		
+		{
+			Encrypt	"false"
+			Field	"Total Taxes"
+			Position	"28"
+		}
+		TableField	"Uncollected FICA/Med Tax/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Uncollected FICA/Med Tax/Pay Run"
+			Position	"59"
+		}
+		TableField	"Uncollected FICA/SS Tax/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Uncollected FICA/SS Tax/Pay Run"
+			Position	"60"
+		}
+		TableField	"User ID"		
+		{
+			Encrypt	"false"
+			Field	"User ID"
+			Position	"2"
+		}
+		TableField	"Vacation Available"		
+		{
+			Encrypt	"false"
+			Field	"Vacation Available"
+			Position	"55"
+		}
+		TableField	"Vacation Earnings"		
+		{
+			Encrypt	"false"
+			Field	"Vacation Earnings"
+			Position	"46"
+		}
+		TableField	"Vacation Hours"		
+		{
+			Encrypt	"false"
+			Field	"Vacation Hours"
+			Position	"45"
+		}
+		TableField	"Voided"		
+		{
+			Encrypt	"false"
+			Field	"Voided"
+			Position	"1"
+		}
+	}
+	~Keys
+	{
+		Key	"UPR_WORK_Check_Key111"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Payment/Adjustment Number"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"3"
+				}
+				KeySegment	"Printed"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"UPR_WORK_Check_Key311"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"1"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Employee Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Printed"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"UPR_WORK_Check_Key411"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"2"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Department"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"First Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"4"
+				}
+				KeySegment	"Last Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"3"
+				}
+				KeySegment	"Printed"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"UPR_WORK_Check_Key511"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"4"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Employee Class"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"First Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"4"
+				}
+				KeySegment	"Last Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"3"
+				}
+				KeySegment	"Printed"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"UPR_WORK_Check_Key611"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"3"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Check Number"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Printed"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"UPR_WORK_Check_Key711"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"5"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"First Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"3"
+				}
+				KeySegment	"Last Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Middle Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"4"
+				}
+				KeySegment	"Printed"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"EX_ddDeposits"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"User ID"
+				}
+				RelationshipField	"00001"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; ddDepositsIdxEmpID11"
+			RelatedTable	"EX_ddDeposits"
+			RelationshipType	"OneToOne"
+		}
+		Relationship	"EX_uprWorkChkDesc"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"User ID"
+				}
+				RelationshipField	"00001"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; uprWorkChkDescIdxEmpID11"
+			RelatedTable	"EX_uprWorkChkDesc"
+			RelationshipType	"OneToOne"
+		}
+		Relationship	"EX_uprWorkChkYTD"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"User ID"
+				}
+				RelationshipField	"00001"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; uprWorkChkYTDIdxEmpID11"
+			RelatedTable	"EX_uprWorkChkYTD"
+			RelationshipType	"OneToOne"
+		}
+		Relationship	"UPR_MSTR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; UPR_MSTR_Key1"
+			RelatedTable	"UPR_MSTR"
+			RelationshipType	"OneToOne"
+		}
+	}
+}

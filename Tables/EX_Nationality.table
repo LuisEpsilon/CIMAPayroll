@@ -1,0 +1,79 @@
+Table	"EX_Nationality"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"EX_Nationality"
+	FourByteHeader	"true"
+	PhysicalName	"EX90000"
+	Restriction	""
+	Series	"System"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Country"		
+		{
+			Encrypt	"false"
+			Field	"Country"
+			Position	"1"
+		}
+		TableField	"EX_Country_ISO2"		
+		{
+			Encrypt	"false"
+			Field	"EX_Country_ISO2"
+			Position	"3"
+		}
+		TableField	"EX_Country_ISO3"		
+		{
+			Encrypt	"false"
+			Field	"EX_Country_ISO3"
+			Position	"2"
+		}
+		TableField	"EX_Nationality"		
+		{
+			Encrypt	"false"
+			Field	"EX_Nationality"
+			Position	"0"
+		}
+		TableField	"EX_Old_Country"		
+		{
+			Encrypt	"false"
+			Field	"EX_Old_Country"
+			Position	"4"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_Nationality_Key11"		
+		{
+			Clustered	"true"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"EX_Nationality"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

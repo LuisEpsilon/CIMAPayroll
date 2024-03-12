@@ -1,0 +1,168 @@
+Datatype	"EX_Caymanian_Flag"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Caymanian"
+		}
+	}
+}
+Datatype	"EX_DDL_Reason"
+{
+	Control	"DropDownList"
+	Sort	"false"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Voluntary"
+		}
+		TextItem	"00002"		
+		{
+			Item	"Retired/Died"
+		}
+		TextItem	"00003"		
+		{
+			Item	"Redundant"
+		}
+		TextItem	"00004"		
+		{
+			Item	"Dismissed"
+		}
+		TextItem	"00005"		
+		{
+			Item	"Non-renewal of Work Permit"
+		}
+	}
+}
+Datatype	"EX_MarriedToCaymanian_Flag"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Married to a Caymanian"
+		}
+	}
+}
+Datatype	"Ex_Mrd_to_CaymanianWERC"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Married to a Caymanian w/ERC"
+		}
+	}
+}
+Datatype	"EX_Perm_Res_WERC"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Permanent Resident w/ERC"
+		}
+	}
+}
+Datatype	"EX_Permit_Type"
+{
+	AllowOddLength	"false"
+	Control	"ComboBox"
+	KeyableLength	"52"
+	Sort	"true"
+	StorageLength	"54"
+	~StaticItems
+	{
+	}
+}
+Datatype	"EX_PR_Skip"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Skip Employee"
+		}
+	}
+}
+Datatype	"EX_WP_Contractor"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Contractor"
+		}
+	}
+}
+Datatype	"EX_WP_Exempted"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Exempted"
+		}
+	}
+}
+Datatype	"EX_WP_Holder_Flag"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Work Permit Holder"
+		}
+	}
+}
+Datatype	"EX_WP_Perm_Res"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Permanent Resident"
+		}
+	}
+}
+Datatype	"EX exclude bank from ACH"
+{
+	Control	"CheckBox"
+	StaticType	"Text"
+	~StaticItems
+	{
+		TextItem	"00001"		
+		{
+			Item	"Exclude From ACH File"
+		}
+	}
+}
+Datatype	"STR15_Employee_ID_I"
+{
+	AllowOddLength	"false"
+	Control	"String"
+	Format	"STR_LBU"
+	KeyableLength	"15"
+	StorageLength	"16"
+}

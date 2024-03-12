@@ -1,0 +1,36 @@
+Function	"Execute_SQL_RetInt"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{Execute_SQL_RetInt}
+
+function returns integer		IO_Integer;
+
+inout	text		IO_sql;
+
+local	long		lSQLConnection,l_SQL_Return_Status;
+local 	integer		nStatus, li_ret;
+local 	boolean		fstatus;
+local	string		sDatabase;
+
+debug IO_sql;
+
+IO_sql = \"USE \" + 'Intercompany ID' of globals  + char(13) + IO_sql;
+
+set nStatus to SQL_Connect(lSQLConnection);
+if nStatus <> OKAY then	
+	call Warning_Dialog, 36058, \"\", \"\", \"\";	
+	abort script;
+end if;
+set sDatabase to SQL_GetDbName('Company ID' of globals, 0, 1, 0, fstatus);
+set l_SQL_Return_Status to SQL_Execute(lSQLConnection,IO_sql);
+if l_SQL_Return_Status = 0 then
+	l_SQL_Return_Status = SQL_FetchNext(lSQLConnection);
+	l_SQL_Return_Status = SQL_GetData(lSQLConnection,1,li_ret);
+end if;
+
+l_SQL_Return_Status = SQL_Terminate(lSQLConnection);
+
+IO_Integer = li_ret;"
+	UserProperties	""
+}

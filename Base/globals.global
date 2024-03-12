@@ -1,0 +1,24 @@
+= SystemVariableList	"Globals"
+{
+	SystemVariables
+	{
+		- SystemVariable	"SQLConnectStatus"
+		- SystemVariable	"SQLConnectionPassThru"
+		- SystemVariable	"SyPwdUser"
+		= SystemVariable	"TaxValueCheck"
+		{
+			Position	"00360"
+		}
+		- SystemVariable	"TemplatePrnName"
+		SystemVariable	"Trigger_Count"		
+		{
+			Field	"Trigger_Count"
+			Position	"00361"
+		}
+		SystemVariable	"Trigger_List"		
+		{
+			Field	"Trigger_List"
+			Position	"00362"
+		}
+	}
+}

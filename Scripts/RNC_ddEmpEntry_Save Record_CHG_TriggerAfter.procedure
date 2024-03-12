@@ -1,0 +1,40 @@
+Procedure	"RNC_ddEmpEntry_Save Record_CHG_TriggerAfter"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"local integer nCountRecs;
+
+if 'Save Record' of window ddEmpEntry of form ddEmpEntry then
+	set 'Employee ID' of table RNC_ddEmpAcctMstr_EXT to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+	clear IndexLong of table RNC_ddEmpAcctMstr_EXT;
+	range start table RNC_ddEmpAcctMstr_EXT;
+	fill IndexLong of table RNC_ddEmpAcctMstr_EXT;
+	range end table RNC_ddEmpAcctMstr_EXT;
+	remove range table RNC_ddEmpAcctMstr_EXT;
+	range clear table RNC_ddEmpAcctMstr_EXT;
+	
+	get first table ddEmpLineTemp;
+	while err() = OKAY do
+		set nCountRecs to nCountRecs + 1;
+		
+		clear table RNC_ddEmpAcctMstr_TMP;
+		set 'Employee ID' of table RNC_ddEmpAcctMstr_TMP to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set IndexLong of table RNC_ddEmpAcctMstr_TMP to IndexLong  of table ddEmpLineTemp;
+		get table RNC_ddEmpAcctMstr_TMP;
+		
+		copy from table RNC_ddEmpAcctMstr_TMP to table RNC_ddEmpAcctMstr_EXT;
+		set 'Employee ID' of table RNC_ddEmpAcctMstr_EXT to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set IndexLong of table RNC_ddEmpAcctMstr_EXT to nCountRecs;
+		
+		save table RNC_ddEmpAcctMstr_EXT;
+		
+		get next table ddEmpLineTemp;
+	end while;
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

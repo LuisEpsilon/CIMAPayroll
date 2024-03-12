@@ -1,0 +1,189 @@
+Form	"EX_DD_Bank_Reports"
+{
+	Commands
+	{
+	}
+	ConfigurableMenus	"false"
+	Constants
+	{
+	}
+	Datatypes
+	{
+	}
+	EventPost	""
+	EventPre	""
+	Fields
+	{
+	}
+	Menus
+	{
+	}
+	Series	"Payroll"
+	Tables
+	{
+	}
+	Windows
+	{
+		Window	"EX_DD_Bank_Reports"		
+		{
+			AutoLinkTable	""
+			AutoOpen	"true"
+			BackGround	"true"
+			CloseBox	"true"
+			ControlArea	"true"
+			DisplayName	"Print Bank Reports"
+			EventActivate	""
+			EventContextMenu	""
+			EventPost	""
+			EventPre	""
+			EventPrint	""
+			Fields
+			{
+				WindowLine	"1"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"0"
+					PositionTop	"24"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"0"
+					SizeWidth	"448"
+					ZOrder	"0"
+				}
+				WindowLine	"6"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"72"
+					PositionTop	"1"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"0"
+					ZOrder	"2"
+				}
+				WindowLine	"9"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"146"
+					PositionTop	"2"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"0"
+					ZOrder	"4"
+				}
+				WindowControl	"Cancel Button"				
+				{
+					Alignment	"center"
+					Appearance	"3D Highlight"
+					BackColor	"Transparent"
+					Border	"true"
+					ButtonStyle	"TextOnRight"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Cancel Button"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"74"
+					PositionTop	"0"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"24"
+					SizeWidth	"72"
+					TabStop	"true"
+					Tag	"8"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"3"
+					Zoom	"false"
+				}
+				WindowControl	"Print Button NONE"				
+				{
+					Alignment	"center"
+					Appearance	"3D Highlight"
+					BackColor	"Transparent"
+					Border	"true"
+					ButtonStyle	"TextOnRight"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Print Button NONE"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"0"
+					PositionTop	"0"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"24"
+					SizeWidth	"72"
+					TabStop	"true"
+					Tag	"5"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"1"
+					Zoom	"false"
+				}
+			}
+			LastTag	"9"
+			Position	"1"
+			PositionLeft	"1"
+			PositionTop	"1"
+			Resizable	"true"
+			SizeHeight	"338"
+			SizeWidth	"424"
+			WindowType	"Primary"
+		}
+	}
+	~EventScripts
+	{
+	}
+	~Functions
+	{
+	}
+	~Procedures
+	{
+	}
+}

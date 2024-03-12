@@ -1,0 +1,130 @@
+Table	"EX_uprWorkChkDesc"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"Metrics Payroll Check Descriptions"
+	FourByteHeader	"true"
+	PhysicalName	"EXUPR10213"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Benefit Code Array"		
+		{
+			Encrypt	"false"
+			Field	"Benefit Code Array"
+			Position	"7"
+		}
+		TableField	"Benefit Description Array"		
+		{
+			Encrypt	"false"
+			Field	"Benefit Description Array"
+			Position	"3"
+		}
+		TableField	"Deduction Code Array"		
+		{
+			Encrypt	"false"
+			Field	"Deduction Code Array"
+			Position	"6"
+		}
+		TableField	"Deduction Description Array"		
+		{
+			Encrypt	"false"
+			Field	"Deduction Description Array"
+			Position	"2"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"Local Tax Array"		
+		{
+			Encrypt	"false"
+			Field	"Local Tax Array"
+			Position	"10"
+		}
+		TableField	"Pay Code Array"		
+		{
+			Encrypt	"false"
+			Field	"Pay Code Array"
+			Position	"5"
+		}
+		TableField	"Pay Code Description Array"		
+		{
+			Encrypt	"false"
+			Field	"Pay Code Description Array"
+			Position	"1"
+		}
+		TableField	"State Tax Array"		
+		{
+			Encrypt	"false"
+			Field	"State Tax Array"
+			Position	"9"
+		}
+		TableField	"Time Code Array"		
+		{
+			Encrypt	"false"
+			Field	"Time Code Array"
+			Position	"8"
+		}
+		TableField	"Time Code Description Array"		
+		{
+			Encrypt	"false"
+			Field	"Time Code Description Array"
+			Position	"4"
+		}
+		TableField	"User ID"		
+		{
+			Encrypt	"false"
+			Field	"User ID"
+			Position	"11"
+		}
+	}
+	~Keys
+	{
+		Key	"uprWorkChkDescIdxEmpID11"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

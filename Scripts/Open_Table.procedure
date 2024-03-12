@@ -1,0 +1,17 @@
+Procedure	"Open_Table"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"inout	anonymous	table	IN_Table;
+
+
+close table IN_Table;
+open table IN_Table;
+close table IN_Table;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,55 @@
+Table	"EX_PR_Skip_Temp"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"EX PR Skip Employees Temp"
+	FourByteHeader	"true"
+	PhysicalName	"EXTPR001"
+	Restriction	""
+	Series	"Sales"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+	}
+	~Keys
+	{
+		Key	"EXTPR001_Key111"		
+		{
+			Clustered	"true"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

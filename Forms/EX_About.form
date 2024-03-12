@@ -1,0 +1,626 @@
+Form	"EX_About"
+{
+	Commands
+	{
+	}
+	ConfigurableMenus	"false"
+	Constants
+	{
+	}
+	Datatypes
+	{
+		Datatype	"Product"		
+		{
+			AllowOddLength	"false"
+			Control	"String"
+			Format	""
+			KeyableLength	"30"
+			StorageLength	"32"
+		}
+		Datatype	"Released"		
+		{
+			AllowOddLength	"false"
+			Control	"String"
+			Format	""
+			KeyableLength	"30"
+			StorageLength	"32"
+		}
+		Datatype	"Version"		
+		{
+			AllowOddLength	"false"
+			Control	"String"
+			Format	""
+			KeyableLength	"30"
+			StorageLength	"32"
+		}
+		Datatype	"cust"		
+		{
+			AllowOddLength	"false"
+			Control	"String"
+			Format	""
+			KeyableLength	"50"
+			StorageLength	"52"
+		}
+	}
+	EventPost	""
+	EventPre	""
+	Fields
+	{
+		Field	"Product"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) Product"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"Released"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) Released"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"Version"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) Version"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"cust"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) cust"
+			LookupForm	""
+			PhysicalName	""
+		}
+	}
+	Menus
+	{
+	}
+	Series	"Company"
+	Tables
+	{
+	}
+	Windows
+	{
+		Window	"EX_About"		
+		{
+			AutoLinkTable	""
+			AutoOpen	"true"
+			BackGround	"true"
+			CloseBox	"true"
+			ControlArea	"true"
+			DisplayName	"About - Epsilon"
+			EventActivate	""
+			EventContextMenu	""
+			EventPost	""
+			EventPre	"EX_About_WIN_PRE"
+			EventPrint	""
+			Fields
+			{
+				WindowControl	"(L) Product"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) Product"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"260"
+					PositionTop	"73"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"192"
+					TabStop	"true"
+					Tag	"7"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"4"
+					Zoom	"false"
+				}
+				WindowControl	"(L) Released"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) Released"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"260"
+					PositionTop	"111"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"192"
+					TabStop	"true"
+					Tag	"8"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"5"
+					Zoom	"false"
+				}
+				WindowControl	"(L) Version"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) Version"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"260"
+					PositionTop	"92"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"192"
+					TabStop	"true"
+					Tag	"9"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"6"
+					Zoom	"false"
+				}
+				WindowControl	"(L) cust"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"false"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) cust"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"260"
+					PositionTop	"54"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"304"
+					TabStop	"true"
+					Tag	"6"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"3"
+					Zoom	"false"
+				}
+				WindowPrompt	"10"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"164"
+					PositionTop	"54"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					Text	"Custormer"
+					Visible	"true"
+					ZOrder	"7"
+					Zoom	"false"
+				}
+				WindowPrompt	"11"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"164"
+					PositionTop	"73"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					Text	"Module"
+					Visible	"true"
+					ZOrder	"8"
+					Zoom	"false"
+				}
+				WindowPrompt	"12"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"164"
+					PositionTop	"92"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					Text	"Version"
+					Visible	"true"
+					ZOrder	"9"
+					Zoom	"false"
+				}
+				WindowPrompt	"13"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"164"
+					PositionTop	"111"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					Text	"Release Date"
+					Visible	"true"
+					ZOrder	"10"
+					Zoom	"false"
+				}
+				WindowPrompt	"17"				
+				{
+					Alignment	"left"
+					Appearance	"3D Highlight"
+					BackColor	"System - Button Face"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"164"
+					PositionTop	"130"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"96"
+					Text	"Dynamics GP Ver"
+					Visible	"true"
+					ZOrder	"11"
+					Zoom	"false"
+				}
+				WindowLine	"2"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"0"
+					PositionTop	"24"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"0"
+					SizeWidth	"577"
+					ZOrder	"0"
+				}
+				WindowLine	"4"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"73"
+					PositionTop	"2"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"0"
+					ZOrder	"2"
+				}
+				WindowControl	"OK Button"				
+				{
+					Alignment	"center"
+					Appearance	"3D Highlight"
+					BackColor	"System - Toolbar"
+					Border	"true"
+					ButtonStyle	"TextOnRight"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"EX_About OK Button_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"OK Button"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"0"
+					PositionTop	"0"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"24"
+					SizeWidth	"72"
+					TabStop	"true"
+					Tag	"3"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"1"
+					Zoom	"false"
+				}
+				WindowControl	"VersionNumber"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"false"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"VersionNumber"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"260"
+					PositionTop	"130"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"128"
+					TabStop	"true"
+					Tag	"22"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"12"
+					Zoom	"false"
+				}
+			}
+			LastTag	"22"
+			Position	"1"
+			PositionLeft	"1"
+			PositionTop	"1"
+			Resizable	"true"
+			SizeHeight	"197"
+			SizeWidth	"578"
+			WindowType	"Primary"
+		}
+	}
+	~EventScripts
+	{
+		EventScript	"EX_About OK Button_CHG"		
+		{
+			Documentation	""
+			Script	"call EX_Create_Table, \"EX_Employee_MSTR\",false;
+		call EX_Create_Table, \"EX_DD_Banks\",false;
+		call EX_Create_Table, \"EX_PR_Skip_Temp\",false;
+		call EX_Create_Table, \"EX_WORK_Post\",false;      
+		call EX_Create_Table, \"EX_PayrollChangesTrxDetail\",false;  
+		call EX_Create_Table, \"EX_PayrollChangesTrxDetailExcpt\",false;  
+		
+close form EX_About;"
+			UserProperties	""
+		}
+		EventScript	"EX_About_WIN_PRE"		
+		{
+			Documentation	""
+			Script	"'(L) Version' = \"3.20.13\";
+'(L) Released' = \"April 18th 2023\";
+'(L) Product' 	= \"Epsilon ltd. - HR and PR CIMA Modifications\";
+'(L) cust'		= \"The Cayman Islands Monetary Authority\";
+VersionNumber	= \"Dynamics GP 2018.2\";
+{
+Product info:
+
+Product number: 5090
+
+Dic:			5090.DIC
+Reports:		5090R.DIC
+Forms:			5090F.DIC
+
+}
+
+{
+
+Modifed Forms:
+	UPR_Employee_MNT
+	UPR_Employee_MNT_Benefit
+	UPR_Employee_MNT_Deduction
+	ddEmpEntry
+	UPR_Employee_MNT_Pay_Type
+	UPR_Print_Checks
+
+Modifed Reports:
+	Direct Deposit Trxs Register
+
+
+Version Information:
+
+Released by					Date				Version					Comments
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+James McGarvey				02/07/2013			0.01					Released for testing into the CIMA test enviroment
+James McGarvey				08/08/2013			1.0	a					Release candidate
+James McGarvey				12/08/2013			1.0						Released
+James McGarvey				20/08/2013			1.2						Fixed issues with Differences Report
+AJR                         06/04/2017          1.3                     Upgrade to 2016 R2 Dic
+AJR                         13/04/2017          1.4                     Added missing scripts to ddEmpEntry
+JMG							22/05/2017			2.0						Fixed issues with print differences not working for summary report
+ANDRES						15/01/2018			2.5						changes the Employee DD Entry screen
+JMG							22/01/2019			2.6			`			addition of 'exclude' checkbox on the bank maint and changes to the ACH Generation
+JMG							04/02/2019			2.7 					changes to label 'termination date' to 'Effec Resig/Term Date' on Employee master screen
+JMG							Feb 2019			2.8-2.9					changes to ACH file export
+JMG							24/02/2019			2.9.1					changes to ACH file export to recalculate ACH settlement line total. 
+JMG							02/03/2019			2.9.2					changes to SQL script for settlement line total
+JMG							04/10/2021			3.20.01
+JMG							Jan 11 2022			3.20.11					added wait in ach file post create script to fix issue with file not being populated
+JMG							Feb 8th 2023		3.20.12					Changed Payroll posting script to fire after posting has been completed
+}"
+			UserProperties	""
+		}
+	}
+	~Functions
+	{
+	}
+	~Procedures
+	{
+	}
+}

@@ -1,0 +1,583 @@
+Table	"EX_DD_Banks"	"Payroll"	22000
+Table	"EX_DD_Banks_Temp"	"Payroll"	22001
+Table	"EX_DD_ListingByBank"	"Payroll"	22002
+Table	"EX_DD_SummaryByBank"	"Payroll"	22003
+Table	"EX_Employee_MSTR"	"Payroll"	22004
+Table	"EX_Nationality"	"Payroll"	22005
+Table	"EX_Payroll_Changes"	"Payroll"	22006
+Table	"EX_PayrollChangesTrxDetail"	"Payroll"	22007
+Table	"EX_PayrollChangesTrxDetailExcpt"	"Payroll"	22008
+Table	"RNC_ddEmpAcctMstr_EXT"	"Financial"	22009
+Table	"EX_Precheck_Temp"	"Payroll"	22010
+Table	"EX_WORK_Post"	"Payroll"	22011
+Table	"EX_ddDeposits"	"Payroll"	22012
+Table	"EX_uprWorkChkDesc"	"Payroll"	22013
+Table	"EX_uprWorkChkYTD"	"Payroll"	22014
+Table	"EX_UPR_Work_Check"	"Payroll"	22015
+Table	"RNC_ddEmpAcctMstr_TMP"	"Financial"	22016
+Table	"EX_PR_Skip_Temp"	"Sales"	22017
+Table	"EX_CM_Bank_MSTR"	"Payroll"	22018
+Table	"EX_ddACHHdr_ExcludedBank_Copy"	"Payroll"	22019
+Table	"EX_ddACHItems"	"Payroll"	22020
+Table	"EX_DD_Banks_TMP"	"Project"	22021
+Key	"EX_CM_Bank_MSTR_Key1"	"Payroll"	22000
+Key	"EX_DD_Banks_Key11"	"Payroll"	22001
+Key	"EX_DD_Banks_Key112"	"Payroll"	22002
+Key	"EX_DD_LIstingByBank_KEY111"	"Payroll"	22003
+Key	"EX_DD_SummaryByBank_KEY111"	"Payroll"	22004
+Key	"ddACHHdrIdxACHLineIdx1"	"Payroll"	22005
+Key	"ddACHHdrUserID1"	"Payroll"	22006
+Key	"ddACHItemsIdxACHLineIdx1x"	"Payroll"	22007
+Key	"ddACHItemsIdxEmpID1x"	"Payroll"	22008
+Key	"ddACHItemsIdxDDTrxCode1x"	"Payroll"	22009
+Key	"ddDepositsIdxEmpID11"	"Payroll"	22010
+Key	"EX_Employee_MSTR_Key11"	"Payroll"	22011
+Key	"Payroll_Changes_Key111"	"Payroll"	22012
+Key	"EX_PayrollChangesTrxDetail_Key111"	"Payroll"	22013
+Key	"EX_PayrollChangesTrxDetail_Key211"	"Payroll"	22014
+Key	"EX_PayrollChangesTrxDetail_Key311"	"Payroll"	22015
+Key	"EX_PayrollChangesTrxDetail_Key411"	"Payroll"	22016
+Key	"EX_PayrollChangesTrxDetail_Key511"	"Payroll"	22017
+Key	"EX_PayrollChangesTrxDetail_Key611"	"Payroll"	22018
+Key	"EX_PayrollChangesTrxDetail_Key711"	"Payroll"	22019
+Key	"EX_PayrollChangesTrxDetailExcpt_Key111"	"Payroll"	22020
+Key	"EX_PayrollChangesTrxDetailExcpt_Key211"	"Payroll"	22021
+Key	"EX_PayrollChangesTrxDetailExcpt_Key311"	"Payroll"	22022
+Key	"EX_PayrollChangesTrxDetailExcpt_Key411"	"Payroll"	22023
+Key	"EX_PayrollChangesTrxDetailExcpt_Key511"	"Payroll"	22024
+Key	"EX_PayrollChangesTrxDetailExcpt_Key611"	"Payroll"	22025
+Key	"UPR_Precheck_TEMP_Key111"	"Payroll"	22026
+Key	"UPR_WORK_Check_Key111"	"Payroll"	22027
+Key	"UPR_WORK_Check_Key311"	"Payroll"	22028
+Key	"UPR_WORK_Check_Key411"	"Payroll"	22029
+Key	"UPR_WORK_Check_Key611"	"Payroll"	22030
+Key	"UPR_WORK_Check_Key511"	"Payroll"	22031
+Key	"UPR_WORK_Check_Key711"	"Payroll"	22032
+Key	"uprWorkChkDescIdxEmpID11"	"Payroll"	22033
+Key	"uprWorkChkYTDIdxEmpID11"	"Payroll"	22034
+Key	"EX_WORK_Post_Key111"	"Payroll"	22035
+Key	"EX_WORK_Post_Key211"	"Payroll"	22036
+Key	"EX_Nationality_Key11"	"Payroll"	22037
+Key	"RNC_ddEmpAcctMstr_EXT_Key12"	"Financial"	22038
+Key	"RNC_ddEmpAcctMstr_EXT_Key111"	"Financial"	22039
+Key	"EX_DD_Banks_Key111"	"Project"	22040
+Key	"EXTPR001_Key111"	"Sales"	22041
+Relationship	"EX_ddACHItems:ddACHHdr"	"Payroll"	22000
+Relationship	"EX_ddDeposits:ddChkMsgsSetup"	"Payroll"	22001
+Relationship	"EX_Employee_MSTR:UPR_MSTR"	"Payroll"	22002
+Relationship	"EX_Payroll_Changes:UPR_MSTR"	"Payroll"	22003
+Relationship	"EX_PayrollChangesTrxDetail:UPR_Check_HIST"	"Payroll"	22004
+Relationship	"EX_PayrollChangesTrxDetail:UPR_MSTR"	"Payroll"	22005
+Relationship	"EX_PayrollChangesTrxDetailExcpt:UPR_Check_HIST"	"Payroll"	22006
+Relationship	"EX_PayrollChangesTrxDetailExcpt:UPR_MSTR"	"Payroll"	22007
+Relationship	"EX_Precheck_Temp:UPR_MSTR"	"Payroll"	22008
+Relationship	"EX_Precheck_Temp:UPR_WORK_Benefit"	"Payroll"	22009
+Relationship	"EX_Precheck_Temp:UPR_WORK_Deduction"	"Payroll"	22010
+Relationship	"EX_Precheck_Temp:UPR_WORK_HDR"	"Payroll"	22011
+Relationship	"EX_UPR_Work_Check:EX_ddDeposits"	"Payroll"	22012
+Relationship	"EX_UPR_Work_Check:EX_uprWorkChkDesc"	"Payroll"	22013
+Relationship	"EX_UPR_Work_Check:EX_uprWorkChkYTD"	"Payroll"	22014
+Relationship	"EX_UPR_Work_Check:UPR_MSTR"	"Payroll"	22015
+Relationship	"EX_WORK_Post:GL_Account_MSTR"	"Payroll"	22016
+Relationship	"EX_WORK_Post:UPR_WORK_MSTR"	"Payroll"	22017
+Form	"CM_Bank_Maintenance"	278
+Form	"UPR_Employee_MNT"	303
+
+{
+	Field	"email_address"	22000
+	Datatype	"email_address"	22000
+	EventScript	"UPR_Employee_MNT EX_Reason_for_Leaving_CHG"	22000
+	EventScript	"UPR_Employee_MNT Lookup Button 12_CHG"	22001
+	EventScript	"UPR_Employee_MNT EX_Permit_Type_CHG"	22002
+	EventScript	"UPR_Employee_MNT EX_PR_Skip_CHG"	22003
+	EventScript	"UPR_Employee_MNT Clear Balance_CHG"	22004
+}
+Form	"UPR_Employee_MNT_Benefit"	304
+Form	"UPR_Employee_MNT_Deduction"	305
+Form	"UPR_Employee_MNT_Pay_Type"	307
+Form	"ddEmpEntry"	1119
+
+{
+	Field	"l_EX_DER"	22000
+	Field	"l_EX_Save"	22001
+	Field	"l_Scroll_Fill"	22002
+	Field	"l_Sql_table"	22003
+	Field	"PushButton20"	22004
+	Field	"SAE_ClearEmployeeID"	22005
+	Field	"ref_RNC_ddEmpAcctMstr_TMP"	22006
+	Field	"ref_EX_DD_Banks_Temp"	22007
+	Datatype	"l_EX_DER"	22000
+	Datatype	"l_EX_Save"	22001
+	Datatype	"l_Scroll_Fill"	22002
+	Datatype	"l_Sql_table"	22003
+	Datatype	"PushButton20"	22004
+	Datatype	"SAE_ClearEmployeeID"	22005
+	Datatype	"ref_RNC_ddEmpAcctMstr_TMP"	22006
+	Datatype	"ref_EX_DD_Banks_Temp"	22007
+	EventScript	"ddEmpEntry WINPRE_CHG"	22000
+	EventScript	"ddEmpEntry l_PushButton20_CHG"	22001
+	EventScript	"Scroll Bank ID_CHG"	22002
+	EventScript	"Scroll Lookup Button 13_CHG"	22003
+	EventScript	"ddEmpEntry Lookup Button 2_CHG"	22004
+	EventScript	"ddEmpEntry l_l_EX_DER_CHG"	22005
+	EventScript	"ddEmpEntry l_l_Scroll_Fill_CHG"	22006
+	EventScript	"ddEmpEntry l_SAE_ClearEmployeeID_CHG"	22007
+}
+Form	"EX_About"	22000
+
+{
+	Window	"EX_About"	22000
+	Field	"cust"	22000
+	Field	"Product"	22001
+	Field	"Released"	22002
+	Field	"Version"	22003
+	Datatype	"cust"	22000
+	Datatype	"Product"	22001
+	Datatype	"Released"	22002
+	Datatype	"Version"	22003
+	EventScript	"EX_About_WIN_PRE"	22000
+	EventScript	"EX_About OK Button_CHG"	22001
+}
+Form	"EX_Commands"	22001
+
+{
+	Command	"EX_Earnings_Statements_History_to_PDF"	22000
+}
+Form	"EX_DD_Bank_Reports"	22002
+
+{
+	Window	"EX_DD_Bank_Reports"	22000
+}
+Form	"EX_Earnings_Statements_History_to_PDF"	22003
+
+{
+	Window	"EX_Earnings_Statements_History_to_PDF"	22000
+	Field	"DDL0"	22000
+	Field	"screen_only"	22001
+	Field	"status"	22002
+	Datatype	"DDL0"	22000
+	Datatype	"screen_only"	22001
+	Datatype	"status"	22002
+	Procedure	"Create_Work_HDR"	22000
+	EventScript	"EX_Earnings_Statements_History_to_PDF Cancel Button C_CHG"	22000
+	EventScript	"EX_Earnings_Statements_History_to_PDF Process Button P_CHG"	22001
+	EventScript	"EX_Earnings_Statements_History_to_PDF l_DDL0_CHG"	22002
+	EventScript	"Window1 Lookup Button 1_CHG"	22003
+}
+Form	"EX_Employee_Cayman"	22004
+
+{
+	Window	"EX_Employee_Cayman"	22000
+	EventScript	"EX_Employee_Cayman Cancel Button C_CHG"	22000
+	EventScript	"EX_Employee_Cayman Save Button_CHG"	22001
+	EventScript	"EX_Employee_Cayman_WIN_PRE"	22002
+	EventScript	"Window1 EX_Permit_Type_CHG"	22003
+	EventScript	"Window1 Lookup Button 1_CHG"	22004
+}
+Form	"EX_Nationality_LU"	22005
+
+{
+	Window	"EX_Nationality_LU"	22000
+	Window	"Line_Scroll"	22001
+	EventScript	"EX_Division_LU Cancel Button_CHG"	22000
+	EventScript	"EX_Division_LU Select Button_CHG"	22001
+	EventScript	"Window1_WIN_PRE"	22002
+}
+Form	"EX_Test"	22006
+
+{
+	Window	"EX_Test"	22000
+}
+Form	"EX_Create_Objects"	22007
+
+{
+	Window	"EX_Create_Objects"	22000
+	Field	"PushButton0"	22000
+	Field	"ProgressIndicator1"	22001
+	Datatype	"PushButton0"	22000
+	Datatype	"ProgressIndicator1"	22001
+	EventScript	"EX_Create_Objects Process Button P_CHG"	22000
+}
+Datatype	"EX_Caymanian_Flag"	"Payroll"	22000
+Datatype	"EX_DDL_Reason"	"Payroll"	22001
+Datatype	"EX_MarriedToCaymanian_Flag"	"Payroll"	22002
+Datatype	"Ex_Mrd_to_CaymanianWERC"	"Payroll"	22003
+Datatype	"EX_Perm_Res_WERC"	"Payroll"	22004
+Datatype	"EX_Permit_Type"	"Payroll"	22005
+Datatype	"EX_PR_Skip"	"Payroll"	22006
+Datatype	"EX_WP_Contractor"	"Payroll"	22007
+Datatype	"EX_WP_Exempted"	"Payroll"	22008
+Datatype	"EX_WP_Holder_Flag"	"Payroll"	22009
+Datatype	"EX_WP_Perm_Res"	"Payroll"	22010
+Datatype	"EX exclude bank from ACH"	"Payroll"	22011
+Datatype	"STR15_Employee_ID_I"	"Inventory"	22012
+String	"Caymanian"	"Payroll"	22000
+String	"Voluntary"	"Payroll"	22001
+String	"Retired/Died"	"Payroll"	22002
+String	"Redundant"	"Payroll"	22003
+String	"Dismissed"	"Payroll"	22004
+String	"Non-renewal of Work Permit"	"Payroll"	22005
+String	"Married to a Caymanian"	"Payroll"	22006
+String	"Married to a Caymanian w/ERC"	"Payroll"	22007
+String	"Permanent Resident w/ERC"	"Payroll"	22008
+String	"Skip Employee"	"Payroll"	22009
+String	"Contractor"	"Payroll"	22010
+String	"Exempted"	"Payroll"	22011
+String	"Work Permit Holder"	"Payroll"	22012
+String	"Permanent Resident"	"Payroll"	22013
+String	"EX Direct Deposit Banks"	"Payroll"	22014
+String	"EX Direct Deposit Banks Temp"	"Payroll"	22015
+String	"EX_DD_ListingByBank"	"Payroll"	22016
+String	"EX_DD_SummaryByBank"	"Payroll"	22017
+String	"EX Employee MSTR"	"Payroll"	22018
+String	"EX_Nationality"	"Payroll"	22019
+String	"EX_Payroll_Changes"	"Payroll"	22020
+String	"EX_PayrollChangesTrxDetail"	"Payroll"	22021
+String	"EX_PayrollChangesTrxDetailExcpt"	"Payroll"	22022
+String	"RNC_ddEmpAcctMstr_EXT"	"Payroll"	22023
+String	"EX Payroll Temp Precheck Report"	"Payroll"	22024
+String	"EX  Work Post"	"Payroll"	22025
+String	"Print Bank Reports"	"Payroll"	22026
+String	"Nationality Lookup"	"Payroll"	22027
+String	"Nationality"	"Payroll"	22028
+String	"Custormer"	"Payroll"	22029
+String	"Release Date"	"Payroll"	22030
+String	"About - Epsilon"	"Payroll"	22031
+String	"Permit Type"	"Payroll"	22032
+String	"RNC_ddEmpAcctMstr_TMP"	"Payroll"	22033
+String	"*** DUPLICATE ***"	"Payroll"	22034
+String	"Direct Deposit Pay Advice"	"Payroll"	22035
+String	"Net YTD"	"Payroll"	22036
+String	"Gross YTD"	"Payroll"	22037
+String	"This Period"	"Payroll"	22038
+String	"Account No."	"Payroll"	22039
+String	"This Cheque"	"Payroll"	22040
+String	"{}
+
+if not empty('Bank ID' of window Scroll) then
+	open form CM_Bank_Maintenanc"	"Payroll"	22041
+String	"NRA"	"Payroll"	22042
+String	"Account_Number_F1"	"Payroll"	22043
+String	"Total for"	"Payroll"	22044
+String	"Account_Number_H2"	"Payroll"	22045
+String	"Payroll GL Detail Lising"	"Payroll"	22046
+String	"Default ID:"	"Payroll"	22047
+String	"Pay Period: From"	"Payroll"	22048
+String	"f1"	"Payroll"	22049
+String	"Payroll GL Summary List"	"Payroll"	22050
+String	"Net  Check Total:"	"Payroll"	22051
+String	"Payroll Record Type"	"Payroll"	22052
+String	"Exceptions Comparison Report By Employee"	"Payroll"	22053
+String	"Reason For Difference"	"Payroll"	22054
+String	"CURRENT"	"Payroll"	22055
+String	"NET CHECK"	"Payroll"	22056
+String	"Net Check"	"Payroll"	22057
+String	"(Not Page Total)"	"Payroll"	22058
+String	"PAYRUN TOTAL:"	"Payroll"	22059
+String	"Printed By:"	"Payroll"	22060
+String	"Total Cl$"	"Payroll"	22061
+String	"Cayman Islands Monetary Authority"	"Payroll"	22062
+String	"Direct Deposit By Bank "	"Payroll"	22063
+String	"Cl Amount"	"Payroll"	22064
+String	"Direct Deposit Summary"	"Payroll"	22065
+String	"CI$ Amount"	"Payroll"	22066
+String	"CI$ Total:"	"Payroll"	22067
+String	"EX GL Detail Edit List"	"Payroll"	22068
+String	"Payroll - Skipped Employees"	"Payroll"	22069
+String	"Set to Skip by"	"Payroll"	22070
+String	"Set to Skip on"	"Payroll"	22071
+String	"Date Issued"	"Payroll"	22072
+String	"Permit Expiry"	"Payroll"	22073
+String	"Re-Entry Expiry"	"Payroll"	22074
+String	"Export Historical Earnings Statements"	"Payroll"	22075
+String	" Export historical Earnings Statements"	"Payroll"	22076
+String	"YTD Amounts"	"Payroll"	22077
+String	"Work Permit Information"	"Payroll"	22078
+String	"Issued on"	"Payroll"	22079
+String	"Expiry Date"	"Payroll"	22080
+String	"Rentry Expires"	"Payroll"	22081
+String	"Annual Fee Deadline"	"Payroll"	22082
+String	"Metrics Direct Deposit Employee Deposits Work"	"Payroll"	22083
+String	"Metrics Payroll Check Descriptions"	"Payroll"	22084
+String	"Metrics Payroll Work Check YTD Amounts"	"Payroll"	22085
+String	"Metrics Payroll Work Check"	"Payroll"	22086
+String	"Anual Fee Deadline"	"Payroll"	22087
+String	"Effec Resig/Term Date"	"Payroll"	22088
+String	"EX PR Skip Employees Temp"	"Payroll"	22089
+String	"Create Tables"	"Payroll"	22090
+String	"Window4"	"Payroll"	22091
+String	"Exclude From ACH File"	"Payroll"	22092
+String	"Metrics CM bank Master"	"Payroll"	22093
+String	"Dynamics GP Ver"	"Payroll"	22094
+String	"Payroll GL Detail "	"Payroll"	22095
+String	"Print Differences"	"Sales"	22096
+String	"Net Wages Comparison Report - Exception"	"Sales"	22097
+String	"Net Wages Comparison - Exceptions"	"Sales"	22098
+String	"EX Direct Deposit BanksTMP"	"Sales"	22099
+String	"Metrics Direct Deposit ACH Items"	"Payroll"	22112
+Field	"Diff"	"Payroll"	22000
+Field	"EX_Benefit_Code"	"Payroll"	22001
+Field	"EX_Caymanian_Flag"	"Payroll"	22002
+Field	"EX_CodeNetAmount"	"Payroll"	22003
+Field	"EX_Comments"	"Payroll"	22004
+Field	"EX_Country_ISO2"	"Payroll"	22005
+Field	"EX_Country_ISO3"	"Payroll"	22006
+Field	"EX_Deduction_Code"	"Payroll"	22007
+Field	"EX_Drivers_License"	"Payroll"	22008
+Field	"EX_Drivers_License_Expiry"	"Payroll"	22009
+Field	"EX_HISTBenefit_Code"	"Payroll"	22010
+Field	"EX_HISTDeduction_Code"	"Payroll"	22011
+Field	"EX_HISTLocalTax_Code"	"Payroll"	22012
+Field	"EX_HISTPay_Code"	"Payroll"	22013
+Field	"EX_LocalTax_Code"	"Payroll"	22014
+Field	"EX_MarriedToCaymanian_Flag"	"Payroll"	22015
+Field	"Ex_Mrd_to_CaymanianWERC"	"Payroll"	22016
+Field	"EX_Nationality"	"Payroll"	22017
+Field	"EX_NetDiff"	"Payroll"	22018
+Field	"EX_Old_Country"	"Payroll"	22019
+Field	"EX_Pay_Code"	"Payroll"	22020
+Field	"EX_Permit_Type"	"Payroll"	22021
+Field	"EX_PR_Skip"	"Payroll"	22022
+Field	"EX_PR_Skip_Set_By"	"Payroll"	22023
+Field	"EX_PR_Skip_Set_Date"	"Payroll"	22024
+Field	"EX_PR_Skip_UnSet_By"	"Payroll"	22025
+Field	"EX_PR_Skip_UnSet_Date"	"Payroll"	22026
+Field	"EX_Reason_for_Leaving"	"Payroll"	22027
+Field	"EX_WP_AnnualFeeDeadline"	"Payroll"	22028
+Field	"EX_WP_Contractor"	"Payroll"	22029
+Field	"EX_WP_Exempted"	"Payroll"	22030
+Field	"EX_WP_Expiry_Date"	"Payroll"	22031
+Field	"EX_WP_Holder_Flag"	"Payroll"	22032
+Field	"EX_WP_Issue_Date"	"Payroll"	22033
+Field	"EX_WP_Perm_Res"	"Payroll"	22034
+Field	"EX_WP_Perm_Res_WERC"	"Payroll"	22035
+Field	"EX_WP_ReEntryExpiryDate"	"Payroll"	22036
+Field	"EXHistCodeAmt"	"Payroll"	22037
+Field	"Hist Check Date"	"Payroll"	22038
+Field	"Historical Net Wages/Pay Run"	"Payroll"	22039
+Field	"Emp ID"	"Inventory"	22040
+Field	"Trigger_Count"	"Payroll"	22041
+Field	"Trigger_List"	"Project"	22042
+Field	"EX_CM_Exclude_Bank_ACH_CB"	"Payroll"	22043
+Field	"RNC_DD_CheckBox"	"Payroll"	22044
+Field	"EX_LineDeleted"	"Payroll"	22045
+Procedure	"Startup"	"System"	22000
+Procedure	"startup_UPR_Inquiry_Check"	"System"	22001
+Procedure	"EX_UPR_Inquiry_Check_RecreatePaystub_TRG_AFTER"	"Payroll"	22002
+Procedure	"Calc_PR_NetChange_Exceptions"	"Payroll"	22003
+Procedure	"EX_Calculate_Payroll_Changes"	"Payroll"	22004
+Procedure	"EX_Close_Commands_Form"	"Payroll"	22005
+Procedure	"EX_Create_Menus"	"Payroll"	22006
+Procedure	"EX_Create_Table"	"System"	22007
+Procedure	"EX_Get_History"	"Payroll"	22008
+Procedure	"EX_HR_Termination_OpenWindow_Trigger_PRE"	"Payroll"	22009
+Procedure	"EX_HR_Termination_Save_Record_Trigger_AFTER"	"Payroll"	22010
+Procedure	"EX_Open_Commands_Form"	"Payroll"	22011
+Procedure	"EX_Open_WP_Info"	"System"	22012
+Procedure	"EX_paysliptopdfwork"	"System"	22013
+Procedure	"EX_Register_Trigger"	"System"	22014
+Procedure	"EX_RemoveZeroDiff"	"Payroll"	22015
+Procedure	"EX_sproc_EX_Work_Cheque"	"Payroll"	22016
+Procedure	"RNC_ddEmpAcctMstr_Delete_Trigger_AFTER"	"Payroll"	22017
+Procedure	"RNC_ddEmpEntry_Save Record_CHG_TriggerAfter"	"Payroll"	22018
+Procedure	"RNC_ddEmpEntry_TempRange_CHG_Trigger_AFTER"	"Payroll"	22019
+Procedure	"RNC_ddEmpLineTempr_Delete_Trigger_AFTER"	"Payroll"	22020
+Procedure	"RNC_PRE_Trigger_AFTER"	"Payroll"	22021
+Procedure	"RNC_Scroll_SCROLL_CHG_Trigger_AFTER"	"Payroll"	22022
+Procedure	"RNC_Scroll_SCROLL_FILL_Trigger_After"	"Payroll"	22023
+Procedure	"Startup_Login_Trigger"	"System"	22024
+Procedure	"Startup_UPR"	"Payroll"	22025
+Procedure	"Triggers_CM_Bank_Maintenance"	"System"	22026
+Procedure	"Triggers_ddACHEntry"	"Payroll"	22027
+Procedure	"Triggers_ddEmpEntry"	"Payroll"	22028
+Procedure	"Triggers_Employee_MSTR_Form"	"System"	22029
+Procedure	"Triggers_PR_Process"	"Payroll"	22030
+Procedure	"Triggers_UPR_Create_Precheck_Report4_Report"	"Payroll"	22031
+Procedure	"Trigger_UPR_Print_Checks"	"Payroll"	22032
+Procedure	"Trig_CM_Bank_Main_DER"	"System"	22033
+Procedure	"Trig_CM_Bank_Main_SAVE"	"System"	22034
+Procedure	"Trig_ddACHEntry_CreateFileButton_Post"	"System"	22035
+Procedure	"Trig_ddACHEntry_CreateFileButton_Pre"	"System"	22036
+Procedure	"Trig_ddACHEntry_PrintDD"	"Payroll"	22037
+Procedure	"Trig_ddACHEntry_PrintDD_Excluded"	"Payroll"	22038
+Procedure	"Trig_ddEmpEntry_DER"	"Payroll"	22039
+Procedure	"Trig_ddEmpEntry_Save_Record"	"Payroll"	22040
+Procedure	"Trig_ddEmpEntry_Scroll_Fill"	"Payroll"	22041
+Procedure	"Trig_Employee_Maint_Activate"	"Payroll"	22042
+Procedure	"Trig_Employ_MSTR_Inactive_CHG"	"Payroll"	22043
+Procedure	"Trig_Emp_MSTR_DER"	"System"	22044
+Procedure	"Trig_Emp_MSTR_Save_Post"	"System"	22045
+Procedure	"Trig_Emp_MSTR_Save_Pre"	"System"	22046
+Procedure	"Trig_Print_Window_Ok_Button"	"System"	22047
+Procedure	"Trig_PR_Skip_Post"	"Payroll"	22048
+Procedure	"Trig_PR_Skip_Pre"	"Payroll"	22049
+Procedure	"Trig_UPR_Create_Precheck_Report4_Post"	"Payroll"	22050
+Procedure	"Trig_UPR_POST_PR_Posted_Calculated"	"Payroll"	22051
+Procedure	"Trig_UPR_Print_Checks_DD_Calculated"	"Payroll"	22052
+Procedure	"Create_Table"	"Payroll"	22053
+Procedure	"Open_Table"	"Payroll"	22054
+Procedure	"Create_All_Tables"	"Payroll"	22055
+Procedure	"EX_UPR_Populate_CheckHistTemp_Trigger_After"	"Payroll"	22056
+Procedure	"DDR_Deduction_SaveButton_Trigger_BEFORE"	"Sales"	22057
+Procedure	"SAE_ddEmpEntry_EmployeeID_Trigger_CHG_After"	"Sales"	22058
+Procedure	"SAE_DDEmpEntry_LINE_PRE_Trigger_AFTER"	"Sales"	22059
+Procedure	"SAE_ddEmpEntry_WINPRE_Trigger_After"	"Sales"	22060
+Procedure	"SAE_scroll_DDEmpEntry_Trigger_CHG_BEFORE"	"Sales"	22061
+Procedure	"SAE_ddEmpEntry_TempEMPID_Trigger_AFTER"	"Payroll"	22062
+Procedure	"BPICF_VerifySave_Trigger_AFTER"	"Payroll"	22063
+Procedure	"EX_ResequenceItem"	"Payroll"	22064
+Procedure	"EX_ClearTemTableOpened"	"Payroll"	22065
+GenericPicture	"Ronco"	"Payroll"	22000
+Report	"Direct Deposit Statement of Earnings"	845
+
+{
+	CalculatedField	"Bankname"	22000
+	CalculatedField	"Benefits FYTD"	22001
+	CalculatedField	"Benefits YTD"	22002
+	CalculatedField	"Company Name"	22003
+	CalculatedField	"Ded+PTax"	22004
+	CalculatedField	"YTD Gross"	22005
+	CalculatedField	"YTD Net"	22006
+	CalculatedField	"Year"	22007
+	String	"Tahoma"	22000
+	String	"1"	22001
+	String	"506010015"	22002
+	String	"BNTB"	22003
+	String	"BkofBda"	22004
+	String	"2"	22005
+	String	"3"	22006
+	String	"4"	22007
+	String	"5"	22008
+	String	"6"	22009
+	String	"7"	22010
+	String	"8"	22011
+	String	"JPTER ADRIA"	22012
+	String	"Jupiter Adria Management Ltd"	22013
+	String	"0.01000"	22014
+}
+Report	"EX GL Detail Edit List"	22000
+
+{
+	CalculatedField	"BuildID"	22000
+	CalculatedField	"CR Amount"	22001
+	CalculatedField	"Description"	22002
+	CalculatedField	"PayPeriodEnd"	22003
+	CalculatedField	"PayPeriodStart"	22004
+	CalculatedField	"PayRun"	22005
+	CalculatedField	"full_name"	22006
+	String	"Segoe UI"	22000
+	String	"0.00000"	22001
+}
+Report	"EX GL Summary Edit List"	22001
+
+{
+	CalculatedField	"Account Description"	22000
+	CalculatedField	"BuildID"	22001
+	CalculatedField	"Description"	22002
+	CalculatedField	"PayRun"	22003
+	CalculatedField	"PeriodEndDate"	22004
+	CalculatedField	"PeriodStartDate"	22005
+	CalculatedField	"dummy"	22006
+	String	"Segoe UI"	22000
+	String	"0"	22001
+}
+Report	"EX Net Payroll Changes Exceptions"	22002
+
+{
+	CalculatedField	"Department"	22000
+	CalculatedField	"DiffVal"	22001
+	CalculatedField	"HistCheckTotal"	22002
+	CalculatedField	"JobTitle"	22003
+	CalculatedField	"NetWorkCheckTotal"	22004
+	CalculatedField	"PayrunDifference"	22005
+	CalculatedField	"hide_zero_diff"	22006
+	String	"1"	22001
+	String	"Department"	22002
+	String	"0"	22003
+	String	"-1"	22004
+	String	"3"	22005
+	String	"Job Title"	22006
+	String	"0.00000"	22007
+}
+Report	"EX Net Payroll Changes Exceptions_ OLD"	22003
+
+{
+	CalculatedField	"Department"	22000
+	CalculatedField	"DiffVal"	22001
+	CalculatedField	"HistCheckTotal"	22002
+	CalculatedField	"JobTitle"	22003
+	CalculatedField	"NetWorkCheckTotal"	22004
+	CalculatedField	"PayrunDifference"	22005
+	CalculatedField	"hide_zero_diff"	22006
+	String	"1"	22000
+	String	"Department"	22001
+	String	"0"	22002
+	String	"-1"	22003
+	String	"3"	22004
+	String	"Job Title"	22005
+	String	"0.00000"	22006
+}
+Report	"EX_DD_ListingByBank"	22004
+Report	"EX_DD_SummaryByBank"	22005
+Report	"EX_GL_Detail_Edit_List _OLD"	22006
+
+{
+	CalculatedField	"BuildID"	22000
+	CalculatedField	"CR Amount"	22001
+	CalculatedField	"Description"	22002
+	CalculatedField	"PayPeriodEnd"	22003
+	CalculatedField	"PayPeriodStart"	22004
+	CalculatedField	"PayRun"	22005
+	CalculatedField	"full_name"	22006
+	String	"0.00000"	22000
+}
+Report	"EX_PR_Skipped_Emps"	22007
+
+{
+	CalculatedField	"Employee_Name"	22000
+	CalculatedField	"Hide"	22001
+	String	"1"	22000
+	String	"Segoe UI"	22001
+	String	" "	22002
+	String	"0"	22003
+}
+Report	"Direct Deposit Statement of Earnings Historical"	22008
+
+{
+	CalculatedField	"SickAvail"	22000
+	CalculatedField	"VacAvail"	22001
+	String	"0.01000"	22000
+}
+Report	"Payroll Changes Report Summary"	22009
+
+{
+	CalculatedField	"Difference"	22000
+	CalculatedField	"Netwagespayrun"	22001
+	CalculatedField	"hide_zero_diff"	22002
+	CalculatedField	"histnetwagespayrun"	22003
+	String	"Tahoma"	22000
+	String	"-1"	22001
+	String	"0.00000"	22002
+}
+Function	"Execute_SQL_RetInt"	"Payroll"	22000
+Function	"Execute_SQL"	"Payroll"	22001
+Function	"Execute_SQL_RetDT"	"Payroll"	22002
+Function	"Execute_SQL_RetStr"	"Payroll"	22003
+Function	"EX_Get_Audit_Code_Date"	"Payroll"	22004
+Function	"EX_Get_Cash_Account"	"Payroll"	22005
+Function	"EX_PR_Get_YTD_Amnt"	"Payroll"	22006
+Function	"Get_Employee_Name"	"Payroll"	22007
+Function	"RW_Fiscal_YTD_Benefits"	"Payroll"	22008
+Function	"RW_Fiscal_YTD_Deductions"	"Payroll"	22009
+Function	"RW_Fiscal_YTD_Gross"	"Payroll"	22010
+Function	"RW_Fiscal_YTD_Net"	"Payroll"	22011
+Function	"RW_GetCheckHistTotal"	"Payroll"	22012
+Function	"RW_GetEmployeeLastFirstName"	"System"	22013
+Function	"RW_GetNetWorkCheck"	"Payroll"	22014
+Function	"RW_GetPayBuildID"	"System"	22015
+Function	"RW_GetPayBuildIDDesc"	"System"	22016
+Function	"RW_GetPayEndDate"	"System"	22017
+Function	"RW_GetPayStartDate"	"System"	22018
+Function	"RW_GetPayType"	"System"	22019
+Function	"RW_Get_Fiscal_Year"	"Payroll"	22020
+Function	"RW_Get_Max_DD_Index"	"Payroll"	22021

@@ -1,0 +1,42 @@
+Procedure	"Trig_Employee_Maint_Activate"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+local string l_permit_type;
+
+{Populate the permit type combo-box}
+
+if empty(EX_Permit_Type of window UPR_Employee_MNT of form UPR_Employee_MNT) then
+
+	l_sql_status = SQL_Connect(l_sql_connect);
+	l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+	l_sql_status = SQL_Clear(l_sql_connect);	
+
+	l_sql_command = \"select distinct(EX_Permit_Type) from EX00100 where EX_Permit_Type <> ''\";
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+	l_sql_status = SQL_FetchNext(l_sql_connect);
+
+	while l_sql_status <> 31 do
+		l_sql_data_status = SQL_GetData(l_sql_connect,1,l_permit_type);
+		if finditem(EX_Permit_Type of window UPR_Employee_MNT of form UPR_Employee_MNT, l_permit_type) = 0 then	
+			add item l_permit_type to field EX_Permit_Type of window UPR_Employee_MNT of form UPR_Employee_MNT;
+		end if;
+		l_sql_status = SQL_FetchNext(l_sql_connect);
+	end while;
+	l_sql_status  = SQL_Clear(l_sql_connect);
+	l_sql_status  = SQL_Terminate(l_sql_connect);
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

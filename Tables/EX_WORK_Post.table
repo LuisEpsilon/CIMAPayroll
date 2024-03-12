@@ -1,0 +1,217 @@
+Table	"EX_WORK_Post"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"EX  Work Post"
+	FourByteHeader	"true"
+	PhysicalName	"EX10209"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Account Index"		
+		{
+			Encrypt	"false"
+			Field	"Account Index"
+			Position	"2"
+		}
+		TableField	"Amount To Post"		
+		{
+			Encrypt	"false"
+			Field	"Amount To Post"
+			Position	"6"
+		}
+		TableField	"Check Number"		
+		{
+			Encrypt	"false"
+			Field	"Check Number"
+			Position	"3"
+		}
+		TableField	"Credit Amount"		
+		{
+			Encrypt	"false"
+			Field	"Credit Amount"
+			Position	"9"
+		}
+		TableField	"Debit Amount"		
+		{
+			Encrypt	"false"
+			Field	"Debit Amount"
+			Position	"8"
+		}
+		TableField	"Department"		
+		{
+			Encrypt	"false"
+			Field	"Department"
+			Position	"5"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"1"
+		}
+		TableField	"Job Title"		
+		{
+			Encrypt	"false"
+			Field	"Job Title"
+			Position	"7"
+		}
+		TableField	"Posted Date"		
+		{
+			Encrypt	"false"
+			Field	"Posted Date"
+			Position	"4"
+		}
+		TableField	"User ID"		
+		{
+			Encrypt	"false"
+			Field	"User ID"
+			Position	"0"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_WORK_Post_Key111"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Account Index"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"EX_WORK_Post_Key211"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"1"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Account Index"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Check Number"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"4"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"Posted Date"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"3"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"GL_Account_MSTR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Account Index"
+				}
+			}
+			Key	"1 ; GL_Account_MSTR_Key1"
+			RelatedTable	"GL_Account_MSTR"
+			RelationshipType	"OneToOne"
+		}
+		Relationship	"UPR_WORK_MSTR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"User ID"
+				}
+			}
+			Key	"3 ; UPR_WORK_MSTR_Key3"
+			RelatedTable	"UPR_WORK_MSTR"
+			RelationshipType	"OneToOne"
+		}
+	}
+}

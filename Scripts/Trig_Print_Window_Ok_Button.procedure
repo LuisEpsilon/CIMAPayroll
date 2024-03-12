@@ -1,0 +1,64 @@
+Procedure	"Trig_Print_Window_Ok_Button"
+{
+	Core	"System"
+	Documentation	""
+	Script	"
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+{debug string('(L) Print Return Trx Detail' of window ddACHEntry of form ddACHEntry); }
+
+if '(L) Print Return Trx Detail' of window ddACHEntry of form ddACHEntry = 1 then
+
+	l_sql_status = SQL_Connect(l_sql_connect);
+	l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+	l_sql_status = SQL_Clear(l_sql_connect);
+
+
+	/*l_sql_command = \"update DD10500  \";
+	_sql_command = l_sql_command + \"   set DDAMTDLR =    (select DDAMTDLR from [EX_DD10500_External] where DD10500.dex_row_id = [EX_DD10500_External].dex_row_id)\";*/
+	l_sql_command = \"INSERT INTO [dbo].DD10500 \";
+		l_sql_command = l_sql_command + \"  ([INDXLONG]  \";
+		l_sql_command = l_sql_command + \"  ,[DDITEM]  \";
+		l_sql_command = l_sql_command + \"  ,[EMPLOYID] \"; 
+		l_sql_command = l_sql_command + \"  ,[DDTRANS]  \";
+		l_sql_command = l_sql_command + \"  ,[DDTRANUM]  \";
+		l_sql_command = l_sql_command + \"  ,[DDACTNUM]  \";
+		l_sql_command = l_sql_command + \"  ,[DDAMTDLR]  \";
+		l_sql_command = l_sql_command + \"  ,[DDINDID]  \";
+		l_sql_command = l_sql_command + \"  ,[DDINDNAM]  \";
+		l_sql_command = l_sql_command + \"  ,[DDTRACE] )  \";
+		l_sql_command = l_sql_command + \"  select a.[INDXLONG]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDITEM]   \";
+		l_sql_command = l_sql_command + \"  ,a.[EMPLOYID]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDTRANS]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDTRANUM]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDACTNUM]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDAMTDLR]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDINDID]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDINDNAM]   \";
+		l_sql_command = l_sql_command + \"  ,a.[DDTRACE] \";
+		l_sql_command = l_sql_command + \"  from [EX_DD10500_External] a  left join DD10500 b on a.INDXLONG = b.INDXLONG and a.dditem = b.DDITEM \";
+		l_sql_command = l_sql_command + \"  where a.INDXLONG in (select INDXLONG from DD10400 where INCLPYMT = 1) \";
+		l_sql_command = l_sql_command + \"  and b.INDXLONG is null \";
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+
+	debug l_sql_command;
+		
+	l_sql_status = SQL_Clear(l_sql_connect);
+	l_sql_status  = SQL_Terminate(l_sql_connect);
+
+end if;
+
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

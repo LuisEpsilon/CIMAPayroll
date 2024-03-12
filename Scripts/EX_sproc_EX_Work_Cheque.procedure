@@ -1,0 +1,33 @@
+Procedure	"EX_sproc_EX_Work_Cheque"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"sproc returns long sproc_status;
+in string l_audit;
+
+local long l_ReturnCode, timedelay;
+local integer i, n_loopcount;
+
+try
+  call sproc \"EX_sproc_EX_Work_Cheque\",
+  l_ReturnCode,
+    l_audit;
+catch [EXCEPTION_CLASS_DB_DEADLOCK]
+  if i <= n_loopcount then
+    timedelay = Timer_Sleep(200);
+    increment i;
+    restart try;
+  else
+    exit try;
+  end if;
+else
+  exit try;
+end try;
+set sproc_status to l_ReturnCode;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

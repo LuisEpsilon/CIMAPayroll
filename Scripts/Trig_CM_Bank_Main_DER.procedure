@@ -1,0 +1,27 @@
+Procedure	"Trig_CM_Bank_Main_DER"
+{
+	Core	"System"
+	Documentation	""
+	Script	"
+set EX_CM_Exclude_Bank_ACH_CB of window CM_Bank_Maintenance of form CM_Bank_Maintenance to false; 
+
+if 'Display Existing Record' of window CM_Bank_Maintenance of form CM_Bank_Maintenance then
+	
+	release table EX_CM_Bank_MSTR;
+	range clear table EX_CM_Bank_MSTR;
+	set 'Bank ID' of table EX_CM_Bank_MSTR to 'Bank ID' of window CM_Bank_Maintenance of form CM_Bank_Maintenance;
+	get table EX_CM_Bank_MSTR;
+
+	if err() = 0 then
+		set EX_CM_Exclude_Bank_ACH_CB of window CM_Bank_Maintenance of form CM_Bank_Maintenance to 
+			EX_CM_Exclude_Bank_ACH_CB  of table EX_CM_Bank_MSTR;
+	end if;
+end if;
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

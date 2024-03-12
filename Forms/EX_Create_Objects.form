@@ -1,0 +1,243 @@
+Form	"EX_Create_Objects"
+{
+	Commands
+	{
+	}
+	ConfigurableMenus	"false"
+	Constants
+	{
+	}
+	Datatypes
+	{
+		Datatype	"ProgressIndicator1"		
+		{
+			Control	"ProgressIndicator"
+		}
+		Datatype	"PushButton0"		
+		{
+			Control	"PushButton"
+			DefaultDown	"00000"
+			DefaultMouseOver	"00000"
+			DefaultUp	"00000"
+			Prompt	""
+			PromptDown	""
+			PromptMouseOver	""
+			StaticType	"Native Picture"
+			~ItemImages
+			{
+			}
+		}
+	}
+	EventPost	""
+	EventPre	""
+	Fields
+	{
+		Field	"ProgressIndicator1"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) ProgressIndicator1"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"PushButton0"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) PushButton0"
+			LookupForm	""
+			PhysicalName	""
+		}
+	}
+	Menus
+	{
+	}
+	Series	"Payroll"
+	Tables
+	{
+	}
+	Windows
+	{
+		Window	"EX_Create_Objects"		
+		{
+			AutoLinkTable	""
+			AutoOpen	"true"
+			BackGround	"true"
+			CloseBox	"true"
+			ControlArea	"true"
+			DisplayName	"Create Tables"
+			EventActivate	""
+			EventContextMenu	""
+			EventPost	""
+			EventPre	""
+			EventPrint	""
+			Fields
+			{
+				WindowControl	"(L) ProgressIndicator1"				
+				{
+					Appearance	"3D Border"
+					BackColor	"System - Button Face"
+					Border	"true"
+					ControlType	"ProgressIndicator"
+					Direction	"LeftToRight"
+					Field	"(L) ProgressIndicator1"
+					IndicatorColor	"System - Highlight"
+					LinkedPrompt	"0"
+					PositionLeft	"19"
+					PositionTop	"194"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"176"
+					Style	"Block"
+					Tag	"6"
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"4"
+				}
+				WindowLine	"3"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"0"
+					PositionTop	"24"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"0"
+					SizeWidth	"208"
+					ZOrder	"1"
+				}
+				WindowPicture	"4"				
+				{
+					BackColor	"White"
+					Picture	"Ronco"
+					PositionLeft	"31"
+					PositionTop	"34"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"148"
+					SizeWidth	"148"
+					Tag	"4"
+					ZOrder	"2"
+				}
+				WindowLine	"5"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"78"
+					PositionTop	"3"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"0"
+					ZOrder	"3"
+				}
+				WindowControl	"Process Button P"				
+				{
+					Alignment	"center"
+					Appearance	"3D Highlight"
+					BackColor	"System - Toolbar"
+					Border	"true"
+					ButtonStyle	"TextOnRight"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"EX_Create_Objects Process Button P_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Process Button P"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"0"
+					PositionTop	"0"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"24"
+					SizeWidth	"77"
+					TabStop	"true"
+					Tag	"2"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"0"
+					Zoom	"false"
+				}
+			}
+			LastTag	"6"
+			Position	"1"
+			PositionLeft	"1"
+			PositionTop	"1"
+			Resizable	"true"
+			SizeHeight	"235"
+			SizeWidth	"210"
+			WindowType	"Primary"
+		}
+	}
+	~EventScripts
+	{
+		EventScript	"EX_Create_Objects Process Button P_CHG"		
+		{
+			Documentation	""
+			Script	"local boolean bResult;
+local anonymous table Table;
+local boolean result;
+local long status;
+local string l_file;
+local string l_filepath;
+local integer i;
+local integer p;
+
+local	string	l_window, l_titulo;
+{
+if upper ('User ID' of globals) <> \"SA\" then
+	error \"Please run the Flower Power Installation procedure using the 'Sa' user.\";
+	abort script;
+end if;}
+
+clear '(L) ProgressIndicator1';
+
+if 'SQL Server' of globals > 0 and upper('User ID' of globals) = \"SA\" then
+	{create the amAutoGrant stored proc}
+	
+	{create the amAutoGrant stored proc}
+	{open form GPDC_Create_amAutoGrant.
+	close form GPDC_Create_amAutoGrant.}
+	
+	result = Table_SetCreateMode(true);
+	{Don't display any table errors to the user.}
+	result = Table_DisableErrorChecks(true);
+	
+	call Create_All_Tables;
+	
+	result = Table_SetCreateMode(false);
+	{Don't display any table errors to the user.}
+	result = Table_DisableErrorChecks(false);
+else
+	call Create_All_Tables;
+end if;
+
+set '(L) ProgressIndicator1' to 100;"
+			UserProperties	""
+		}
+	}
+	~Functions
+	{
+	}
+	~Procedures
+	{
+	}
+}

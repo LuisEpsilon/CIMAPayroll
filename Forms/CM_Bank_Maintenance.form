@@ -1,0 +1,302 @@
+= Form	"CM_Bank_Maintenance"
+{
+	Windows
+	{
+		= Window	"CM_Bank_Maintenance"
+		{
+			Fields
+			{
+				= WindowControl	"(L) Bank Sort"
+				{
+					ZOrder	"37"
+				}
+				= WindowControl	"(L) Dummy Save"
+				{
+					ZOrder	"24"
+				}
+				= WindowControl	"(L) ReturnFlag"
+				{
+					ZOrder	"60"
+				}
+				= WindowPrompt	"120"
+				{
+					ZOrder	"51"
+				}
+				= WindowLine	"123"
+				{
+					ZOrder	"52"
+				}
+				= WindowLine	"125"
+				{
+					ZOrder	"53"
+				}
+				= WindowLine	"126"
+				{
+					ZOrder	"54"
+				}
+				= WindowLine	"127"
+				{
+					ZOrder	"55"
+				}
+				= WindowLine	"130"
+				{
+					ZOrder	"58"
+				}
+				= WindowPrompt	"131"
+				{
+					ZOrder	"59"
+				}
+				= WindowPrompt	"133"
+				{
+					ZOrder	"61"
+				}
+				= WindowPrompt	"134"
+				{
+					ZOrder	"62"
+				}
+				= WindowShape	"136"
+				{
+					ZOrder	"64"
+				}
+				= WindowPrompt	"32"
+				{
+					ZOrder	"6"
+				}
+				= WindowPrompt	"34"
+				{
+					ZOrder	"7"
+				}
+				= WindowPrompt	"37"
+				{
+					ZOrder	"41"
+				}
+				= WindowPrompt	"43"
+				{
+					ZOrder	"42"
+				}
+				= WindowPrompt	"50"
+				{
+					ZOrder	"48"
+				}
+				= WindowPrompt	"52"
+				{
+					ZOrder	"43"
+				}
+				= WindowPrompt	"54"
+				{
+					ZOrder	"44"
+				}
+				= WindowPrompt	"58"
+				{
+					ZOrder	"45"
+				}
+				= WindowPrompt	"60"
+				{
+					ZOrder	"49"
+				}
+				= WindowPrompt	"92"
+				{
+					ZOrder	"46"
+				}
+				= WindowPrompt	"93"
+				{
+					ZOrder	"47"
+				}
+				= WindowPrompt	"99"
+				{
+					ZOrder	"50"
+				}
+				= WindowControl	"Address 1"
+				{
+					ZOrder	"4"
+				}
+				= WindowControl	"Address 2"
+				{
+					ZOrder	"5"
+				}
+				= WindowControl	"Address 3"
+				{
+					ZOrder	"8"
+				}
+				= WindowControl	"Bank Branch"
+				{
+					ZOrder	"18"
+				}
+				= WindowControl	"Browse"
+				{
+					ZOrder	"23"
+				}
+				= WindowControl	"BrowseBox"
+				{
+					ZOrder	"32"
+				}
+				= WindowControl	"City"
+				{
+					ZOrder	"9"
+				}
+				= WindowControl	"Clear Button"
+				{
+					ZOrder	"28"
+				}
+				= WindowControl	"Country"
+				{
+					ZOrder	"12"
+				}
+				= WindowControl	"DD Transit Number"
+				{
+					ZOrder	"19"
+				}
+				= WindowControl	"Delete Button"
+				{
+					ZOrder	"29"
+				}
+				= WindowControl	"Display Existing Record"
+				{
+					ZOrder	"25"
+				}
+				= WindowControl	"Dummy Note Show Hide"
+				{
+					ZOrder	"20"
+				}
+				= WindowControl	"Dummy Record Note Show Hide"
+				{
+					ZOrder	"21"
+				}
+				WindowControl	"EX_CM_Exclude_Bank_ACH_CB"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_CM_Exclude_Bank_ACH_CB"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"433"
+					PositionTop	"34"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"154"
+					TabStop	"true"
+					Tag	"5138"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"3"
+				}
+				= WindowControl	"End of File Button - Toolbar"
+				{
+					ZOrder	"36"
+				}
+				= WindowControl	"Fax Number"
+				{
+					ZOrder	"16"
+				}
+				= WindowControl	"Handle Changes"
+				{
+					ZOrder	"22"
+				}
+				= WindowControl	"Lookup Button 1"
+				{
+					ZOrder	"40"
+				}
+				= WindowControl	"Next Button - Toolbar"
+				{
+					ZOrder	"35"
+				}
+				= WindowControl	"Note Absent Button - Toolbar"
+				{
+					ZOrder	"31"
+				}
+				= WindowControl	"Note Absent Button - Window Area"
+				{
+					ZOrder	"38"
+				}
+				= WindowControl	"Note Index"
+				{
+					ZOrder	"26"
+				}
+				= WindowControl	"Note Present Button - Toolbar"
+				{
+					ZOrder	"30"
+				}
+				= WindowControl	"Note Present Button - Window Area"
+				{
+					ZOrder	"39"
+				}
+				= WindowControl	"Phone 3"
+				{
+					ZOrder	"15"
+				}
+				= WindowControl	"Phone Number 1"
+				{
+					ZOrder	"13"
+				}
+				= WindowControl	"Phone Number 2"
+				{
+					ZOrder	"14"
+				}
+				= WindowControl	"Previous Button - Toolbar"
+				{
+					ZOrder	"34"
+				}
+				= WindowControl	"Save Button"
+				{
+					ZOrder	"27"
+				}
+				= WindowControl	"State"
+				{
+					ZOrder	"10"
+				}
+				= WindowControl	"Top of File Button - Toolbar"
+				{
+					ZOrder	"33"
+				}
+				= WindowControl	"Transit Number"
+				{
+					ZOrder	"17"
+				}
+				= WindowControl	"WindowHelp"
+				{
+					ZOrder	"56"
+				}
+				= WindowControl	"WindowPrint"
+				{
+					ZOrder	"57"
+				}
+				= WindowControl	"Zip Code"
+				{
+					ZOrder	"11"
+				}
+				= WindowControl	"Zoom Buttons[1]"
+				{
+					ZOrder	"63"
+				}
+			}
+			LastTag	"5138"
+		}
+	}
+}

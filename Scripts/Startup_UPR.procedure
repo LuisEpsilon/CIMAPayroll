@@ -1,0 +1,96 @@
+Procedure	"Startup_UPR"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"
+{}
+local	integer	l_result;
+{Save Record}
+l_result = Trigger_RegisterFocus(anonymous('Save Record' of window ddEmpEntry of form ddEmpEntry),
+								TRIGGER_FOCUS_CHANGE,
+								TRIGGER_AFTER_ORIGINAL, 
+								script 'RNC_ddEmpEntry_Save Record_CHG_TriggerAfter');
+if l_result <> SY_NOERR then
+	warning \"The 'RNC_Scroll SCROLL_CHG_Trigger_AFTER' trigger is not registered. \" + str(l_result);
+end if;
+
+
+{Save}
+l_result = Trigger_RegisterFocus(anonymous(window Scroll of form ddEmpEntry),
+								TRIGGER_FOCUS_CHANGE,
+								TRIGGER_AFTER_ORIGINAL, 
+								script RNC_Scroll_SCROLL_CHG_Trigger_AFTER);
+if l_result <> SY_NOERR then
+	warning \"The 'RNC_Scroll SCROLL_CHG_Trigger_AFTER' trigger is not registered. \" + str(l_result);
+end if;
+
+{Fill}
+l_result = Trigger_RegisterFocus(anonymous(window Scroll of form ddEmpEntry),
+								TRIGGER_FOCUS_FILL,
+								TRIGGER_AFTER_ORIGINAL, 
+								script RNC_Scroll_SCROLL_FILL_Trigger_After);
+if l_result <> SY_NOERR then
+	warning \"The 'RNC_Scroll SCROLL_CHG_Trigger_AFTER' trigger is not registered. \" + str(l_result);
+end if;
+
+{Fill}
+l_result = Trigger_RegisterFocus(anonymous('(L) TempRange' of window ddEmpEntry of form ddEmpEntry),
+								TRIGGER_FOCUS_CHANGE,
+								TRIGGER_AFTER_ORIGINAL, 
+								script RNC_ddEmpEntry_TempRange_CHG_Trigger_AFTER);
+if l_result <> SY_NOERR then
+	warning \"The 'RNC_Scroll SCROLL_CHG_Trigger_AFTER' trigger is not registered. \" + str(l_result);
+end if;
+
+
+{Delete}
+l_result = Trigger_RegisterDatabase(anonymous(table ddEmpLineTemp), 
+			form ddEmpEntry, 
+			TRIGGER_ON_DB_DELETE, 
+			script RNC_ddEmpLineTempr_Delete_Trigger_AFTER);
+if l_result<>SY_NOERR then
+	warning \"Database trigger registration failed RNC_ddEmpLineTempr_Delete_Trigger_AFTER.\";
+end if;
+
+l_result = Trigger_RegisterDatabase(anonymous(table ddEmpAcctMstr), 
+			0, 
+			TRIGGER_ON_DB_DELETE, 
+			script RNC_ddEmpAcctMstr_Delete_Trigger_AFTER);
+if l_result<>SY_NOERR then
+	warning \"Database trigger registration failed RNC_ddEmpAcctMstr_Delete_Trigger_AFTER.\";
+end if;
+
+{Save}
+l_result = Trigger_RegisterFocus(anonymous(window ddEmpEntry of form ddEmpEntry),
+								TRIGGER_FOCUS_PRE,
+								TRIGGER_AFTER_ORIGINAL, 
+								script RNC_PRE_Trigger_AFTER);
+if l_result <> SY_NOERR then
+	warning \"The 'RNC_Scroll SCROLL_CHG_Trigger_AFTER' trigger is not registered. \" + str(l_result);
+end if;
+
+{Save}
+l_result = Trigger_RegisterFocusByName(414, \"anonymous('Save Record' of window HR_Termination of form HR_Termination_V2)\", 
+								TRIGGER_FOCUS_CHANGE, 
+								TRIGGER_AFTER_ORIGINAL,  
+								script EX_HR_Termination_Save_Record_Trigger_AFTER);
+if l_result <> SY_NOERR then
+    warning \"The 'RNC_HR_Termination_Save_Record_Trigger_AFTER' trigger is not registered. \" + str(l_result);
+end if;
+
+{Trigger when opening the window}
+l_result = Trigger_RegisterProcedureByName('HR Dictionary ID' of globals,  
+				\"Navigate_Employee\", 
+				TRIGGER_AFTER_ORIGINAL, 
+				script EX_HR_Termination_OpenWindow_Trigger_PRE);
+
+if l_result <> SY_NOERR then
+    warning \"The 'EX_HR_Termination_OpenWindow_Trigger_PRE' trigger is not registered. \" + str(l_result);
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

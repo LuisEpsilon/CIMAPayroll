@@ -1,0 +1,20 @@
+Procedure	"SAE_scroll_DDEmpEntry_Trigger_CHG_BEFORE"
+{
+	Core	"Sales"
+	Documentation	""
+	Script	"
+{if not required (window Scroll of form ddEmpEntry) then
+	warning (getmsg(06058));
+	restart field;
+	reject record;
+	reject script;
+	abort script;
+end if;
+}"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

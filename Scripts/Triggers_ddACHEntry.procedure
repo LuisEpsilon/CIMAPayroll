@@ -1,0 +1,88 @@
+Procedure	"Triggers_ddACHEntry"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+
+}
+
+local long l_result;
+local integer l_tag;
+
+l_result = Trigger_RegisterForm(form ddACHEntry,
+ \"All Direct Deposits - Reports\", \"\", script Trig_ddACHEntry_PrintDD);
+if l_result <> SY_NOERR then
+ warning \"Additional Menu form trigger on ddACHEntry failed to register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+l_result = Trigger_RegisterForm(form ddACHEntry,
+ \"Non-ACH Banks Direct Deposit Reports\", \"\", script Trig_ddACHEntry_PrintDD_Excluded);
+if l_result <> SY_NOERR then
+ warning \"Additional Menu form trigger on ddACHEntry failed to register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+l_result = Trigger_RegisterFocus(anonymous('(L) Create ACH File'  of window ddACHEntry of form ddACHEntry),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_BEFORE_ORIGINAL, 
+												 script Trig_ddACHEntry_CreateFileButton_Pre, l_tag);
+if l_result <> SY_NOERR then
+ warning \"PRE - Trigger - '(L) Create ACH File'   of window ddACHEntry of form ddACHEntrys - Failed to Register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+
+l_result = Trigger_RegisterFocus(anonymous('(L) Create ACH File'  of window ddACHEntry of form ddACHEntry),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_ddACHEntry_CreateFileButton_Post, l_tag);
+if l_result <> SY_NOERR then
+  warning \"POST - Trigger - '(L) Create ACH File'   of window ddACHEntry of form ddACHEntrys - Failed to Register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+
+l_result = Trigger_RegisterFocus(anonymous('(L) Report1'  of window ddACHEntry of form ddACHEntry),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_BEFORE_ORIGINAL, 
+												 script Trig_ddACHEntry_CreateFileButton_Pre, l_tag);
+if l_result <> SY_NOERR then
+ warning \"PRE - Trigger - '(L) Create ACH File'   of window ddACHEntry of form ddACHEntrys - Failed to Register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+
+l_result = Trigger_RegisterFocus(anonymous('(L) Report1'  of window ddACHEntry of form ddACHEntry),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_ddACHEntry_CreateFileButton_Post, l_tag);
+if l_result <> SY_NOERR then
+  warning \"POST - Trigger - '(L) Create ACH File'   of window ddACHEntry of form ddACHEntrys - Failed to Register\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

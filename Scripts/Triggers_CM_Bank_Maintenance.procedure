@@ -1,0 +1,36 @@
+Procedure	"Triggers_CM_Bank_Maintenance"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{call the bank main scripts here...}
+
+local long l_result;
+local integer l_tag;
+
+l_result = Trigger_RegisterFocus(anonymous('Display Existing Record'  of window CM_Bank_Maintenance of form CM_Bank_Maintenance),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_CM_Bank_Main_DER, l_tag);
+if l_result <> SY_NOERR then
+ warning \"Bank maintenance window DER Trigger registration failed.\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+l_result = Trigger_RegisterFocus(anonymous('(L) Dummy Save' of window CM_Bank_Maintenance of form CM_Bank_Maintenance),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_CM_Bank_Main_SAVE, l_tag);
+if l_result <> SY_NOERR then
+ warning \"Bank maintenance window SAVE Trigger registration failed\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

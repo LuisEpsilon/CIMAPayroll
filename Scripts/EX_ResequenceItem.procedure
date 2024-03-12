@@ -1,0 +1,33 @@
+Procedure	"EX_ResequenceItem"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+	BY: Luis Soto
+	Date: 01.09.2024
+}
+local integer l_Index = 1;
+
+if '(L) Changed' of window ddEmpEntry of form ddEmpEntry then
+	release table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	change first table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	
+	while err(table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry)) = OKAY do
+		Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) = l_Index;
+		save table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		
+		increment l_Index;
+		
+		change next table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	end while;
+	
+	clear EX_LineDeleted of window ddEmpEntry of form ddEmpEntry;
+	fill window Scroll of form ddEmpEntry;
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

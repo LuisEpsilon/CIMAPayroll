@@ -1,0 +1,110 @@
+Table	"EX_Payroll_Changes"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"EX_Payroll_Changes"
+	FourByteHeader	"true"
+	PhysicalName	"EXPC001"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Audit Control Code"		
+		{
+			Encrypt	"false"
+			Field	"Audit Control Code"
+			Position	"4"
+		}
+		TableField	"Check Date"		
+		{
+			Encrypt	"false"
+			Field	"Check Date"
+			Position	"3"
+		}
+		TableField	"Diff"		
+		{
+			Encrypt	"false"
+			Field	"Diff"
+			Position	"7"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"Employee Name"		
+		{
+			Encrypt	"false"
+			Field	"Employee Name"
+			Position	"1"
+		}
+		TableField	"Hist Check Date"		
+		{
+			Encrypt	"false"
+			Field	"Hist Check Date"
+			Position	"5"
+		}
+		TableField	"Historical Net Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Historical Net Wages/Pay Run"
+			Position	"6"
+		}
+		TableField	"Net Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Net Wages/Pay Run"
+			Position	"2"
+		}
+	}
+	~Keys
+	{
+		Key	"Payroll_Changes_Key111"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"UPR_MSTR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; UPR_MSTR_Key1"
+			RelatedTable	"UPR_MSTR"
+			RelationshipType	"OneToOne"
+		}
+	}
+}

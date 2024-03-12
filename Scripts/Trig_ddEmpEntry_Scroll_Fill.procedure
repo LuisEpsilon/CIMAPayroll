@@ -1,0 +1,47 @@
+Procedure	"Trig_ddEmpEntry_Scroll_Fill"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{run script '(L) l_Scroll_Fill' of window ddEmpEntry of form ddEmpEntry;
+}
+{}
+local string l_where;
+
+if isopen(window ddEmpEntry of form ddEmpEntry) then
+	
+	{set 'Employee ID' of table EX_DD_Banks to
+		'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+	set Index of table EX_DD_Banks to
+		Index of table ddEmpLineTemp;
+	get table EX_DD_Banks;}
+	
+	clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+	set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong of table ddEmpLineTemp;
+	get table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	if err () = OKAY then
+		set 'Bank ID' of window Scroll of form ddEmpEntry to
+			'Bank ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+	else
+		clear 'Bank ID' of window Scroll of form ddEmpEntry;
+	end if;
+	
+	{clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+	set 'Employee ID' of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window Scroll of form ddEmpEntry;
+	set Index of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to IndexLong of window Scroll of form ddEmpEntry;
+	get table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+	if err () = OKAY then
+		set RNC_DD_CheckBox of window Scroll of form ddEmpEntry to
+			RNC_DD_CheckBox of table (('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry));
+	else
+		clear 'Bank ID' of window Scroll of form ddEmpEntry;
+	end if;}
+	
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,105 @@
+Form	"EX_Test"
+{
+	Commands
+	{
+	}
+	ConfigurableMenus	"false"
+	Constants
+	{
+	}
+	Datatypes
+	{
+	}
+	EventPost	""
+	EventPre	""
+	Fields
+	{
+	}
+	Menus
+	{
+	}
+	Series	"3rdParty"
+	Tables
+	{
+	}
+	Windows
+	{
+		Window	"EX_Test"		
+		{
+			AutoLinkTable	""
+			AutoOpen	"false"
+			BackGround	"true"
+			CloseBox	"true"
+			ControlArea	"false"
+			DisplayName	"~internal~"
+			EventActivate	""
+			EventContextMenu	""
+			EventPost	""
+			EventPre	""
+			EventPrint	""
+			Fields
+			{
+				WindowControl	"EX_Reason_for_Leaving"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"System - Window Background"
+					ControlType	"DropDownList"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"EX_Reason_for_Leaving"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"24"
+					PositionTop	"15"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"176"
+					TabStop	"true"
+					Tag	"1"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					VisibleItems	"8"
+					ZOrder	"0"
+				}
+			}
+			LastTag	"1"
+			Position	"1"
+			PositionLeft	"1"
+			PositionTop	"1"
+			Resizable	"true"
+			SizeHeight	"338"
+			SizeWidth	"424"
+			WindowType	"Primary"
+		}
+	}
+	~EventScripts
+	{
+	}
+	~Functions
+	{
+	}
+	~Procedures
+	{
+	}
+}

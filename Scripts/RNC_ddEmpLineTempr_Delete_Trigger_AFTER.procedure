@@ -1,0 +1,50 @@
+Procedure	"RNC_ddEmpLineTempr_Delete_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+
+inout table ddEmpLineTemp;
+in integer table_operation;
+
+local	text	sql;
+
+if table_operation = TRIGGER_ON_DB_DELETE then
+	
+	if empty('Employee ID' of window ddEmpEntry of form ddEmpEntry) then
+		abort script;
+	end if;
+	
+	clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+	set 'Employee ID' of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+	set IndexLong of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to IndexLong of table ddEmpLineTemp;
+	change table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+	if err() = OKAY then
+		remove table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+		check error;
+	end if;
+	
+	/* mod by LuisSoto: 09.01.2024 
+	*teams: https://rb.gy/b2okjt */
+	
+	if not EX_LineDeleted of window ddEmpEntry of form ddEmpEntry then
+		clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong of table ddEmpLineTemp;
+		change table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		if err() = OKAY then
+			remove table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+			check error;
+		end if;
+		fill EX_LineDeleted of window ddEmpEntry of form ddEmpEntry;
+	end if;	
+end if;
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

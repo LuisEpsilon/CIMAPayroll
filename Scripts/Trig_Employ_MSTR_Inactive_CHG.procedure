@@ -1,0 +1,23 @@
+Procedure	"Trig_Employ_MSTR_Inactive_CHG"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+	this script runs on the change of the inactive flag..
+}
+
+if Inactive of window UPR_Employee_MNT of form UPR_Employee_MNT then
+	enable field EX_Reason_for_Leaving of window UPR_Employee_MNT of form UPR_Employee_MNT;
+else
+	set EX_Reason_for_Leaving of window UPR_Employee_MNT of form UPR_Employee_MNT to 0;
+	{set EX_Reason_for_Leaving of window UPR_Employee_MNT of form UPR_Employee_MNT;}
+	disable field EX_Reason_for_Leaving of window UPR_Employee_MNT of form UPR_Employee_MNT;
+	
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,158 @@
+Table	"EX_ddACHHdr_ExcludedBank_Copy"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"Direct Deposit ACH Header"
+	FourByteHeader	"true"
+	PhysicalName	"EX_DD104"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Audit Control Code"		
+		{
+			Encrypt	"false"
+			Field	"Audit Control Code"
+			Position	"7"
+		}
+		TableField	"Build Check Date"		
+		{
+			Encrypt	"false"
+			Field	"Build Check Date"
+			Position	"5"
+		}
+		TableField	"Build Check Default ID"		
+		{
+			Encrypt	"false"
+			Field	"Build Check Default ID"
+			Position	"4"
+		}
+		TableField	"Build Check Time"		
+		{
+			Encrypt	"false"
+			Field	"Build Check Time"
+			Position	"6"
+		}
+		TableField	"Checkbook ID"		
+		{
+			Encrypt	"false"
+			Field	"Checkbook ID"
+			Position	"11"
+		}
+		TableField	"DD Auto Settle On"		
+		{
+			Encrypt	"false"
+			Field	"DD Auto Settle On"
+			Position	"1"
+		}
+		TableField	"Effective Date"		
+		{
+			Encrypt	"false"
+			Field	"Effective Date"
+			Position	"10"
+		}
+		TableField	"Include Payments"		
+		{
+			Encrypt	"false"
+			Field	"Include Payments"
+			Position	"2"
+		}
+		TableField	"IndexLong"		
+		{
+			Encrypt	"false"
+			Field	"IndexLong"
+			Position	"0"
+		}
+		TableField	"Pay Date"		
+		{
+			Encrypt	"false"
+			Field	"Pay Date"
+			Position	"9"
+		}
+		TableField	"Printed"		
+		{
+			Encrypt	"false"
+			Field	"Printed"
+			Position	"3"
+		}
+		TableField	"User ID"		
+		{
+			Encrypt	"false"
+			Field	"User ID"
+			Position	"8"
+		}
+	}
+	~Keys
+	{
+		Key	"ddACHHdrIdxACHLineIdx1"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"IndexLong"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"ddACHHdrUserID1"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"1"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"IndexLong"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

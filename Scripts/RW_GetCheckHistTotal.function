@@ -1,0 +1,22 @@
+Function	"RW_GetCheckHistTotal"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"function returns currency rHistCheckTotal;
+
+in string iACC;
+
+release table UPR_Check_HIST;
+range clear table UPR_Check_HIST;
+set 'Audit Control Code' of table UPR_Check_HIST to iACC;
+clear 'Check Number' of table UPR_Check_HIST;
+range start table UPR_Check_HIST;
+fill 'Check Number' of table UPR_Check_HIST;
+range end table UPR_Check_HIST;
+get first table UPR_Check_HIST;
+while err() = OKAY do
+	set rHistCheckTotal to 'Net Wages/Pay Run' of table UPR_Check_HIST + rHistCheckTotal;
+	get next table UPR_Check_HIST;
+end while;"
+	UserProperties	""
+}

@@ -1,0 +1,64 @@
+Procedure	"Trig_ddACHEntry_PrintDD"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+	prints the direct deposit reports from the ddACHEntry window
+	
+}
+
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+local string EX_DD_SummaryByBank, EX_DD_ListingByBank;
+
+release table UPR_WORK_HDR;
+get first table UPR_WORK_HDR;
+
+if err() = EOF then
+	{it's empty... posting was successful...}
+	close table EX_DD_SummaryByBank;
+	close table EX_DD_ListingByBank;
+	open table EX_DD_SummaryByBank;
+	open table EX_DD_ListingByBank;
+
+	EX_DD_SummaryByBank = Table_GetOSName(table EX_DD_SummaryByBank);
+	EX_DD_ListingByBank = Table_GetOSName(table EX_DD_ListingByBank);
+
+	l_sql_status = SQL_Connect(l_sql_connect);
+	l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+	l_sql_status = SQL_Clear(l_sql_connect);
+	
+	l_sql_command = \"insert into \" + EX_DD_ListingByBank;
+	l_sql_command = l_sql_command + \" select BANKNAME, a.DDINDNAM, a.DDACTNUM, a.DDAMTDLR from DD10500 A  \";
+	l_sql_command = l_sql_command + \"INNER JOIN DD00200 B ON A.DDACTNUM = B.DDACTNUM AND A.EMPLOYID = B.EMPLOYID and A.DDTRANUM = B.DDTRANUM \";
+	l_sql_command = l_sql_command + \"INNER JOIN EX00200 C ON B.EMPLOYID =C.EMPLOYID AND B.INDXLONG = C.INDEX1 \";
+	l_sql_command = l_sql_command + \"INNER JOIN SY04100 D ON C.BANKID = D.BANKID \";
+	l_sql_command = l_sql_command + \"where a.INDXLONG in (select INDXLONG from DD10400 where INCLPYMT = 1)  and a.DDAMTDLR <> 0 \";
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+	
+	l_sql_command = \"insert into \" + EX_DD_SummaryByBank;
+	l_sql_command = l_sql_command + \" select BANKNAME, sum(a.DDAMTDLR) from DD10500 A  \";
+	l_sql_command = l_sql_command + \"INNER JOIN DD00200 B ON A.DDACTNUM = B.DDACTNUM AND A.EMPLOYID = B.EMPLOYID and A.DDTRANUM = B.DDTRANUM \";
+	l_sql_command = l_sql_command + \"INNER JOIN EX00200 C ON B.EMPLOYID =C.EMPLOYID AND B.INDXLONG = C.INDEX1 \";
+	l_sql_command = l_sql_command + \"INNER JOIN SY04100 D ON C.BANKID = D.BANKID \";
+	l_sql_command = l_sql_command + \"where  a.INDXLONG in (select INDXLONG from DD10400 where INCLPYMT = 1)  and a.DDAMTDLR <> 0 \";
+	l_sql_command = l_sql_command + \"group by BANKNAME \";
+	l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+		
+	l_sql_status = SQL_Clear(l_sql_connect);
+	l_sql_status  = SQL_Terminate(l_sql_connect);
+	
+	run report EX_DD_ListingByBank;
+	run report EX_DD_SummaryByBank;
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

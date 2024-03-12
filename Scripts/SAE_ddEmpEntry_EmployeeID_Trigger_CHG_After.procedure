@@ -1,0 +1,12 @@
+Procedure	"SAE_ddEmpEntry_EmployeeID_Trigger_CHG_After"
+{
+	Core	"Sales"
+	Documentation	""
+	Script	"run script '(L) SAE_ClearEmployeeID' of window ddEmpEntry of form ddEmpEntry;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

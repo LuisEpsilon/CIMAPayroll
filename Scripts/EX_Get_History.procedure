@@ -1,0 +1,59 @@
+Procedure	"EX_Get_History"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{in string ATC;}
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+local currency diff;
+
+local string l_auditCode, oAuditCode;
+
+l_sql_status = SQL_Connect(l_sql_connect);
+l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+
+/*l_sql_command = \"select top 1 isnull(AUCTRLCD,'') from UPR30400 order by DEX_ROW_ID DESC\";*/
+l_sql_command = \"select top 1 isnull(AUCTRLCD,'') from UPR30400 where AUCTRLCD like 'UPRCC%' order by DEX_ROW_ID DESC\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+
+l_sql_data_status = SQL_GetData(l_sql_connect,1,l_auditCode);
+oAuditCode = l_auditCode;
+
+l_sql_status = SQL_Clear(l_sql_connect);
+l_sql_status  = SQL_Terminate(l_sql_connect);
+
+
+{Get Historical net check amounts if they exist}
+release table UPR_Check_HIST;
+range clear table UPR_Check_HIST;
+set 'Audit Control Code' of table UPR_Check_HIST to oAuditCode; 
+clear 'Check Number' of table UPR_Check_HIST;
+range start table UPR_Check_HIST;
+fill 'Check Number' of table UPR_Check_HIST;
+range end table UPR_Check_HIST;
+get first table UPR_Check_HIST;
+while err() = OKAY do
+	set 'Employee ID' of table EX_Payroll_Changes to 'Employee ID' of table UPR_Check_HIST;
+	set 'Employee Name' of table EX_Payroll_Changes to 'Employee Name' of table UPR_Check_HIST;
+	set 'Check Date' of table EX_Payroll_Changes to sysdate();
+	set 'Hist Check Date' of table EX_Payroll_Changes to 'Check Date' of table UPR_Check_HIST;
+	set 'Audit Control Code' of table EX_Payroll_Changes to oAuditCode;
+	set 'Net Wages/Pay Run' of table EX_Payroll_Changes to 0;
+	set 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_Check_HIST;
+	set Diff of table EX_Payroll_Changes to ('Net Wages/Pay Run' of table UPR_Check_HIST)*-1;
+	
+	save table EX_Payroll_Changes;
+	get next table UPR_Check_HIST;
+end while;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

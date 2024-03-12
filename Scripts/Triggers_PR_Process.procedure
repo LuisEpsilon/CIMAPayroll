@@ -1,0 +1,57 @@
+Procedure	"Triggers_PR_Process"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+UPR_Create_WORK_Records_For_Pay_TRXs
+
+}
+
+local integer l_result, l_tag;
+
+l_result = Trigger_RegisterProcedure(script UPR_Build_Check_File, TRIGGER_BEFORE_ORIGINAL, script Trig_PR_Skip_Pre, l_tag);
+if l_result <> SY_NOERR then
+    warning \"UPR_Create_WORK_Records_For_Pay_TRXs PRE Trigger Registration Failed.\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+l_result = Trigger_RegisterProcedure(script UPR_Build_Check_File, TRIGGER_AFTER_ORIGINAL, script Trig_PR_Skip_Post, l_tag);
+if l_result <> SY_NOERR then
+    warning \"UPR_Create_WORK_Records_For_Pay_TRXs Post Trigger Registration Failed.\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+l_result = Trigger_RegisterProcedure(script UPR_Posting_Close, TRIGGER_AFTER_ORIGINAL, script Trig_UPR_POST_PR_Posted_Calculated, l_tag);
+if l_result <> SY_NOERR then
+    warning \"UPR_Post_To_GL Post Trigger Registration Failed.\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+{ OLD Feb 8 2023
+l_result = Trigger_RegisterProcedure(script UPR_Post_To_GL, TRIGGER_AFTER_ORIGINAL, script Trig_UPR_POST_PR_Posted_Calculated, l_tag);
+if l_result <> SY_NOERR then
+    warning \"UPR_Post_To_GL Post Trigger Registration Failed.\";
+end if;
+call EX_Register_Trigger,l_tag;
+}
+
+
+{
+l_result = Trigger_RegisterFocus(anonymous('Process Button P'  of window UPR_Post_Checks of form UPR_Print_Checks),
+												 TRIGGER_FOCUS_CHANGE, 
+												 TRIGGER_AFTER_ORIGINAL, 
+												 script Trig_UPR_POST_PR_Posted_Calculated, l_tag);
+if l_result <> SY_NOERR then
+ warning \"Trigger - 'Process Button P'  of window UPR_Print_Checks of form UPR_Print_Checks - Failed to Register\";
+end if;
+call EX_Register_Trigger,l_tag;
+}"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

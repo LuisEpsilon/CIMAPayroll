@@ -1,0 +1,66 @@
+Procedure	"EX_Create_Table"
+{
+	Core	"System"
+	Documentation	""
+	Script	"in string table_name;
+in boolean l_system;
+ 
+local boolean result,l_result,OUT_Access; 
+local anonymous table working_table;
+
+{ wont compile on 2016 -AJ
+
+{if logged in as sa, let them create the tables} 
+if 'SQLSaUser' of globals then 
+	OUT_Access = true; 
+else 
+	{This else statement will work only on 8.0. If logged in as a user other than sa, 
+		but they have table access permissions, let them create the tables} 
+	if syUserInRole('User ID' of globals, ROLE_SYSADMIN) or (syUserIsDBO ('User ID' of globals, 'Intercompany ID' of globals) 		
+  and syUserIsDBO ('User ID' of globals, SQL_SYSTEM_DBNAME)) then 
+		  OUT_Access = true; 
+	end if; 
+end if; 
+
+ -AJ
+}
+if 'SQL Server' of globals > 0 then
+
+
+ 
+	{enable table creation mode} 
+	result = Table_SetCreateMode(true); 
+	{Do not display any table errors to the user.} 
+	result = Table_DisableErrorChecks(true); 
+	open table working_table with name table_name;
+	if l_system then
+		
+		get first table working_table; {System series table} 
+		close table working_table; {now set permissions, call once for the table and once for the stored procs} 
+		{GPSetup is a purchasing series table so that will be in the company dbo} 
+		
+		{GPSetup2 is a system series table so that will be in the DYNAMICS database} 
+		l_result = GrantAccess(physicalname(table working_table),false,\"DYNGRP\",\"DYNAMICS\") of form 'SQL Maintenance'; 
+		l_result = GrantAccess(physicalname(table working_table),true,\"DYNGRP\",\"DYNAMICS\") of form 'SQL Maintenance'; 
+	else
+		{accessing the table creates it, list all your tables here, make sure to close the tables when done} 
+		get first table working_table; {company leval table} 
+		close table working_table; 
+		l_result = GrantAccess(physicalname(table working_table),false,\"DYNGRP\",'Intercompany ID' of globals) 
+			of form 'SQL Maintenance'; 
+		l_result = GrantAccess(physicalname(table working_table),true,\"DYNGRP\",'Intercompany ID' of globals) 
+			of form 'SQL Maintenance'; 
+	end if;
+	
+	{Turn off automatic table creation.} 
+	result = Table_SetCreateMode(false); 
+	{Turn table error reporting back on.} 
+	result = Table_DisableErrorChecks(false); 
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,82 @@
+Table	"EX_DD_ListingByBank"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"EX_DD_ListingByBank"
+	FourByteHeader	"true"
+	PhysicalName	"TEMP"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Bank Name"		
+		{
+			Encrypt	"false"
+			Field	"Bank Name"
+			Position	"0"
+		}
+		TableField	"DD Account Number"		
+		{
+			Encrypt	"false"
+			Field	"DD Account Number"
+			Position	"2"
+		}
+		TableField	"DD AmountDlr"		
+		{
+			Encrypt	"false"
+			Field	"DD AmountDlr"
+			Position	"3"
+		}
+		TableField	"DD Individual Name"		
+		{
+			Encrypt	"false"
+			Field	"DD Individual Name"
+			Position	"1"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_DD_LIstingByBank_KEY111"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Bank Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"DD Individual Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

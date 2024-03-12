@@ -1,0 +1,24 @@
+Function	"RW_GetPayBuildIDDesc"
+{
+	Core	"System"
+	Documentation	""
+	Script	"function returns string rBuildID;
+
+in string 	BuildID;
+
+release table UPR_Build_Check_Defaults;
+range clear table UPR_Build_Check_Defaults;
+
+set 'Build Check Default ID' of table UPR_Build_Check_Defaults to BuildID;
+range start table UPR_Build_Check_Defaults;
+range end table UPR_Build_Check_Defaults;
+get first table UPR_Build_Check_Defaults;
+if err() = OKAY then
+	rBuildID = Description of table UPR_Build_Check_Defaults;
+end if;
+
+release table  UPR_Build_Check_Defaults;
+
+"
+	UserProperties	""
+}

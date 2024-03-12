@@ -1,0 +1,273 @@
+= Form	"UPR_Print_Checks"
+{
+	Datatypes
+	{
+		Datatype	"EX_GL_Reports"		
+		{
+			Control	"Boolean"
+		}
+		Datatype	"PushButton52"		
+		{
+			Control	"PushButton"
+			DefaultDown	"00000"
+			DefaultMouseOver	"00000"
+			DefaultUp	"00001"
+			Prompt	"Print Differences"
+			PromptDown	""
+			PromptMouseOver	""
+			StaticType	"Native Picture"
+			~ItemImages
+			{
+				ImageItem	"00001"				
+				{
+					Item	"ToolBarProceduresEnterprise"
+				}
+			}
+		}
+	}
+	Fields
+	{
+		Field	"EX_GL_Reports"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) EX_GL_Reports"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"PushButton52"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) PushButton52"
+			LookupForm	""
+			PhysicalName	""
+		}
+	}
+	Windows
+	{
+		= Window	"UPR_Post_Checks"
+		{
+			Fields
+			{
+				WindowControl	"(L) PushButton52"				
+				{
+					Alignment	"center"
+					Appearance	"3D Highlight"
+					BackColor	"System - Toolbar"
+					Border	"true"
+					ButtonStyle	"TextOnRight"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"UPR_Post_Checks l_PushButton52_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) PushButton52"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"163"
+					PositionTop	"0"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"24"
+					SizeWidth	"106"
+					TabStop	"true"
+					Tag	"5181"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"94"
+					Zoom	"false"
+				}
+				= WindowLine	"167"
+				{
+					SizeHeight	"19"
+				}
+				= WindowLine	"168"
+				{
+					SizeHeight	"20"
+				}
+				WindowLine	"5182"				
+				{
+					Appearance	"3D Border"
+					LineColor	"System"
+					LineSize	"1"
+					PositionLeft	"269"
+					PositionTop	"3"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"0"
+					ZOrder	"95"
+				}
+			}
+			LastTag	"5182"
+		}
+		= Window	"UPR_Print_Checks"
+		{
+			Fields
+			{
+				WindowControl	"(L) EX_GL_Reports"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"R-255, G-128, B-192"
+					ControlType	"Boolean"
+					EventChange	"UPR_Print_Checks l_EX_GL_Reports_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"(L) EX_GL_Reports"
+					FontColor	"System"
+					PositionLeft	"440"
+					PositionTop	"129"
+					SavedOnRestart	"false"
+					SizeHeight	"20"
+					SizeWidth	"64"
+					Tag	"5118"
+					ZOrder	"72"
+				}
+			}
+			LastTag	"5118"
+		}
+	}
+	~EventScripts
+	{
+		EventScript	"UPR_Post_Checks l_PushButton52_CHG"		
+		{
+			Documentation	""
+			Script	"local date l_date,lWorkCheckDate, lWorkCheckDate2;
+local string lATC;
+
+call Calc_PR_NetChange_Exceptions, l_date, lWorkCheckDate, lATC;
+call EX_RemoveZeroDiff;
+call EX_Calculate_Payroll_Changes, lWorkCheckDate2;
+
+
+run report 'EX Net Payroll Changes Exceptions' legends str(lWorkCheckDate),str(l_date), lATC;
+run report 'Payroll Changes Report Summary' legends str(lWorkCheckDate);"
+			UserProperties	""
+		}
+		EventScript	"UPR_Print_Checks l_EX_GL_Reports_CHG"		
+		{
+			Documentation	""
+			Script	"
+local currency	TempDebit,TempCredit,TempDiffAmount;
+local long	CashAccountIndex; 
+
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+l_sql_status = SQL_Connect(l_sql_connect);
+l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);	
+
+{clear the EX10209 table...}
+l_sql_command = \"delete EX10209\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);	
+
+
+CashAccountIndex = EX_Get_Cash_Account('Checkbook ID');
+
+l_sql_command = \"INSERT INTO [EX10209] \";
+l_sql_command = l_sql_command + \"           ([USERID] \";
+l_sql_command = l_sql_command + \",[EMPLOYID] \";
+l_sql_command = l_sql_command + \",[ACTINDX] \";
+l_sql_command = l_sql_command + \",[CHEKNMBR] \";
+l_sql_command = l_sql_command + \",[POSTEDDT] \";
+l_sql_command = l_sql_command + \",[DEPRTMNT] \";
+l_sql_command = l_sql_command + \",[AMNTOPST] \";
+l_sql_command = l_sql_command + \",[JOBTITLE]) \";
+l_sql_command = l_sql_command + \"select [USERID] \";
+l_sql_command = l_sql_command + \",[EMPLOYID] \";
+l_sql_command = l_sql_command + \",[ACTINDX] \";
+l_sql_command = l_sql_command + \",[CHEKNMBR] \";
+l_sql_command = l_sql_command + \",[POSTEDDT] \";
+l_sql_command = l_sql_command + \",[DEPRTMNT] \";
+l_sql_command = l_sql_command + \",[AMNTOPST] \";
+l_sql_command = l_sql_command + \",[JOBTITLE] \";
+l_sql_command = l_sql_command + \"from UPR10209 \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);	
+
+l_sql_command = \"UPDATE EX10209 \";
+l_sql_command = l_sql_command + \"set DEBITAMT = AMNTOPST, CRDTAMNT = 0  \";
+l_sql_command = l_sql_command + \"where AMNTOPST > 0 and ACTINDX <> 0 \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);	
+
+l_sql_command = \"UPDATE EX10209 \";
+l_sql_command = l_sql_command + \"set CRDTAMNT = -AMNTOPST, DEBITAMT = 0 \";
+l_sql_command = l_sql_command + \"where AMNTOPST < 0 and ACTINDX <> 0 \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);	
+
+
+{insert a cash account record for each employee}
+l_sql_command = \"INSERT INTO [EX10209] \";
+l_sql_command = l_sql_command + \"([USERID] \";
+l_sql_command = l_sql_command + \",[EMPLOYID] \";
+l_sql_command = l_sql_command + \",[ACTINDX] \";
+l_sql_command = l_sql_command + \",[DEPRTMNT] \";
+l_sql_command = l_sql_command + \",[JOBTITLE]) \";
+l_sql_command = l_sql_command + \"select [USERID] \";
+l_sql_command = l_sql_command + \",[EMPLOYID] \";
+l_sql_command = l_sql_command + \",'\" + str(CashAccountIndex) + \"' \";
+l_sql_command = l_sql_command + \",[DEPRTMNT] \";
+l_sql_command = l_sql_command + \",[JOBTITLE] \";
+l_sql_command = l_sql_command + \"from UPR10209 \";
+l_sql_command = l_sql_command + \"group by [USERID],EMPLOYID,[DEPRTMNT],[JOBTITLE] \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+
+l_sql_command = \"update EX10209 \";
+l_sql_command = l_sql_command + \"set DEBITAMT = \";
+l_sql_command = l_sql_command + \"isnull( \";
+l_sql_command = l_sql_command + \"((select sum(DEBITAMT + (CRDTAMNT * -1)) from EX10209 L \";
+l_sql_command = l_sql_command + \"where EX10209.EMPLOYID = L.EMPLOYID and L.EMPLOYID <> '' \";
+l_sql_command = l_sql_command + \"group by EMPLOYID \";
+l_sql_command = l_sql_command + \"having sum(DEBITAMT + (CRDTAMNT * -1)) < 0 \";
+l_sql_command = l_sql_command + \")),0) \";
+l_sql_command = l_sql_command + \"where ACTINDX = '\" + str(CashAccountIndex) + \"' \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+
+
+l_sql_command = \"update EX10209 \";
+l_sql_command = l_sql_command + \"set CRDTAMNT = \";
+l_sql_command = l_sql_command + \"isnull( \";
+l_sql_command = l_sql_command + \"((select sum(DEBITAMT + (CRDTAMNT * -1)) from EX10209 L \";
+l_sql_command = l_sql_command + \"where EX10209.EMPLOYID = L.EMPLOYID and L.EMPLOYID <> '' \";
+l_sql_command = l_sql_command + \"group by EMPLOYID \";
+l_sql_command = l_sql_command + \"having sum(DEBITAMT + (CRDTAMNT * -1)) > 0 \";
+l_sql_command = l_sql_command + \")),0) \";
+l_sql_command = l_sql_command + \"where ACTINDX = '\" + str(CashAccountIndex) + \"' \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+l_sql_status  = SQL_Terminate(l_sql_connect);
+
+run report 'EX GL Summary Edit List';
+run report 'EX GL Detail Edit List';
+"
+			UserProperties	""
+		}
+	}
+}

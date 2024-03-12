@@ -1,0 +1,25 @@
+Procedure	"SAE_ddEmpEntry_TempEMPID_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+
+
+assign '(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry as reference to table EX_DD_Banks_Temp;
+assign '(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry as reference to table RNC_ddEmpAcctMstr_TMP;
+
+
+{range clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+remove range table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+
+
+range clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+remove range table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);}
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

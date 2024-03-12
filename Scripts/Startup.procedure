@@ -1,0 +1,36 @@
+Procedure	"Startup"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{}
+
+{}
+local integer l_result;
+local integer l_tag;
+
+
+{First trigger to run - do all startup stuff here...}
+l_result = Trigger_RegisterProcedure(script Add_Successful_Login_Record, TRIGGER_AFTER_ORIGINAL, script Startup_Login_Trigger);
+ 
+if l_result <> SY_NOERR then
+            warning \"Procedure trigger registration for setting up tables failed.\";
+end if;
+call EX_Register_Trigger,l_tag;
+
+
+{triggers are broken up by the form or process they are related to}
+call Triggers_Employee_MSTR_Form;
+call Triggers_ddEmpEntry;
+call Triggers_PR_Process;
+call Trigger_UPR_Print_Checks;
+call Triggers_UPR_Create_Precheck_Report4_Report;
+call Triggers_ddACHEntry;
+call Triggers_CM_Bank_Maintenance;
+call startup_UPR_Inquiry_Check;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

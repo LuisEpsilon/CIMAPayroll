@@ -1,0 +1,166 @@
+Table	"EX_uprWorkChkYTD"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"Metrics Payroll Work Check YTD Amounts"
+	FourByteHeader	"true"
+	PhysicalName	"EXUPR10214"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Benefit Amount Fiscal YTD Array"		
+		{
+			Encrypt	"false"
+			Field	"Benefit Amount Fiscal YTD Array"
+			Position	"17"
+		}
+		TableField	"Benefit Amount YTD Array"		
+		{
+			Encrypt	"false"
+			Field	"Benefit Amount YTD Array"
+			Position	"3"
+		}
+		TableField	"Deduction Amount Fiscal YTD Array"		
+		{
+			Encrypt	"false"
+			Field	"Deduction Amount Fiscal YTD Array"
+			Position	"16"
+		}
+		TableField	"Deduction Amount YTD Array"		
+		{
+			Encrypt	"false"
+			Field	"Deduction Amount YTD Array"
+			Position	"2"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"FICA Withholding YTD"		
+		{
+			Encrypt	"false"
+			Field	"FICA Withholding YTD"
+			Position	"8"
+		}
+		TableField	"FICA/Medicare Withholding YTD"		
+		{
+			Encrypt	"false"
+			Field	"FICA/Medicare Withholding YTD"
+			Position	"10"
+		}
+		TableField	"FICA/Social Security Withholding YTD"		
+		{
+			Encrypt	"false"
+			Field	"FICA/Social Security Withholding YTD"
+			Position	"9"
+		}
+		TableField	"Federal Withholding YTD"		
+		{
+			Encrypt	"false"
+			Field	"Federal Withholding YTD"
+			Position	"11"
+		}
+		TableField	"Gross Wages YTD"		
+		{
+			Encrypt	"false"
+			Field	"Gross Wages YTD"
+			Position	"6"
+		}
+		TableField	"Local Tax YTD"		
+		{
+			Encrypt	"false"
+			Field	"Local Tax YTD"
+			Position	"5"
+		}
+		TableField	"Local Withholding YTD"		
+		{
+			Encrypt	"false"
+			Field	"Local Withholding YTD"
+			Position	"13"
+		}
+		TableField	"Net Wages YTD"		
+		{
+			Encrypt	"false"
+			Field	"Net Wages YTD"
+			Position	"7"
+		}
+		TableField	"Pay Fiscal YTD Array"		
+		{
+			Encrypt	"false"
+			Field	"Pay Fiscal YTD Array"
+			Position	"15"
+		}
+		TableField	"Pay YTD Array"		
+		{
+			Encrypt	"false"
+			Field	"Pay YTD Array"
+			Position	"1"
+		}
+		TableField	"State Tax YTD"		
+		{
+			Encrypt	"false"
+			Field	"State Tax YTD"
+			Position	"4"
+		}
+		TableField	"State Withholding YTD"		
+		{
+			Encrypt	"false"
+			Field	"State Withholding YTD"
+			Position	"12"
+		}
+		TableField	"User ID"		
+		{
+			Encrypt	"false"
+			Field	"User ID"
+			Position	"14"
+		}
+	}
+	~Keys
+	{
+		Key	"uprWorkChkYTDIdxEmpID11"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

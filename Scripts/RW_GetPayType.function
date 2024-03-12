@@ -1,0 +1,26 @@
+Function	"RW_GetPayType"
+{
+	Core	"System"
+	Documentation	""
+	Script	"function returns string rBuildVal;
+
+local integer 	TempID;
+local date		TempDate;
+
+release table UPR_WORK_MSTR;
+range clear table UPR_WORK_MSTR;
+
+get first table UPR_WORK_MSTR;
+if err() = OKAY then
+	if 'Computer Pay Run Type' of table UPR_WORK_MSTR = 0 then
+		rBuildVal=\"Regular Pay\";
+	else
+		rBuildVal=\"Advance Pay\";
+	end if;
+end if;
+
+release table  UPR_WORK_MSTR;
+
+"
+	UserProperties	""
+}

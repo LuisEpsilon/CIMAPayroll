@@ -1,0 +1,63 @@
+Function	"Execute_SQL"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"
+
+function returns long	oStatus;
+
+in	text	isql;
+
+local long SQL_connection, status;
+local string seller_ID;
+local boolean result;
+local text query_results; {A global text field definition}
+local	text	ls_sql;
+
+{Query information}
+local string seller_first_name, seller_last_name;
+local string house_address, house_city;
+
+{SQL error information}
+local long GPS_error_number, SQL_error_number;
+local string SQL_error_string, ODBC_error_string;
+
+ls_sql = \"USE \" + 'Intercompany ID' of globals + char(13) + isql;
+
+debug ls_sql;
+{Connect to the SQL data source.}
+status = SQL_Connect(SQL_connection);
+if status = 0 then
+    {Build SQL statement to use the appropriate database.}
+	{Execute the SQL statements.}
+    status = SQL_Execute(SQL_connection, ls_sql);
+    if status = 0 then
+        {}
+		oStatus = status;
+    else
+        error \"An error occurred executing SQL statements.\";
+		oStatus = status;
+        {Retrieve the specific error information.}
+        status = SQL_GetError(SQL_connection, GPS_error_number, SQL_error_number, SQL_error_string, ODBC_error_string);
+        if status = 0 then
+            warning \"GPS Error: \" + str(GPS_error_number);
+            warning \"SQL Error: \" + str(SQL_error_number) + \" \" + SQL_error_string;
+            warning \"ODBC Error: \" + ODBC_error_string;
+        else
+            error \"Unable to retrieve SQL error information.\";
+        end if;
+	end if;
+    {Disconnect from the SQL data source.}
+    status = SQL_Terminate(SQL_connection);
+else
+    {An error occurred creating the pass-through SQL connection.}
+    warning \"An error occurred creating the pass-through SQL connection: \" + str(status);
+	oStatus = status;
+	
+end if;
+
+
+
+return oStatus; 	"
+	UserProperties	""
+}

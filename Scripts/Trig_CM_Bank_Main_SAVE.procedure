@@ -1,0 +1,30 @@
+Procedure	"Trig_CM_Bank_Main_SAVE"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{save the record...}
+
+
+
+{}
+if '(L) Dummy Save' of window CM_Bank_Maintenance of form CM_Bank_Maintenance then
+	{the save was successful... we need to save all our customer fields...}
+	
+	release table EX_CM_Bank_MSTR;
+	clear table EX_CM_Bank_MSTR;
+	set 'Bank ID' of table EX_CM_Bank_MSTR to 'Bank ID' of window CM_Bank_Maintenance of form CM_Bank_Maintenance;
+	change table EX_CM_Bank_MSTR;
+	
+	copy from window CM_Bank_Maintenance of form CM_Bank_Maintenance to table EX_CM_Bank_MSTR;
+	save table EX_CM_Bank_MSTR;
+
+
+end if;
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

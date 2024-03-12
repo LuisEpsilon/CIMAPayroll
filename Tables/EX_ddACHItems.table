@@ -1,0 +1,223 @@
+Table	"EX_ddACHItems"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"Metrics Direct Deposit ACH Items"
+	FourByteHeader	"true"
+	PhysicalName	"EXDD1050"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"DD Account Number"		
+		{
+			Encrypt	"false"
+			Field	"DD Account Number"
+			Position	"5"
+		}
+		TableField	"DD AmountDlr"		
+		{
+			Encrypt	"false"
+			Field	"DD AmountDlr"
+			Position	"6"
+		}
+		TableField	"DD Individual ID"		
+		{
+			Encrypt	"false"
+			Field	"DD Individual ID"
+			Position	"7"
+		}
+		TableField	"DD Individual Name"		
+		{
+			Encrypt	"false"
+			Field	"DD Individual Name"
+			Position	"8"
+		}
+		TableField	"DD Item"		
+		{
+			Encrypt	"false"
+			Field	"DD Item"
+			Position	"1"
+		}
+		TableField	"DD Trace Number"		
+		{
+			Encrypt	"false"
+			Field	"DD Trace Number"
+			Position	"9"
+		}
+		TableField	"DD Transaction Code"		
+		{
+			Encrypt	"false"
+			Field	"DD Transaction Code"
+			Position	"3"
+		}
+		TableField	"DD Transit Number"		
+		{
+			Encrypt	"false"
+			Field	"DD Transit Number"
+			Position	"4"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"2"
+		}
+		TableField	"IndexLong"		
+		{
+			Encrypt	"false"
+			Field	"IndexLong"
+			Position	"0"
+		}
+	}
+	~Keys
+	{
+		Key	"ddACHItemsIdxACHLineIdx1x"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"DD Item"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"IndexLong"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+		Key	"ddACHItemsIdxDDTrxCode1x"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"2"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"DD Item"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"DD Transaction Code"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"IndexLong"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+		Key	"ddACHItemsIdxEmpID1x"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"1"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"DD Item"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"IndexLong"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"ddACHHdr"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"IndexLong"
+				}
+			}
+			Key	"1 ; ddACHHdrIdxACHLineIdx"
+			RelatedTable	"ddACHHdr"
+			RelationshipType	"OneToOne"
+		}
+	}
+}

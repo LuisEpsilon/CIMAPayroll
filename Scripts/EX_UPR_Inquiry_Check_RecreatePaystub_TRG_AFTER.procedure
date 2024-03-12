@@ -1,0 +1,32 @@
+Procedure	"EX_UPR_Inquiry_Check_RecreatePaystub_TRG_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+local	text	sql;
+local	string	Table;
+
+release table uprReprintCheckTemp;
+get first table uprReprintCheckTemp;
+Table = Table_GetOSName(table uprReprintCheckTemp);
+
+sql = \"update \" + Table + \"\";
+sql = sql + char (13) + \"set UPRTRXAM = TOTTOUPD\";
+sql = sql + char (13) + \"FROM \" + Table + \" tt JOIN (SELECT AUCTRLCD, CHEKNMBR, EMPLOYID, 4 AS lvl, SUM(TOTALaMNT) TOTTOUPD\";
+sql = sql + char (13) + \"FROM (\";
+sql = sql + char (13) + \"select AUCTRLCD, CHEKNMBR, EMPLOYID, LVL, CASE LVL WHEN 1 THEN SUM(UPRTRXAM) ELSE SUM(UPRTRXAM) *-1 END TOTALamnt\";
+sql = sql + char (13) + \"from \" + Table + \"\";
+sql = sql + char (13) + \"WHERE LVL < 4 \";
+sql = sql + char (13) + \"GROUP BY AUCTRLCD, CHEKNMBR, EMPLOYID, LVL) TOTALRECS\";
+sql = sql + char (13) + \"GROUP BY AUCTRLCD, CHEKNMBR, EMPLOYID) RO ON RO.AUCTRLCD = TT.AUCTRLCD AND RO.CHEKNMBR = TT.CHEKNMBR AND RO.EMPLOYID = TT.EMPLOYID\";
+sql = sql + char (13) + \"where TT.LVL = 4\";
+Execute_SQL_RetInt(sql);
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,16 @@
+Procedure	"Trig_ddEmpEntry_DER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"local integer nCountRecs;
+
+run script '(L) l_EX_DER' of window ddEmpEntry of form ddEmpEntry;
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,33 @@
+Procedure	"BPICF_VerifySave_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+local integer	nCurrentIdx, nCandidate, nPercentSum, nStatusFlag;
+local string	sTrxCode, sMsg1, sMsg2, sMsg3, sMsg4, sMsg5,
+				sMsg6, sMsg7, sMsg8;
+local boolean	fOver100Percent;
+
+set nCurrentIdx to 0;
+
+get first table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+while err() = OKAY do
+	if empty('Bank ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry)) then
+
+		{--Initialize sMsg3.--}
+		set sMsg3 to \"Line %1: The Bank ID is missing line\" {\"c Bank Transit Number missing.\"};
+		substitute sMsg3, str(nCurrentIdx);
+		
+		add item sMsg3 to '(L) Errors' of window ddEmpErrorEntry of form ddEmpEntry;
+		clear '(L) VerifySave' of window ddEmpEntry of form ddEmpEntry;
+		
+	end if;
+	get next table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+end while;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

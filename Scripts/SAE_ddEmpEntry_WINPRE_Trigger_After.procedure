@@ -1,0 +1,14 @@
+Procedure	"SAE_ddEmpEntry_WINPRE_Trigger_After"
+{
+	Core	"Sales"
+	Documentation	""
+	Script	"{}
+
+run script WINPRE of window ddEmpEntry of form ddEmpEntry;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,21 @@
+Procedure	"EX_RemoveZeroDiff"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"
+
+get first table EX_PayrollChangesTrxDetail;
+while err() <> EOF do
+	if Diff of table EX_PayrollChangesTrxDetail <> 0 then
+		copy from table EX_PayrollChangesTrxDetail to table EX_PayrollChangesTrxDetailExcpt;
+		save table EX_PayrollChangesTrxDetailExcpt;
+	end if;
+	get next table EX_PayrollChangesTrxDetail;
+end while;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

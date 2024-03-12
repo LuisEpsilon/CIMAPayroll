@@ -1,0 +1,18 @@
+Procedure	"EX_Register_Trigger"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{
+	registers all triggers in case we need to disable them later
+}
+in integer l_tag;
+
+increment Trigger_Count of globals;
+Trigger_List[Trigger_Count of globals] of globals = l_tag;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

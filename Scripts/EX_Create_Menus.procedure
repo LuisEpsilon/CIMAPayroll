@@ -1,0 +1,50 @@
+Procedure	"EX_Create_Menus"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{	
+	creates the menu items
+}
+in integer LoadMode;
+optional in boolean ShowProgress;
+local integer Status;
+local CmdSequence Seq;
+
+{***************************** 																PAYROLL REPORTS	**************************************}
+Seq = 0;
+Status = AddCommandToMenu(DYNAMICS, 
+	resourceid(form Command_Payroll),
+	resourceid(command CL_Payroll_Reports of form Command_Payroll),
+	Seq,
+	CMD_BUILTINCMD_DICTID, 
+	CMD_BUILTINCMD_FORMID, 
+	resourceid(command cmdSeparator),
+	true,
+	LoadMode);
+		
+if Status <> OKAY then
+	error \"Could not add separator item.\";
+end if;	
+
+
+Seq = 0;
+Status = AddCommandToMenu(DYNAMICS, 
+	resourceid(form Command_Payroll), 
+	resourceid(command CL_Payroll_Reports of form Command_Payroll),
+	Seq,
+	Runtime_GetCurrentProductID(),
+	resourceid(form EX_Commands),
+	resourceid(command EX_Earnings_Statements_History_to_PDF of form EX_Commands),
+	true,
+	LoadMode);
+
+if Status <> OKAY then
+	error \"Could not add command for Earnings Statement History report to Menu.\";
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

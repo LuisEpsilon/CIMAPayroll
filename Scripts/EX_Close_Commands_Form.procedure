@@ -1,0 +1,12 @@
+Procedure	"EX_Close_Commands_Form"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"close form EX_Commands;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,22 @@
+Function	"RW_GetPayEndDate"
+{
+	Core	"System"
+	Documentation	""
+	Script	"function returns date rBuildVal;
+
+local integer 	TempID;
+local date		TempDate;
+
+release table UPR_WORK_MSTR;
+range clear table UPR_WORK_MSTR;
+
+get first table UPR_WORK_MSTR;
+if err() = OKAY then
+	rBuildVal='Pay Run End Date' of table UPR_WORK_MSTR;
+end if;
+
+release table  UPR_WORK_MSTR;
+
+"
+	UserProperties	""
+}

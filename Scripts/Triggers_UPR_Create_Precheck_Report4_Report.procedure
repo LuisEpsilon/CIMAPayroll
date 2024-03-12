@@ -1,0 +1,22 @@
+Procedure	"Triggers_UPR_Create_Precheck_Report4_Report"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+	All triggers for the UPR_Create_Precheck_Report script
+}
+
+local integer l_result, l_tag;
+
+l_result = Trigger_RegisterProcedure(script UPR_Create_Precheck_Report4, TRIGGER_AFTER_ORIGINAL, script Trig_UPR_Create_Precheck_Report4_Post, l_tag);
+if l_result <> SY_NOERR then
+    warning \"UPR_Create_Precheck_Report Pre Trigger Registration Failed.\";
+end if;
+call EX_Register_Trigger,l_tag;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

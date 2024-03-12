@@ -1,0 +1,61 @@
+Table	"EX_DD_SummaryByBank"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"EX_DD_SummaryByBank"
+	FourByteHeader	"true"
+	PhysicalName	"TEMP"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Bank Name"		
+		{
+			Encrypt	"false"
+			Field	"Bank Name"
+			Position	"0"
+		}
+		TableField	"DD AmountDlr"		
+		{
+			Encrypt	"false"
+			Field	"DD AmountDlr"
+			Position	"1"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_DD_SummaryByBank_KEY111"		
+		{
+			Clustered	"true"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Bank Name"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

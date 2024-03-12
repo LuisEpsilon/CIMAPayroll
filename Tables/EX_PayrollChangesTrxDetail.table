@@ -1,0 +1,496 @@
+Table	"EX_PayrollChangesTrxDetail"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"EX_PayrollChangesTrxDetail"
+	FourByteHeader	"true"
+	PhysicalName	"EXPCTD"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Audit Control Code"		
+		{
+			Encrypt	"false"
+			Field	"Audit Control Code"
+			Position	"13"
+		}
+		TableField	"Check Date"		
+		{
+			Encrypt	"false"
+			Field	"Check Date"
+			Position	"12"
+		}
+		TableField	"Department"		
+		{
+			Encrypt	"false"
+			Field	"Department"
+			Position	"20"
+		}
+		TableField	"Diff"		
+		{
+			Encrypt	"false"
+			Field	"Diff"
+			Position	"18"
+		}
+		TableField	"EXHistCodeAmt"		
+		{
+			Encrypt	"false"
+			Field	"EXHistCodeAmt"
+			Position	"17"
+		}
+		TableField	"EX_Benefit_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_Benefit_Code"
+			Position	"5"
+		}
+		TableField	"EX_CodeNetAmount"		
+		{
+			Encrypt	"false"
+			Field	"EX_CodeNetAmount"
+			Position	"16"
+		}
+		TableField	"EX_Deduction_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_Deduction_Code"
+			Position	"6"
+		}
+		TableField	"EX_HISTBenefit_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_HISTBenefit_Code"
+			Position	"1"
+		}
+		TableField	"EX_HISTDeduction_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_HISTDeduction_Code"
+			Position	"2"
+		}
+		TableField	"EX_HISTLocalTax_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_HISTLocalTax_Code"
+			Position	"3"
+		}
+		TableField	"EX_HISTPay_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_HISTPay_Code"
+			Position	"4"
+		}
+		TableField	"EX_LocalTax_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_LocalTax_Code"
+			Position	"7"
+		}
+		TableField	"EX_NetDiff"		
+		{
+			Encrypt	"false"
+			Field	"EX_NetDiff"
+			Position	"19"
+		}
+		TableField	"EX_Pay_Code"		
+		{
+			Encrypt	"false"
+			Field	"EX_Pay_Code"
+			Position	"8"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"9"
+		}
+		TableField	"Employee Name"		
+		{
+			Encrypt	"false"
+			Field	"Employee Name"
+			Position	"10"
+		}
+		TableField	"Hist Check Date"		
+		{
+			Encrypt	"false"
+			Field	"Hist Check Date"
+			Position	"14"
+		}
+		TableField	"Historical Net Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Historical Net Wages/Pay Run"
+			Position	"15"
+		}
+		TableField	"Job Title"		
+		{
+			Encrypt	"false"
+			Field	"Job Title"
+			Position	"21"
+		}
+		TableField	"Net Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Net Wages/Pay Run"
+			Position	"11"
+		}
+		TableField	"Payroll Record Type"		
+		{
+			Encrypt	"false"
+			Field	"Payroll Record Type"
+			Position	"0"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_PayrollChangesTrxDetail_Key111"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Payroll Record Type"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+		Key	"EX_PayrollChangesTrxDetail_Key211"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"1"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"EX_Pay_Code"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Payroll Record Type"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+		Key	"EX_PayrollChangesTrxDetail_Key311"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"2"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"EX_Deduction_Code"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Payroll Record Type"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+		Key	"EX_PayrollChangesTrxDetail_Key411"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"3"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"EX_Benefit_Code"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Payroll Record Type"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+		Key	"EX_PayrollChangesTrxDetail_Key511"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"4"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"EX_LocalTax_Code"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Payroll Record Type"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+		Key	"EX_PayrollChangesTrxDetail_Key611"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"5"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Audit Control Code"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+		Key	"EX_PayrollChangesTrxDetail_Key711"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"true"
+			Modifiable	"true"
+			Position	"6"
+			Primary	"false"
+			Segments
+			{
+				KeySegment	"Department"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"3"
+				}
+				KeySegment	"EX_Pay_Code"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"2"
+				}
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Payroll Record Type"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"UPR_Check_HIST"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+				RelationshipField	"00001"				
+				{
+					Field	"Audit Control Code"
+				}
+			}
+			Key	"7 ; UPR_Check_HIST_Key7"
+			RelatedTable	"UPR_Check_HIST"
+			RelationshipType	"OneToMany"
+		}
+		Relationship	"UPR_MSTR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; UPR_MSTR_Key1"
+			RelatedTable	"UPR_MSTR"
+			RelationshipType	"OneToOne"
+		}
+	}
+}

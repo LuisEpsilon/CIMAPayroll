@@ -1,0 +1,39 @@
+Procedure	"Trig_Emp_MSTR_Save_Post"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{}
+if 'Save Record' of window UPR_Employee_MNT of form UPR_Employee_MNT then
+	{the save was successful... we need to save all our customer fields...}
+	
+	release table coINetAddrs;
+	clear table coINetAddrs;
+	set 'Master Type' of table coINetAddrs to \"EMP\";
+	set 'Master ID' of table coINetAddrs to 'Employee ID' of window UPR_Employee_MNT of form UPR_Employee_MNT;
+	set 'Address Code' of table coINetAddrs to 'Address Code' of window UPR_Employee_MNT of form UPR_Employee_MNT; 
+	change table coINetAddrs;
+	
+	set INet1 of table coINetAddrs to
+	'(L) email_address' of window UPR_Employee_MNT of form UPR_Employee_MNT;
+	save table coINetAddrs;
+
+
+	release table EX_Employee_MSTR;
+	clear table EX_Employee_MSTR;
+	set 'Employee ID' of table EX_Employee_MSTR to 'Employee ID' of window UPR_Employee_MNT of form UPR_Employee_MNT;
+	change table EX_Employee_MSTR;
+	
+	copy from window UPR_Employee_MNT of form UPR_Employee_MNT to table EX_Employee_MSTR;
+	save table EX_Employee_MSTR;
+
+
+
+end if;
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

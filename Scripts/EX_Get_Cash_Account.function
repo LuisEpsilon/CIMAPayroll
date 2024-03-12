@@ -1,0 +1,21 @@
+Function	"EX_Get_Cash_Account"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"function returns long CashAccountIndex;
+
+in string CheckBookID;
+
+set 'Checkbook ID' of table CM_Checkbook_MSTR to CheckBookID;
+range start table CM_Checkbook_MSTR;
+range end table CM_Checkbook_MSTR;
+
+get first table CM_Checkbook_MSTR;
+
+if err()=OKAY then
+	CashAccountIndex = 'Account Index' of table CM_Checkbook_MSTR;
+end if;
+
+release table CM_Checkbook_MSTR;"
+	UserProperties	""
+}

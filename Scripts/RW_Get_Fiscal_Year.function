@@ -1,0 +1,23 @@
+Function	"RW_Get_Fiscal_Year"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+	this will return the fiscal year for a date
+	
+}
+function returns integer l_year;
+
+in date l_date;
+
+local string l_where;
+
+l_where = \"'\" +  sqlDate(l_date) + \"' >= FSTFSCDY and '\" + sqlDate(l_date) + \"' <= LSTFSCDY\";
+
+release table SY_Period_HDR;
+clear table SY_Period_HDR;
+range table  SY_Period_HDR where l_where;
+get first table SY_Period_HDR;
+l_year =  Year of table SY_Period_HDR;"
+	UserProperties	""
+}

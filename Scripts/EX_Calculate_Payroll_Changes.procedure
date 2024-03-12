@@ -1,0 +1,113 @@
+Procedure	"EX_Calculate_Payroll_Changes"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"out date oDate;
+
+local currency diff;
+local date default_date;
+default_date = mkdate(01,01,1900);
+
+{Clear table used for Net Change Payroll Changes Reports}
+release table EX_Payroll_Changes;
+range clear table EX_Payroll_Changes;
+change first table EX_Payroll_Changes by number 1;
+while err() <> EOF do
+	remove table EX_Payroll_Changes;
+	change next table EX_Payroll_Changes by number 1;
+end while;
+
+call EX_Get_History;
+{Get current net check amounts}
+release table UPR_WORK_Check;
+range clear table UPR_WORK_Check;
+set 'User ID' of table UPR_WORK_Check to 'User ID' of globals;
+clear Printed of table UPR_WORK_Check;
+clear 'Employee ID' of table UPR_WORK_Check;
+clear 'Payment/Adjustment Number' of table UPR_WORK_Check;
+range start table UPR_WORK_Check by number 1;
+fill Printed of table UPR_WORK_Check;
+fill 'Employee ID' of table UPR_WORK_Check;
+fill 'Payment/Adjustment Number' of table UPR_WORK_Check;
+range end table UPR_WORK_Check by number 1;
+get first table UPR_WORK_Check by number 1;
+while err() = OKAY do
+	oDate = 'Check Date' of table UPR_WORK_Check;
+	{if '(L) Range Selection' of window MCS_Print_Differences = 1 then {Audit Trail Code}}
+		{Get Historical net check amounts if they exist}
+		release table EX_Payroll_Changes;
+		range clear table EX_Payroll_Changes;
+		set 'Employee ID' of table EX_Payroll_Changes to 'Employee ID' of table UPR_WORK_Check;
+		range start table EX_Payroll_Changes;
+		range end table EX_Payroll_Changes;
+		change first table EX_Payroll_Changes;
+		if err() = OKAY then
+			set 'Check Date' of table EX_Payroll_Changes to 'Check Date' of table UPR_WORK_Check;
+			set 'Net Wages/Pay Run' of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+			if 'Net Wages/Pay Run' of table UPR_WORK_Check > 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes then
+				set Diff of table EX_Payroll_Changes to ('Historical Net Wages/Pay Run' of table EX_Payroll_Changes - 'Net Wages/Pay Run' of table UPR_WORK_Check) * -1 ;
+			elseif 'Net Wages/Pay Run' of table UPR_WORK_Check < 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes then
+				set Diff of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check - 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes;
+			elseif 'Net Wages/Pay Run' of table UPR_WORK_Check = 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes then
+				set Diff of table EX_Payroll_Changes to 0;
+			end if;
+			save table EX_Payroll_Changes;
+		else
+			set 'Employee ID' of table EX_Payroll_Changes to 'Employee ID' of table UPR_WORK_Check;
+			set 'Employee Name' of table EX_Payroll_Changes to 'Employee Name' of table UPR_WORK_Check;
+			set 'Check Date' of table EX_Payroll_Changes to 'Check Date' of table UPR_WORK_Check;
+			set 'Hist Check Date' of table EX_Payroll_Changes to default_date;
+			set 'Audit Control Code' of table EX_Payroll_Changes to \"\";
+			set 'Net Wages/Pay Run' of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+			set 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes to 0;
+			set Diff of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+			save table EX_Payroll_Changes;
+		end if;
+	{elseif '(L) Range Selection' of window MCS_Print_Differences = 2 then {Check Date}
+		{Get Historical net check amounts if they exist}
+		release table UPR_Check_HIST;
+		range clear table UPR_Check_HIST;
+		set 'Employee ID' of table UPR_Check_HIST to 'Employee ID' of table UPR_WORK_Check;
+		set 'Check Date' of table UPR_Check_HIST to '(L) Starting Date' of window MCS_Print_Differences;
+		range start table UPR_Check_HIST by number 6;
+		range end table UPR_Check_HIST by number 6;
+		get first table UPR_Check_HIST by number 6;
+		if err() = OKAY then
+			set 'Employee ID' of table EX_Payroll_Changes to 'Employee ID' of table UPR_WORK_Check;
+			set 'Employee Name' of table EX_Payroll_Changes to 'Employee Name' of table UPR_WORK_Check;
+			set 'Check Date' of table EX_Payroll_Changes to 'Check Date' of table UPR_WORK_Check;
+			set 'Hist Check Date' of table EX_Payroll_Changes to 'Check Date' of table UPR_Check_HIST;
+			set 'Audit Control Code' of table EX_Payroll_Changes to 'Audit Control Code' of table UPR_Check_HIST;
+			set 'Net Wages/Pay Run' of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+			{diff = 'Net Wages/Pay Run' of table UPR_Check_HIST - 'Net Wages/Pay Run' of table MCS_UPR_WORK_Check;}
+			set 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_Check_HIST;
+			if 'Net Wages/Pay Run' of table UPR_WORK_Check > 'Net Wages/Pay Run' of table UPR_Check_HIST then
+				set Diff of table EX_Payroll_Changes to ('Net Wages/Pay Run' of table UPR_Check_HIST - 'Net Wages/Pay Run' of table UPR_WORK_Check) * -1;
+			elseif 'Net Wages/Pay Run' of table UPR_WORK_Check < 'Net Wages/Pay Run' of table UPR_Check_HIST then
+				set Diff of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check - 'Net Wages/Pay Run' of table UPR_Check_HIST;
+			elseif 'Net Wages/Pay Run' of table UPR_WORK_Check = 'Net Wages/Pay Run' of table UPR_Check_HIST then
+				set Diff of table EX_Payroll_Changes to 0;
+			end if;
+			save table EX_Payroll_Changes;
+		else
+			set 'Employee ID' of table EX_Payroll_Changes to 'Employee ID' of table UPR_WORK_Check;
+			set 'Employee Name' of table EX_Payroll_Changes to 'Employee Name' of table UPR_WORK_Check;
+			set 'Check Date' of table EX_Payroll_Changes to 'Check Date' of table UPR_WORK_Check;
+			set 'Hist Check Date' of table EX_Payroll_Changes to default_date;
+			set 'Audit Control Code' of table EX_Payroll_Changes to \"\";
+			set 'Net Wages/Pay Run' of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+			set 'Historical Net Wages/Pay Run' of table EX_Payroll_Changes to 0;
+			set Diff of table EX_Payroll_Changes to 'Net Wages/Pay Run' of table UPR_WORK_Check;
+			save table EX_Payroll_Changes;
+		end if;
+	end if;}
+	get next table UPR_WORK_Check by number 1;
+end while;
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

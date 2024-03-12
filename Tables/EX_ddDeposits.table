@@ -1,0 +1,209 @@
+Table	"EX_ddDeposits"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"Metrics Direct Deposit Employee Deposits Work"
+	FourByteHeader	"true"
+	PhysicalName	"EXDD10100"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Check Date"		
+		{
+			Encrypt	"false"
+			Field	"Check Date"
+			Position	"4"
+		}
+		TableField	"Check Number"		
+		{
+			Encrypt	"false"
+			Field	"Check Number"
+			Position	"5"
+		}
+		TableField	"DD Array12 Account Number"		
+		{
+			Encrypt	"false"
+			Field	"DD Array12 Account Number"
+			Position	"19"
+		}
+		TableField	"DD Array12 Amount"		
+		{
+			Encrypt	"false"
+			Field	"DD Array12 Amount"
+			Position	"20"
+		}
+		TableField	"DD Array12 Transaction Code"		
+		{
+			Encrypt	"false"
+			Field	"DD Array12 Transaction Code"
+			Position	"17"
+		}
+		TableField	"DD Array12 Transit Number"		
+		{
+			Encrypt	"false"
+			Field	"DD Array12 Transit Number"
+			Position	"18"
+		}
+		TableField	"DD Mask Dollar"		
+		{
+			Encrypt	"false"
+			Field	"DD Mask Dollar"
+			Position	"14"
+		}
+		TableField	"DD Number of Accounts"		
+		{
+			Encrypt	"false"
+			Field	"DD Number of Accounts"
+			Position	"16"
+		}
+		TableField	"DD Suppress Check"		
+		{
+			Encrypt	"false"
+			Field	"DD Suppress Check"
+			Position	"15"
+		}
+		TableField	"DD Voided"		
+		{
+			Encrypt	"false"
+			Field	"DD Voided"
+			Position	"13"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"Employee Name"		
+		{
+			Encrypt	"false"
+			Field	"Employee Name"
+			Position	"1"
+		}
+		TableField	"End Pay Period"		
+		{
+			Encrypt	"false"
+			Field	"End Pay Period"
+			Position	"11"
+		}
+		TableField	"Error Description"		
+		{
+			Encrypt	"false"
+			Field	"Error Description"
+			Position	"21"
+		}
+		TableField	"Gross Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Gross Wages/Pay Run"
+			Position	"9"
+		}
+		TableField	"Inactive"		
+		{
+			Encrypt	"false"
+			Field	"Inactive"
+			Position	"12"
+		}
+		TableField	"Net Wages/Pay Run"		
+		{
+			Encrypt	"false"
+			Field	"Net Wages/Pay Run"
+			Position	"8"
+		}
+		TableField	"Payment/Adjustment Number"		
+		{
+			Encrypt	"false"
+			Field	"Payment/Adjustment Number"
+			Position	"6"
+		}
+		TableField	"Printed"		
+		{
+			Encrypt	"false"
+			Field	"Printed"
+			Position	"2"
+		}
+		TableField	"Social Security Number"		
+		{
+			Encrypt	"false"
+			Field	"Social Security Number"
+			Position	"7"
+		}
+		TableField	"Start Pay Period"		
+		{
+			Encrypt	"false"
+			Field	"Start Pay Period"
+			Position	"10"
+		}
+		TableField	"User ID"		
+		{
+			Encrypt	"false"
+			Field	"User ID"
+			Position	"22"
+		}
+		TableField	"Voided"		
+		{
+			Encrypt	"false"
+			Field	"Voided"
+			Position	"3"
+		}
+	}
+	~Keys
+	{
+		Key	"ddDepositsIdxEmpID11"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+				KeySegment	"User ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"ddChkMsgsSetup"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"DD Voided"
+				}
+			}
+			Key	"1 ; ddChkMsgsSetupIdxDDBannerType"
+			RelatedTable	"ddChkMsgsSetup"
+			RelationshipType	"OneToOne"
+		}
+	}
+}

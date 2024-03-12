@@ -1,0 +1,112 @@
+Procedure	"EX_HR_Termination_Save_Record_Trigger_AFTER"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+local 	text 			code, sql;
+local 	string 			compiler_error, TermName;
+local	'Document Date'	TermDate, LastDay;
+local	boolean	SaveRecord;
+local	'Employee ID'	EmpID;
+local long item_data;
+local	integer	Terminated;
+local	integer	iSortBy;
+
+
+code = \" inout boolean	SaveRecord; \";
+code = code + char (13) + \"SaveRecord = 'Save Record' of window HR_Termination of form HR_Termination_V2; \";
+if execute(414,code, compiler_error, SaveRecord) <> 0 then
+	{A compiler error occurred. Display the error.}
+	error compiler_error;
+	abort script;
+end if;
+
+if SaveRecord then
+	code = \"inout	'Employee ID'	EmpID; \";
+	code = code + char (13) + \"EmpID = 'Emp ID' of window HR_Termination of form HR_Termination_V2; \";
+	if execute(414,code, compiler_error, EmpID) <> 0 then
+		{A compiler error occurred. Display the error.}
+		error compiler_error;
+		abort script;
+	end if;
+	if EmpID <> \"\" then
+		open form EX_Test;
+		sql = \"select TERMSETUPNAME_I from te024230 WHERE EMPID_i = '\" + EmpID + \"'\";
+		TermName = Execute_SQL_RetStr(sql);
+		item_data = finddata(EX_Reason_for_Leaving of window EX_Test of form EX_Test, TermName);
+
+		sql = \"select TERMINATIONDATE_I from te024230 WHERE EMPID_i = '\" + EmpID + \"'\";
+		TermDate = Execute_SQL_RetDT(sql);
+		
+		sql = \"select TERMINATED_I from te024230 WHERE EMPID_i = '\" + EmpID + \"'\";
+		Terminated = Execute_SQL_RetInt(sql);
+		
+		if item_data <> 0 then
+			code = \"inout	'Document Date'		LastDay; \";
+			code = code + char (13) + \"LastDay = 'Last Day Worked' of window HR_Termination of form HR_Termination_V2; \";
+			if execute(414,code, compiler_error, LastDay) <> 0 then
+				{A compiler error occurred. Display the error.}
+				{error compiler_error;}
+				{abort script;}
+			end if;
+			
+			clear table UPR_MSTR;
+			set 'Employee ID' of table UPR_MSTR to EmpID;
+			change table UPR_MSTR;
+			if err() = OKAY then
+				'Reason Employee Inactivated' of table UPR_MSTR = TermName;
+				set 'Date Employee Inactivated' of table UPR_MSTR to TermDate;
+				save table UPR_MSTR;
+			end if;
+			
+			clear table EX_Employee_MSTR;
+			set 'Employee ID' of table EX_Employee_MSTR to EmpID;
+			change table EX_Employee_MSTR;
+			if err() = OKAY then
+			
+				set Inactive of window UPR_Employee_MNT of form UPR_Employee_MNT to Inactive of table UPR_MSTR;
+				set 'Date Employee Inactivated' of window UPR_Employee_MNT of form UPR_Employee_MNT to TermDate;
+						
+				set EX_Reason_for_Leaving of table EX_Employee_MSTR to item_data;
+				save table EX_Employee_MSTR;
+				if err() = OKAY then
+					{set TerminationDate of window UPR_Employee_MNT of form UPR_Employee_MNT to TermDate;
+					set 'Last Day Worked' of window UPR_Employee_MNT of form UPR_Employee_MNT to LastDay;
+					set EX_Reason_for_Leaving of window UPR_Employee_MNT of form UPR_Employee_MNT to item_data;
+					run script EX_Reason_for_Leaving of window UPR_Employee_MNT of form UPR_Employee_MNT;
+					if Terminated = 1 then}
+						
+						{set Inactive of window UPR_Employee_MNT of form UPR_Employee_MNT to true;
+						}
+						
+						{set 'Date Employee Inactivated' of window UPR_Employee_MNT of form UPR_Employee_MNT to 'User Date' of globals;
+						run script 'Date Employee Inactivated'  of window UPR_Employee_MNT of form UPR_Employee_MNT;
+						}
+						{run script 'Save Record' of window UPR_Employee_MNT of form UPR_Employee_MNT;
+						if 'Save Record' of window UPR_Employee_MNT of form UPR_Employee_MNT then}
+							iSortBy = 'Sort By' of window UPR_Employee_MNT of form UPR_Employee_MNT;
+							
+							clear window UPR_Employee_MNT of form UPR_Employee_MNT;
+							'Sort By' of window UPR_Employee_MNT of form UPR_Employee_MNT = iSortBy;
+							
+							run script 'Clear Balance' of window UPR_Employee_MNT of form UPR_Employee_MNT;
+							
+							set 'Employee ID' of window UPR_Employee_MNT of form UPR_Employee_MNT to EmpID;
+							set '(L) Temp Employee ID' of window UPR_Employee_MNT of form UPR_Employee_MNT to EmpID;
+							run script 'Display Existing Record'  of window UPR_Employee_MNT of form UPR_Employee_MNT;
+							call Trig_Emp_MSTR_DER;
+							
+						{end if;	}
+					{end if;}
+				end if;
+			end if;
+		end if;		
+	end if;
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

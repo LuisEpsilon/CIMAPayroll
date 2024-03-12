@@ -1,0 +1,76 @@
+Table	"EX_DD_Banks_Temp"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"Default"
+	DexRowTimestamp	"false"
+	DisplayName	"EX Direct Deposit Banks Temp"
+	FourByteHeader	"true"
+	PhysicalName	"TEMP"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Bank ID"		
+		{
+			Encrypt	"false"
+			Field	"Bank ID"
+			Position	"2"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"Index"		
+		{
+			Encrypt	"false"
+			Field	"Index"
+			Position	"1"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_DD_Banks_Key112"		
+		{
+			Clustered	"true"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Index"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+	}
+}

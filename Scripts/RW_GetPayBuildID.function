@@ -1,0 +1,26 @@
+Function	"RW_GetPayBuildID"
+{
+	Core	"System"
+	Documentation	""
+	Script	"function returns string rBuildVal;
+
+
+local integer 	TempID;
+local date		TempDate;
+
+release table UPR_WORK_MSTR;
+range clear table UPR_WORK_MSTR;
+
+
+get first table UPR_WORK_MSTR;
+if err() = OKAY then
+	
+		rBuildVal = 'Build Check Default ID' of table UPR_WORK_MSTR;
+	
+end if;
+
+release table  UPR_WORK_MSTR;
+
+"
+	UserProperties	""
+}

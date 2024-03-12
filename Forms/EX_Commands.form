@@ -1,0 +1,57 @@
+Form	"EX_Commands"
+{
+	Commands
+	{
+		Command	"EX_Earnings_Statements_History_to_PDF"		
+		{
+			CheckedImage	""
+			CheckedImageType	"NativePicture"
+			CommandForm	"EX_Earnings_Statements_History_to_PDF"
+			CommandType	"Form"
+			DisplayName	"Export Historical Earnings Statements"
+			MenuShowImage	"false"
+			RibbonButtonSize	"Large"
+			RibbonButtonType	"ActionButton"
+			RibbonLayoutPriority	"Primary"
+			SecurityForm	""
+			ShortcutChar	""
+			ShortcutModKeys	""
+			StandardImage	""
+			StandardImageType	"NativePicture"
+			ToolbarButtonStyle	"ImageOnly"
+			Tooltip	""
+			Unfocus	"false"
+		}
+	}
+	ConfigurableMenus	"false"
+	Constants
+	{
+	}
+	Datatypes
+	{
+	}
+	EventPost	""
+	EventPre	""
+	Fields
+	{
+	}
+	Menus
+	{
+	}
+	Series	"3rdParty"
+	Tables
+	{
+	}
+	Windows
+	{
+	}
+	~EventScripts
+	{
+	}
+	~Functions
+	{
+	}
+	~Procedures
+	{
+	}
+}

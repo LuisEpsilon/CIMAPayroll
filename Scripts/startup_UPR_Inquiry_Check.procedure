@@ -1,0 +1,30 @@
+Procedure	"startup_UPR_Inquiry_Check"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{startup_UPR_Inquiry_Check}
+
+local integer l_result;
+
+l_result = Trigger_RegisterFocus(anonymous('Recreate Paystub' of window UPR_Inquiry_Check of form UPR_Inquiry_Check), 
+	TRIGGER_FOCUS_CHANGE, 
+	TRIGGER_AFTER_ORIGINAL, 
+	script EX_UPR_Inquiry_Check_RecreatePaystub_TRG_AFTER);
+if l_result <> SY_NOERR then
+    warning \"Focus trigger registration failed.\";
+end if;
+
+l_result = Trigger_RegisterProcedure(script Combine_Lines of form UPR_Inquiry_Check, 
+		TRIGGER_AFTER_ORIGINAL, 
+		script EX_UPR_Populate_CheckHistTemp_Trigger_After);
+if l_result <> SY_NOERR then
+	warning \"Trigger EX_UPR_Populate_CheckHistTemp_Trigger_After register un-sucessfully\";
+end if;
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,1495 @@
+= Form	"ddEmpEntry"
+{
+	Datatypes
+	{
+		Datatype	"PushButton20"		
+		{
+			Control	"PushButton"
+			DefaultDown	"00000"
+			DefaultMouseOver	"00000"
+			DefaultUp	"00000"
+			Prompt	""
+			PromptDown	""
+			PromptMouseOver	""
+			StaticType	"Native Picture"
+			~ItemImages
+			{
+			}
+		}
+		Datatype	"SAE_ClearEmployeeID"		
+		{
+			Control	"CheckBox"
+			StaticType	"Text"
+			~StaticItems
+			{
+			}
+		}
+		Datatype	"l_EX_DER"		
+		{
+			Control	"Boolean"
+		}
+		Datatype	"l_EX_Save"		
+		{
+			Control	"Boolean"
+		}
+		Datatype	"l_Scroll_Fill"		
+		{
+			Control	"Boolean"
+		}
+		Datatype	"l_Sql_table"		
+		{
+			Control	"Boolean"
+		}
+		Datatype	"ref_EX_DD_Banks_Temp"		
+		{
+			Control	"Reference"
+			StaticType	"Generic Reference"
+			~StaticItems
+			{
+			}
+		}
+		Datatype	"ref_RNC_ddEmpAcctMstr_TMP"		
+		{
+			Control	"Reference"
+			StaticType	"Generic Reference"
+			~StaticItems
+			{
+			}
+		}
+	}
+	Fields
+	{
+		Field	"PushButton20"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) PushButton20"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"SAE_ClearEmployeeID"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) SAE_ClearEmployeeID"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"l_EX_DER"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) l_EX_DER"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"l_EX_Save"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) l_EX_Save"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"l_Scroll_Fill"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) l_Scroll_Fill"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"l_Sql_table"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) l_Sql_table"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"ref_EX_DD_Banks_Temp"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) ref_EX_DD_Banks_Temp"
+			LookupForm	""
+			PhysicalName	""
+		}
+		Field	"ref_RNC_ddEmpAcctMstr_TMP"		
+		{
+			ArraySize	"0"
+			Datatype	"(L) ref_RNC_ddEmpAcctMstr_TMP"
+			LookupForm	""
+			PhysicalName	""
+		}
+	}
+	Tables
+	{
+		FormTable	"CM_Bank_MSTR"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"4"
+			Table	"CM_Bank_MSTR"
+		}
+		FormTable	"EX_DD_Banks"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"1"
+			Table	"EX_DD_Banks"
+		}
+		FormTable	"EX_DD_Banks_Temp"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"5"
+			Table	"EX_DD_Banks_Temp"
+		}
+		FormTable	"RNC_ddEmpAcctMstr_EXT"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"2"
+			Table	"RNC_ddEmpAcctMstr_EXT"
+		}
+		FormTable	"RNC_ddEmpAcctMstr_TMP"		
+		{
+			AutoOpen	"false"
+			CursorBlockSize	"0"
+			OpenMode	"ReadWrite"
+			Position	"3"
+			Table	"RNC_ddEmpAcctMstr_TMP"
+		}
+		= FormTable	"SY_Error_Messages_MSTR"
+		{
+			Position	"6"
+		}
+		= FormTable	"UPR_MSTR"
+		{
+			Position	"8"
+		}
+		= FormTable	"UPR_MSTR_Deduction"
+		{
+			Position	"12"
+		}
+		= FormTable	"ddDeductionLinkSetup"
+		{
+			Position	"11"
+		}
+		= FormTable	"ddEmpAcctMstr"
+		{
+			Position	"10"
+		}
+		= FormTable	"ddEmpLineTemp"
+		{
+			Position	"7"
+		}
+		= FormTable	"ddEmpMstr"
+		{
+			Position	"9"
+		}
+		= FormTable	"ddSetup"
+		{
+			Position	"13"
+		}
+	}
+	Windows
+	{
+		= Window	"ddEmpEntry"
+		{
+			Fields
+			{
+				= WindowControl	"(L) AddItem"
+				{
+					PositionLeft	"329"
+					PositionTop	"249"
+					ZOrder	"14"
+				}
+				= WindowControl	"(L) Changed"
+				{
+					PositionTop	"364"
+					ZOrder	"39"
+				}
+				= WindowControl	"(L) ClearTime"
+				{
+					PositionTop	"347"
+					ZOrder	"37"
+				}
+				= WindowControl	"(L) LinkItem"
+				{
+					PositionLeft	"553"
+					PositionTop	"249"
+					ZOrder	"16"
+				}
+				= WindowControl	"(L) Move Down"
+				{
+					PositionLeft	"633"
+					PositionTop	"0"
+					Visible	"false"
+					ZOrder	"13"
+				}
+				= WindowControl	"(L) Move Up"
+				{
+					PositionLeft	"553"
+					PositionTop	"0"
+					Visible	"false"
+					ZOrder	"12"
+				}
+				WindowControl	"(L) PushButton20"				
+				{
+					Alignment	"center"
+					Appearance	"3D Border"
+					BackColor	"System - Button Face"
+					Border	"true"
+					ButtonStyle	"TextOnly"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"ddEmpEntry l_PushButton20_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) PushButton20"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"48"
+					PositionTop	"92"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"95"
+					TabStop	"true"
+					Tag	"5243"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"false"
+					ZOrder	"70"
+					Zoom	"true"
+				}
+				= WindowControl	"(L) ReFill"
+				{
+					PositionTop	"330"
+					ZOrder	"38"
+				}
+				= WindowControl	"(L) RemoveItem"
+				{
+					PositionLeft	"433"
+					PositionTop	"249"
+					ZOrder	"15"
+				}
+				WindowControl	"(L) SAE_ClearEmployeeID"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	"ddEmpEntry l_SAE_ClearEmployeeID_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"(L) SAE_ClearEmployeeID"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"456"
+					PositionTop	"463"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					TabStop	"true"
+					Tag	"5250"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"false"
+					ZOrder	"74"
+				}
+				= WindowControl	"(L) Temp EmpID"
+				{
+					PositionTop	"330"
+					ZOrder	"45"
+				}
+				= WindowControl	"(L) TempAmount"
+				{
+					PositionTop	"330"
+					ZOrder	"31"
+				}
+				= WindowControl	"(L) TempPercent"
+				{
+					PositionTop	"347"
+					ZOrder	"32"
+				}
+				= WindowControl	"(L) TempRange"
+				{
+					PositionTop	"347"
+					ZOrder	"30"
+				}
+				= WindowControl	"(L) UndoChanges"
+				{
+					PositionLeft	"657"
+					PositionTop	"249"
+					ZOrder	"17"
+				}
+				= WindowControl	"(L) VerifySave"
+				{
+					PositionTop	"364"
+					ZOrder	"46"
+				}
+				= WindowControl	"(L) deduction"
+				{
+					PositionTop	"381"
+					ZOrder	"47"
+				}
+				WindowControl	"(L) l_EX_DER"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"R-255, G-128, B-192"
+					ControlType	"Boolean"
+					EventChange	"ddEmpEntry l_l_EX_DER_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"(L) l_EX_DER"
+					FontColor	"System"
+					PositionLeft	"456"
+					PositionTop	"387"
+					SavedOnRestart	"false"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					Tag	"5238"
+					ZOrder	"66"
+				}
+				WindowControl	"(L) l_EX_Save"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"R-255, G-128, B-192"
+					ControlType	"Boolean"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"(L) l_EX_Save"
+					FontColor	"System"
+					PositionLeft	"456"
+					PositionTop	"406"
+					SavedOnRestart	"false"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					Tag	"5239"
+					ZOrder	"67"
+				}
+				WindowControl	"(L) l_Scroll_Fill"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"R-255, G-128, B-192"
+					ControlType	"Boolean"
+					EventChange	"ddEmpEntry l_l_Scroll_Fill_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"(L) l_Scroll_Fill"
+					FontColor	"System"
+					PositionLeft	"456"
+					PositionTop	"425"
+					SavedOnRestart	"false"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					Tag	"5240"
+					ZOrder	"68"
+				}
+				WindowControl	"(L) l_Sql_table"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"R-255, G-128, B-192"
+					ControlType	"Boolean"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"(L) l_Sql_table"
+					FontColor	"System"
+					PositionLeft	"456"
+					PositionTop	"444"
+					SavedOnRestart	"false"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					Tag	"5241"
+					ZOrder	"69"
+				}
+				WindowControl	"(L) ref_EX_DD_Banks_Temp"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"White"
+					ControlType	"Reference"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"(L) ref_EX_DD_Banks_Temp"
+					FontColor	"System"
+					PositionLeft	"440"
+					PositionTop	"490"
+					SavedOnRestart	"true"
+					SizeHeight	"20"
+					SizeWidth	"144"
+					Tag	"5252"
+					ZOrder	"75"
+				}
+				WindowControl	"(L) ref_RNC_ddEmpAcctMstr_TMP"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"false"
+					BackColor	"White"
+					ControlType	"Reference"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"(L) ref_RNC_ddEmpAcctMstr_TMP"
+					FontColor	"System"
+					PositionLeft	"440"
+					PositionTop	"509"
+					SavedOnRestart	"true"
+					SizeHeight	"20"
+					SizeWidth	"176"
+					Tag	"5253"
+					ZOrder	"76"
+				}
+				= ScrollingWindow	"0127-Scroll"
+				{
+					Fields
+					{
+						= WindowControl	"(L) Inactive"
+						{
+							PositionLeft	"440"
+							ZOrder	"17"
+						}
+						= WindowControl	"(L) RB_Checking"
+						{
+							PositionLeft	"415"
+							ZOrder	"5"
+						}
+						= WindowControl	"(L) RB_Saving"
+						{
+							PositionLeft	"438"
+							ZOrder	"6"
+						}
+						= WindowControl	"(L) RG_AccountType"
+						{
+							PositionLeft	"395"
+							ZOrder	"4"
+						}
+						= WindowControl	"(L) Status"
+						{
+							PositionLeft	"654"
+							ZOrder	"10"
+						}
+						= WindowLine	"14"
+						{
+							SizeWidth	"747"
+							ZOrder	"16"
+						}
+						= WindowLine	"23"
+						{
+							PositionLeft	"144"
+							ZOrder	"18"
+						}
+						= WindowLine	"24"
+						{
+							PositionLeft	"260"
+							ZOrder	"19"
+						}
+						= WindowLine	"29"
+						{
+							PositionLeft	"401"
+							ZOrder	"20"
+						}
+						= WindowLine	"30"
+						{
+							PositionLeft	"466"
+							ZOrder	"21"
+						}
+						= WindowLine	"31"
+						{
+							PositionLeft	"551"
+							ZOrder	"22"
+						}
+						= WindowLine	"32"
+						{
+							PositionLeft	"585"
+							ZOrder	"23"
+						}
+						= WindowLine	"33"
+						{
+							PositionLeft	"654"
+							ZOrder	"24"
+						}
+						= WindowLine	"40"
+						{
+							PositionLeft	"713"
+							ZOrder	"26"
+						}
+						WindowLine	"5042"						
+						{
+							Appearance	"3D Border"
+							LineColor	"System"
+							LineSize	"1"
+							PositionLeft	"745"
+							PositionTop	"0"
+							ResizeHoriz	"StayLeft"
+							ResizeVert	"StayTop"
+							SizeHeight	"20"
+							SizeWidth	"0"
+							ZOrder	"27"
+						}
+						WindowLine	"5046"						
+						{
+							Appearance	"3D Border"
+							LineColor	"System"
+							LineSize	"1"
+							PositionLeft	"370"
+							PositionTop	"0"
+							ResizeHoriz	"StayLeft"
+							ResizeVert	"StayTop"
+							SizeHeight	"20"
+							SizeWidth	"0"
+							ZOrder	"30"
+						}
+						WindowLine	"5047"						
+						{
+							Appearance	"3D Border"
+							LineColor	"System"
+							LineSize	"1"
+							PositionLeft	"34"
+							PositionTop	"0"
+							ResizeHoriz	"StayLeft"
+							ResizeVert	"StayTop"
+							SizeHeight	"20"
+							SizeWidth	"0"
+							ZOrder	"31"
+						}
+						WindowControl	"Bank ID"						
+						{
+							Alignment	"left"
+							Appearance	"2D Border"
+							AutoComplete	"false"
+							AutoCopy	"true"
+							BackColor	"System - Window Background"
+							Border	"false"
+							ControlType	"String"
+							DisableLookup	"false"
+							Editable	"true"
+							EventChange	"Scroll Bank ID_CHG"
+							EventContextMenu	""
+							EventMouseEnter	""
+							EventMouseExit	""
+							EventOther	""
+							EventPost	""
+							EventPre	""
+							Field	"Bank ID"
+							Font	"System (generic)"
+							FontBold	"false"
+							FontColor	"System - Window Text"
+							FontItalic	"false"
+							FontUnderline	"false"
+							LinkedFormat	"0"
+							LinkedLookup	"44"
+							LinkedPrompt	"0"
+							Password	"false"
+							Pattern	"(none)"
+							PatternColor	"White"
+							PositionLeft	"34"
+							PositionTop	"0"
+							ReadingOrder	"LeftToRight"
+							Required	"true"
+							ResizeHoriz	"StayLeft"
+							ResizeVert	"StayTop"
+							SavedOnRestart	"false"
+							SetChangeFlag	"true"
+							SizeHeight	"20"
+							SizeWidth	"111"
+							TabStop	"true"
+							Tag	"5043"
+							Tooltip	""
+							UseUniqueHelp	"true"
+							Visible	"true"
+							ZOrder	"0"
+							Zoom	"false"
+						}
+						= WindowControl	"DD Account Number"
+						{
+							PositionLeft	"260"
+							SizeWidth	"111"
+							ZOrder	"3"
+						}
+						= WindowControl	"DD AmountDlr"
+						{
+							PositionLeft	"466"
+							ZOrder	"7"
+						}
+						= WindowControl	"DD Percent"
+						{
+							PositionLeft	"551"
+							ZOrder	"8"
+						}
+						= WindowControl	"DD Prenote"
+						{
+							PositionLeft	"465"
+							ZOrder	"12"
+						}
+						= WindowControl	"DD Prenote Count"
+						{
+							PositionLeft	"713"
+							ZOrder	"11"
+						}
+						= WindowControl	"DD Transaction Code"
+						{
+							PositionLeft	"236"
+							ZOrder	"15"
+						}
+						= WindowControl	"DD Transit Number"
+						{
+							PositionLeft	"144"
+							SizeWidth	"120"
+							ZOrder	"2"
+						}
+						= WindowControl	"Deduction"
+						{
+							PositionLeft	"585"
+							ZOrder	"9"
+						}
+						= WindowControl	"Employee ID"
+						{
+							PositionLeft	"34"
+							ZOrder	"14"
+						}
+						= WindowControl	"Inactive"
+						{
+							PositionLeft	"287"
+							ZOrder	"13"
+						}
+						= WindowControl	"IndexLong"
+						{
+							ZOrder	"1"
+						}
+						WindowControl	"Lookup Button 13"						
+						{
+							Alignment	"center"
+							Appearance	"3D Border"
+							BackColor	"System - Button Face"
+							Border	"true"
+							ButtonStyle	"GraphicOnly"
+							Cancel	"false"
+							ControlType	"PushButton"
+							Default	"false"
+							Editable	"true"
+							EndTransaction	"false"
+							EventChange	"Scroll Lookup Button 13_CHG"
+							EventContextMenu	""
+							EventMouseEnter	""
+							EventMouseExit	""
+							EventOther	""
+							EventPost	""
+							EventPre	""
+							Field	"Lookup Button 13"
+							Font	"System (generic)"
+							FontBold	"false"
+							FontColor	"System - Button Text"
+							FontItalic	"false"
+							FontUnderline	"false"
+							HyperSpace	"false"
+							LinkedLookup	"43"
+							LinkedPrompt	"0"
+							Pattern	"(none)"
+							PatternColor	"White"
+							PositionLeft	"80"
+							PositionTop	"152"
+							ResizeHoriz	"StayLeft"
+							ResizeVert	"StayTop"
+							SizeHeight	"20"
+							SizeWidth	"18"
+							TabStop	"true"
+							Tag	"5044"
+							Tooltip	""
+							UseUniqueHelp	"true"
+							Visible	"false"
+							ZOrder	"28"
+							Zoom	"false"
+						}
+						= WindowControl	"Markline"
+						{
+							ZOrder	"25"
+						}
+						WindowControl	"RNC_DD_CheckBox"						
+						{
+							Alignment	"left"
+							Appearance	"3D Border"
+							AutoCopy	"true"
+							BackColor	"System - Window Background"
+							Border	"true"
+							ButtonStyle	"Standard"
+							ControlType	"CheckBox"
+							Editable	"true"
+							EventChange	""
+							EventContextMenu	""
+							EventMouseEnter	""
+							EventMouseExit	""
+							EventOther	""
+							EventPost	""
+							EventPre	""
+							Field	"RNC_DD_CheckBox"
+							Font	"System (generic)"
+							FontBold	"false"
+							FontColor	"System - Window Text"
+							FontItalic	"false"
+							FontUnderline	"false"
+							HyperSpace	"false"
+							LinkedLookup	"0"
+							LinkedPrompt	"0"
+							Pattern	"(none)"
+							PatternColor	"White"
+							PatternSelect	"50% Shading"
+							PositionLeft	"375"
+							PositionTop	"0"
+							Required	"false"
+							ResizeHoriz	"StayLeft"
+							ResizeVert	"StayTop"
+							SavedOnRestart	"false"
+							SetChangeFlag	"true"
+							SizeHeight	"20"
+							SizeWidth	"16"
+							TabStop	"true"
+							Tag	"5045"
+							Tooltip	""
+							UseUniqueHelp	"true"
+							Visible	"true"
+							ZOrder	"29"
+						}
+					}
+					LastTag	"5047"
+					PositionTop	"111"
+					SizeWidth	"747"
+					ZOrder	"29"
+				}
+				= WindowPrompt	"115"
+				{
+					Alignment	"center"
+					BackColor	"System - List Header2"
+					Border	"true"
+					PositionLeft	"480"
+					PositionTop	"92"
+					SizeWidth	"86"
+					ZOrder	"28"
+				}
+				= WindowPrompt	"133"
+				{
+					PositionTop	"92"
+					ZOrder	"33"
+				}
+				= WindowPrompt	"134"
+				{
+					PositionLeft	"276"
+					PositionTop	"92"
+					SizeWidth	"101"
+					ZOrder	"34"
+				}
+				= WindowPrompt	"135"
+				{
+					PositionLeft	"159"
+					PositionTop	"92"
+					SizeWidth	"115"
+					ZOrder	"35"
+				}
+				= WindowPrompt	"157"
+				{
+					Alignment	"center"
+					BackColor	"System - List Header2"
+					Border	"true"
+					FontColor	"Black"
+					PositionLeft	"599"
+					PositionTop	"92"
+					SizeWidth	"70"
+					ZOrder	"36"
+				}
+				= WindowShape	"178"
+				{
+					PositionTop	"92"
+				}
+				= WindowShape	"179"
+				{
+					PositionLeft	"158"
+					PositionTop	"92"
+					SizeWidth	"117"
+				}
+				= WindowShape	"180"
+				{
+					PositionLeft	"274"
+					PositionTop	"92"
+					SizeWidth	"111"
+				}
+				= WindowShape	"181"
+				{
+					PositionLeft	"415"
+					PositionTop	"92"
+					SizeWidth	"66"
+				}
+				- WindowShape	"182"
+				- WindowShape	"183"
+				- WindowShape	"184"
+				= WindowShape	"185"
+				{
+					PositionLeft	"668"
+					PositionTop	"92"
+					ZOrder	"4"
+				}
+				= WindowShape	"186"
+				{
+					PositionLeft	"727"
+					PositionTop	"92"
+					SizeWidth	"34"
+					ZOrder	"5"
+				}
+				= WindowPrompt	"188"
+				{
+					PositionLeft	"475"
+					PositionTop	"53"
+					ZOrder	"40"
+				}
+				= WindowPrompt	"190"
+				{
+					PositionLeft	"421"
+					PositionTop	"92"
+					SizeWidth	"54"
+					ZOrder	"41"
+				}
+				= WindowPrompt	"208"
+				{
+					PositionLeft	"669"
+					PositionTop	"92"
+					ZOrder	"48"
+				}
+				= WindowPrompt	"209"
+				{
+					PositionLeft	"736"
+					PositionTop	"92"
+					ZOrder	"49"
+				}
+				= WindowPrompt	"213"
+				{
+					Alignment	"center"
+					BackColor	"System - List Header2"
+					Border	"true"
+					FontColor	"Black"
+					PositionLeft	"565"
+					PositionTop	"92"
+					SizeWidth	"35"
+					ZOrder	"50"
+				}
+				= WindowLine	"221"
+				{
+					PositionTop	"280"
+					SizeWidth	"777"
+					ZOrder	"54"
+				}
+				= WindowLine	"223"
+				{
+					ZOrder	"56"
+				}
+				= WindowLine	"224"
+				{
+					ZOrder	"57"
+				}
+				= WindowLine	"225"
+				{
+					ZOrder	"58"
+				}
+				= WindowLine	"226"
+				{
+					ZOrder	"59"
+				}
+				= WindowLine	"228"
+				{
+					SizeWidth	"784"
+					ZOrder	"61"
+				}
+				= WindowPrompt	"24"
+				{
+					ZOrder	"6"
+				}
+				WindowPrompt	"5245"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					BackColor	"System - List Header2"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"48"
+					PositionTop	"92"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"95"
+					Text	"Bank"
+					Visible	"true"
+					ZOrder	"71"
+					Zoom	"true"
+				}
+				WindowPrompt	"5247"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					BackColor	"System - List Header2"
+					Border	"true"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"384"
+					PositionTop	"92"
+					ReadingOrder	"LeftToRight"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"32"
+					Text	"NRA"
+					Visible	"true"
+					ZOrder	"73"
+					Zoom	"false"
+				}
+				= WindowPrompt	"61"
+				{
+					ZOrder	"27"
+				}
+				= WindowControl	"BrowseBox"
+				{
+					PositionTop	"285"
+					ZOrder	"18"
+				}
+				= WindowControl	"Cancel Button"
+				{
+					ZOrder	"26"
+				}
+				= WindowControl	"Clear Button"
+				{
+					ZOrder	"24"
+				}
+				= WindowControl	"CustomLinks Zoom Button[1]"
+				{
+					SizeWidth	"101"
+					ZOrder	"62"
+				}
+				= WindowControl	"DD Remainder"
+				{
+					PositionLeft	"675"
+					PositionTop	"53"
+					ZOrder	"8"
+				}
+				= WindowControl	"Delete Button"
+				{
+					ZOrder	"25"
+				}
+				WindowControl	"Delete Record"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Delete Record"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"456"
+					PositionTop	"368"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					TabStop	"true"
+					Tag	"5236"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"false"
+					ZOrder	"65"
+				}
+				= WindowControl	"Display Existing Record"
+				{
+					PositionTop	"381"
+					ZOrder	"42"
+				}
+				WindowControl	"EX_LineDeleted"				
+				{
+					Appearance	"2D Border"
+					AutoCopy	"true"
+					BackColor	"Pink"
+					ControlType	"Boolean"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					Field	"EX_LineDeleted"
+					FontColor	"System"
+					PositionLeft	"552"
+					PositionTop	"319"
+					SavedOnRestart	"false"
+					SizeHeight	"20"
+					SizeWidth	"112"
+					Tag	"5254"
+					ZOrder	"77"
+				}
+				= WindowControl	"Employee ID"
+				{
+					ZOrder	"7"
+				}
+				= WindowControl	"Employee Name"
+				{
+					ZOrder	"10"
+				}
+				= WindowControl	"End of File Button - Toolbar"
+				{
+					PositionTop	"286"
+					ZOrder	"22"
+				}
+				= WindowControl	"Handle Changes"
+				{
+					PositionTop	"364"
+					ZOrder	"43"
+				}
+				= WindowControl	"Inactive"
+				{
+					ZOrder	"9"
+				}
+				= WindowControl	"Lookup Button 1"
+				{
+					ZOrder	"11"
+				}
+				WindowControl	"Lookup Button 2"				
+				{
+					Alignment	"center"
+					Appearance	"2D Border"
+					BackColor	"System - List Header2"
+					Border	"true"
+					ButtonStyle	"GraphicOnly"
+					Cancel	"false"
+					ControlType	"PushButton"
+					Default	"false"
+					Editable	"true"
+					EndTransaction	"false"
+					EventChange	"ddEmpEntry Lookup Button 2_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Lookup Button 2"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Button Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"141"
+					PositionTop	"92"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SizeHeight	"20"
+					SizeWidth	"18"
+					TabStop	"true"
+					Tag	"5244"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"true"
+					ZOrder	"72"
+					Zoom	"false"
+				}
+				= WindowControl	"Next Button - Toolbar"
+				{
+					PositionTop	"286"
+					ZOrder	"21"
+				}
+				= WindowControl	"Note Absent Button - Toolbar"
+				{
+					PositionLeft	"726"
+					PositionTop	"282"
+					ZOrder	"55"
+				}
+				= WindowControl	"Note Present Button - Toolbar"
+				{
+					PositionLeft	"726"
+					PositionTop	"282"
+					ZOrder	"53"
+				}
+				= WindowControl	"Previous Button - Toolbar"
+				{
+					PositionTop	"286"
+					ZOrder	"20"
+				}
+				= WindowControl	"Save Button"
+				{
+					ZOrder	"23"
+				}
+				= WindowControl	"Save Record"
+				{
+					PositionTop	"347"
+					ZOrder	"44"
+				}
+				WindowControl	"Table Physical Name"				
+				{
+					Alignment	"left"
+					Appearance	"2D Border"
+					AutoComplete	"false"
+					AutoCopy	"true"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ControlType	"String"
+					DisableLookup	"false"
+					Editable	"true"
+					EventChange	""
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"Table Physical Name"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					LinkedFormat	"0"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Password	"false"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PositionLeft	"456"
+					PositionTop	"349"
+					ReadingOrder	"LeftToRight"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					TabStop	"true"
+					Tag	"5235"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"false"
+					ZOrder	"64"
+					Zoom	"false"
+				}
+				= WindowControl	"Top of File Button - Toolbar"
+				{
+					PositionTop	"286"
+					ZOrder	"19"
+				}
+				WindowControl	"WINPRE"				
+				{
+					Alignment	"left"
+					Appearance	"3D Border"
+					AutoCopy	"true"
+					BackColor	"R-255, G-128, B-192"
+					Border	"true"
+					ButtonStyle	"Standard"
+					ControlType	"CheckBox"
+					Editable	"true"
+					EventChange	"ddEmpEntry WINPRE_CHG"
+					EventContextMenu	""
+					EventMouseEnter	""
+					EventMouseExit	""
+					EventOther	""
+					EventPost	""
+					EventPre	""
+					Field	"WINPRE"
+					Font	"System (generic)"
+					FontBold	"false"
+					FontColor	"System - Window Text"
+					FontItalic	"false"
+					FontUnderline	"false"
+					HyperSpace	"false"
+					LinkedLookup	"0"
+					LinkedPrompt	"0"
+					Pattern	"(none)"
+					PatternColor	"White"
+					PatternSelect	"50% Shading"
+					PositionLeft	"456"
+					PositionTop	"330"
+					Required	"false"
+					ResizeHoriz	"StayLeft"
+					ResizeVert	"StayTop"
+					SavedOnRestart	"false"
+					SetChangeFlag	"true"
+					SizeHeight	"20"
+					SizeWidth	"80"
+					TabStop	"true"
+					Tag	"5233"
+					Tooltip	""
+					UseUniqueHelp	"true"
+					Visible	"false"
+					ZOrder	"63"
+				}
+				= WindowControl	"WindowHelp"
+				{
+					PositionLeft	"750"
+					PositionTop	"282"
+					ZOrder	"60"
+				}
+				= WindowControl	"WindowNote"
+				{
+					PositionTop	"330"
+					ZOrder	"52"
+				}
+				= WindowControl	"Zoom Button"
+				{
+					SizeWidth	"100"
+					ZOrder	"51"
+				}
+			}
+			LastTag	"5254"
+			SizeHeight	"311"
+			SizeWidth	"786"
+		}
+	}
+	~EventScripts
+	{
+		EventScript	"Scroll Bank ID_CHG"		
+		{
+			Documentation	""
+			Script	"
+if empty ('Bank ID') then
+	clear 'DD Transit Number' of window Scroll of form ddEmpEntry;
+	clear 'DD Account Number' of window Scroll of form ddEmpEntry;
+else
+
+	release table CM_Bank_MSTR;
+	clear table CM_Bank_MSTR;
+	set 'Bank ID' of table CM_Bank_MSTR to 'Bank ID';
+	get table CM_Bank_MSTR;
+
+	if err() = 0 then
+		'DD Transit Number' = 'DD Transit Number' of table CM_Bank_MSTR;
+		focus field 'DD Account Number';
+		force changes window ddEmpEntry;
+		
+		release table EX_DD_Banks_Temp;
+		clear table EX_DD_Banks_Temp;
+		set 'Employee ID' of table EX_DD_Banks_Temp to
+			'Employee ID' of window ddEmpEntry;
+		set Index of table EX_DD_Banks_Temp to IndexLong;
+		change table EX_DD_Banks_Temp;
+		set 'Bank ID' of table EX_DD_Banks_Temp to 'Bank ID';
+		save table EX_DD_Banks_Temp;
+
+		{if empty ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) then
+			release table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+			get first table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+			{sTable = Table_GetOSName(table EX_DD_Banks_Temp);}
+
+			clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+			set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+			set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong of window Scroll of form ddEmpEntry;
+			get table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+			if err() = OKAY then
+				set 'Bank ID' of window Scroll of form ddEmpEntry to 'Bank ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+					
+			else
+				clear 'Bank ID' of window Scroll of form ddEmpEntry;
+			end if;
+		end if;}
+	else
+		warning \"This Bank doesnt exist!\";
+		focus field 'Bank ID';
+	end if;
+end if;"
+			UserProperties	""
+		}
+		EventScript	"Scroll Lookup Button 13_CHG"		
+		{
+			Documentation	""
+			Script	"run script 'Lookup Button 2' of window ddEmpEntry;"
+			UserProperties	""
+		}
+		EventScript	"ddEmpEntry Lookup Button 2_CHG"		
+		{
+			Documentation	""
+			Script	"if empty (IndexLong of window Scroll) then
+	warning \"You need to select a line before opening the Bank lookup window\";
+	restart field;
+	abort script;
+else
+	if not isopen(window Bank_Lookup of form Bank_Lookup) then
+		open form Bank_Lookup return to 'Bank ID' of window Scroll;
+		if empty('Bank ID' of window Scroll) then
+			set '(L) Bank Sort' of window Bank_Lookup of form Bank_Lookup to 1;
+		end if;
+	else
+		open form Bank_Lookup return to 'Bank ID' of window Scroll;
+	end if;
+
+	set 'Bank ID' of window Bank_Lookup of form Bank_Lookup to 'Bank ID' of window Scroll;
+
+	run script '(L) Bank Sort' of window Bank_Lookup of form Bank_Lookup;
+end if;"
+			UserProperties	""
+		}
+		EventScript	"ddEmpEntry WINPRE_CHG"		
+		{
+			Documentation	""
+			Script	"range clear table RNC_ddEmpAcctMstr_TMP;
+remove range table RNC_ddEmpAcctMstr_TMP;
+
+release table RNC_ddEmpAcctMstr_TMP;
+get first table RNC_ddEmpAcctMstr_TMP;
+
+set 'Table Physical Name' of window ddEmpEntry to Table_GetOSName(table RNC_ddEmpAcctMstr_TMP);
+
+assign '(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry as reference to table EX_DD_Banks_Temp;
+assign '(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry as reference to table RNC_ddEmpAcctMstr_TMP;
+"
+			UserProperties	""
+		}
+		EventScript	"ddEmpEntry l_PushButton20_CHG"		
+		{
+			Documentation	""
+			Script	"{}
+
+if not empty('Bank ID' of window Scroll) then
+	open form CM_Bank_Maintenance;
+	set '(L) Temp Control Number' of window CM_Bank_Maintenance of form CM_Bank_Maintenance to
+		'Bank ID' of window Scroll;
+	run script '(L) Temp Control Number' of window CM_Bank_Maintenance of form CM_Bank_Maintenance;
+end if; "
+			UserProperties	""
+		}
+		EventScript	"ddEmpEntry l_SAE_ClearEmployeeID_CHG"		
+		{
+			Documentation	""
+			Script	"
+{range clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+remove range table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);}
+
+range clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+remove range table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);"
+			UserProperties	""
+		}
+		EventScript	"ddEmpEntry l_l_EX_DER_CHG"		
+		{
+			Documentation	""
+			Script	"{local string l_where;
+
+if 'Display Existing Record' of window ddEmpEntry of form ddEmpEntry  then
+	close table EX_DD_Banks_Temp;
+	
+	l_where = \"EMPLOYID = '\" + 'Employee ID' of window ddEmpEntry of form ddEmpEntry + \"'\";
+	
+	release table EX_DD_Banks;
+	range clear table EX_DD_Banks;
+	range table EX_DD_Banks where l_where;
+	
+	range copy table EX_DD_Banks to table EX_DD_Banks_Temp;
+
+end if;
+	}"
+			UserProperties	""
+		}
+		EventScript	"ddEmpEntry l_l_Scroll_Fill_CHG"		
+		{
+			Documentation	""
+			Script	"{}
+if isopen(window ddEmpEntry of form ddEmpEntry) then
+	release table EX_DD_Banks;
+	clear table EX_DD_Banks;
+	set 'Employee ID' of table EX_DD_Banks to
+		'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+	set Index of table EX_DD_Banks to
+		IndexLong of table ddEmpLineTemp;
+	get table EX_DD_Banks;
+	set 'Bank ID' of window Scroll of form ddEmpEntry to
+		'Bank ID' of table EX_DD_Banks;
+		
+		{warning('Bank ID' of window Scroll of form ddEmpEntry);}
+end if;"
+			UserProperties	""
+		}
+	}
+}

@@ -1,0 +1,128 @@
+Table	"EX_Precheck_Temp"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"EX Payroll Temp Precheck Report"
+	FourByteHeader	"true"
+	PhysicalName	"TEMP"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"Sequence Number"		
+		{
+			Encrypt	"false"
+			Field	"Sequence Number"
+			Position	"1"
+		}
+		TableField	"String 132"		
+		{
+			Encrypt	"false"
+			Field	"String 132"
+			Position	"2"
+		}
+	}
+	~Keys
+	{
+		Key	"UPR_Precheck_TEMP_Key111"		
+		{
+			Clustered	"false"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"true"
+			DisableFirsts	"true"
+			DisableGets	"true"
+			DisableInserts	"true"
+			DisableLasts	"true"
+			DisableNexts	"true"
+			Duplicates	"false"
+			Modifiable	"false"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+				KeySegment	"Sequence Number"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"false"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"1"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"UPR_MSTR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; UPR_MSTR_Key1"
+			RelatedTable	"UPR_MSTR"
+			RelationshipType	"OneToOne"
+		}
+		Relationship	"UPR_WORK_Benefit"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"3 ; UPR_WORK_Benefit_Key3"
+			RelatedTable	"UPR_WORK_Benefit"
+			RelationshipType	"OneToMany"
+		}
+		Relationship	"UPR_WORK_Deduction"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"3 ; UPR_WORK_Deduction_Key3"
+			RelatedTable	"UPR_WORK_Deduction"
+			RelationshipType	"OneToMany"
+		}
+		Relationship	"UPR_WORK_HDR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"3 ; UPR_WORK_HDR_Key3"
+			RelatedTable	"UPR_WORK_HDR"
+			RelationshipType	"OneToMany"
+		}
+	}
+}

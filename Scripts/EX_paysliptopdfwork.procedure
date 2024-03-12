@@ -1,0 +1,49 @@
+Procedure	"EX_paysliptopdfwork"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{}
+local boolean result;
+local string l_Path;
+local string l_emp;
+
+local string l_filename;
+local string l_date;
+
+if isopen(window UPR_Post_Checks of form UPR_Print_Checks) then
+	result = Path_SelectPathname(l_Path);
+if result = true then
+    {Convert the pathname to a native format.}
+    /*l_Path = Path_MakeNative(l_Path);*/
+	
+	release table UPR_WORK_Check;
+	range clear table UPR_WORK_Check;
+	
+	get first table  UPR_WORK_Check;
+	
+	while err() = 0 do
+		l_emp = 'Employee ID' of table UPR_WORK_Check;
+		l_date = pad(string(day('Check Date'of table UPR_WORK_Check)),LEADING,\"0\",2) + \"-\" 
+		+ pad(string(month('Check Date'of table UPR_WORK_Check)),LEADING,\"0\",2) + \"-\" + string(year('Check Date'of table UPR_WORK_Check)) ;
+				
+		l_filename = \"Payslip \" + l_emp + \" (\" + l_date + \").pdf\";
+		
+		run report 'Direct Deposit Statement of Earnings' with restriction 'Employee ID' of table UPR_WORK_Check = l_emp 
+		destination false, false, PDFFILE, l_Path+l_filename;
+	
+	
+		get next table UPR_WORK_Check;
+	end while;
+	
+	
+end if;
+else
+	warning \"You can only Export the earnings statements from the Payroll Post window. Print Checks and try again!\";
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

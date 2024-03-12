@@ -1,0 +1,33 @@
+Procedure	"Create_All_Tables"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"call Create_Table, table EX_CM_Bank_MSTR;
+call Create_Table, table EX_ddACHHdr_ExcludedBank_Copy;
+call Create_Table, table EX_ddACHItems;
+call Create_Table, table EX_ddDeposits;
+call Create_Table, table EX_DD_Banks;
+call Create_Table, table EX_DD_Banks_Temp;
+call Create_Table, table EX_DD_ListingByBank;
+call Create_Table, table EX_DD_SummaryByBank;
+call Create_Table, table EX_Employee_MSTR;
+call Create_Table, table EX_Nationality;
+call Create_Table, table EX_PayrollChangesTrxDetail;
+call Create_Table, table EX_PayrollChangesTrxDetailExcpt;
+call Create_Table, table EX_Payroll_Changes;
+call Create_Table, table EX_Precheck_Temp;
+call Create_Table, table EX_PR_Skip_Temp;
+call Create_Table, table EX_uprWorkChkDesc;
+call Create_Table, table EX_uprWorkChkYTD;
+call Create_Table, table EX_UPR_Work_Check;
+call Create_Table, table EX_WORK_Post;
+call Create_Table, table RNC_ddEmpAcctMstr_EXT;
+call Create_Table, table RNC_ddEmpAcctMstr_TMP;
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

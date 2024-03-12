@@ -1,0 +1,322 @@
+Field	"Diff"
+{
+	ArraySize	"0"
+	Datatype	"DLR11_$S2"
+	LookupForm	""
+	PhysicalName	"Diff"
+}
+Field	"EX_Benefit_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_Benefit_Code"
+}
+Field	"EX_Caymanian_Flag"
+{
+	ArraySize	"0"
+	Datatype	"EX_Caymanian_Flag"
+	LookupForm	""
+	PhysicalName	"EX_Caymanian_Flag"
+}
+Field	"EX_CodeNetAmount"
+{
+	ArraySize	"0"
+	Datatype	"DLR11_$S2"
+	LookupForm	""
+	PhysicalName	"EX_CodeNetAmount"
+}
+Field	"EX_Comments"
+{
+	ArraySize	"0"
+	Datatype	"TX28000"
+	LookupForm	""
+	PhysicalName	"EX_Comments"
+}
+Field	"EX_Country_ISO2"
+{
+	ArraySize	"0"
+	Datatype	"STR2"
+	LookupForm	""
+	PhysicalName	"EX_Country_ISO2"
+}
+Field	"EX_Country_ISO3"
+{
+	ArraySize	"0"
+	Datatype	"STR3"
+	LookupForm	""
+	PhysicalName	"EX_Country_ISO3"
+}
+Field	"EX_Deduction_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_Deduction_Code"
+}
+Field	"EX_Drivers_License"
+{
+	ArraySize	"0"
+	Datatype	"STR20"
+	LookupForm	""
+	PhysicalName	"EX_Drivers_License"
+}
+Field	"EX_Drivers_License_Expiry"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"EX_Drivers_License_Expir"
+}
+Field	"EX_HISTBenefit_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_HISTBenefit_Code"
+}
+Field	"EX_HISTDeduction_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_HISTDeduction_Code"
+}
+Field	"EX_HISTLocalTax_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_HISTLocalTax_Code"
+}
+Field	"EX_HISTPay_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_HISTPay_Code"
+}
+Field	"EX_LocalTax_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_LocalTax_Code"
+}
+Field	"EX_MarriedToCaymanian_Flag"
+{
+	ArraySize	"0"
+	Datatype	"EX_MarriedToCaymanian_Flag"
+	LookupForm	""
+	PhysicalName	"EX_MarriedToCaymanianFlg"
+}
+Field	"Ex_Mrd_to_CaymanianWERC"
+{
+	ArraySize	"0"
+	Datatype	"Ex_Mrd_to_CaymanianWERC"
+	LookupForm	""
+	PhysicalName	"Ex_Mrd_to_CaymanianWERC"
+}
+Field	"EX_Nationality"
+{
+	ArraySize	"0"
+	Datatype	"STR255"
+	LookupForm	""
+	PhysicalName	"EX_Nationality"
+}
+Field	"EX_NetDiff"
+{
+	ArraySize	"0"
+	Datatype	"DLR11_$S2"
+	LookupForm	""
+	PhysicalName	"EXNetDiff"
+}
+Field	"EX_Old_Country"
+{
+	ArraySize	"0"
+	Datatype	"STR20"
+	LookupForm	""
+	PhysicalName	"EX_Old_Country"
+}
+Field	"EX_Pay_Code"
+{
+	ArraySize	"0"
+	Datatype	"STR6_Payroll_Code"
+	LookupForm	""
+	PhysicalName	"EX_Pay_Code"
+}
+Field	"EX_Permit_Type"
+{
+	ArraySize	"0"
+	Datatype	"EX_Permit_Type"
+	LookupForm	""
+	PhysicalName	"EX_Permit_Type"
+}
+Field	"EX_PR_Skip"
+{
+	ArraySize	"0"
+	Datatype	"EX_PR_Skip"
+	LookupForm	""
+	PhysicalName	"EX_PR_Skip"
+}
+Field	"EX_PR_Skip_Set_By"
+{
+	ArraySize	"0"
+	Datatype	"User_ID"
+	LookupForm	""
+	PhysicalName	"EX_PR_Skip_Set_By"
+}
+Field	"EX_PR_Skip_Set_Date"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"EX_PR_Skip_Set_Date"
+}
+Field	"EX_PR_Skip_UnSet_By"
+{
+	ArraySize	"0"
+	Datatype	"User_ID"
+	LookupForm	""
+	PhysicalName	"EX_PR_Skip_UnSet_By"
+}
+Field	"EX_PR_Skip_UnSet_Date"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"EX_PR_Skip_UnSet_Date"
+}
+Field	"EX_Reason_for_Leaving"
+{
+	ArraySize	"0"
+	Datatype	"EX_DDL_Reason"
+	LookupForm	""
+	PhysicalName	"EX_REASON"
+}
+Field	"EX_WP_AnnualFeeDeadline"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"EX_WP_AnnualFeeDeadline"
+}
+Field	"EX_WP_Contractor"
+{
+	ArraySize	"0"
+	Datatype	"EX_WP_Contractor"
+	LookupForm	""
+	PhysicalName	"EX_WP_Contractor"
+}
+Field	"EX_WP_Exempted"
+{
+	ArraySize	"0"
+	Datatype	"EX_WP_Exempted"
+	LookupForm	""
+	PhysicalName	"EX_WP_Exempted"
+}
+Field	"EX_WP_Expiry_Date"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"EX_WP_Expiry_Date"
+}
+Field	"EX_WP_Holder_Flag"
+{
+	ArraySize	"0"
+	Datatype	"EX_WP_Holder_Flag"
+	LookupForm	""
+	PhysicalName	"EX_WP_Holder_Flag"
+}
+Field	"EX_WP_Issue_Date"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"EX_WP_Issue_Date"
+}
+Field	"EX_WP_Perm_Res"
+{
+	ArraySize	"0"
+	Datatype	"EX_WP_Perm_Res"
+	LookupForm	""
+	PhysicalName	"EX_WP_Perm_Res"
+}
+Field	"EX_WP_Perm_Res_WERC"
+{
+	ArraySize	"0"
+	Datatype	"EX_Perm_Res_WERC"
+	LookupForm	""
+	PhysicalName	"EX_WPPerm_Res_WERC"
+}
+Field	"EX_WP_ReEntryExpiryDate"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"EX_WP_ReEntryExpiryDate"
+}
+Field	"EXHistCodeAmt"
+{
+	ArraySize	"0"
+	Datatype	"DLR11_$S2"
+	LookupForm	""
+	PhysicalName	"EXHistCodeAmt"
+}
+Field	"Hist Check Date"
+{
+	ArraySize	"0"
+	Datatype	"DATE"
+	LookupForm	""
+	PhysicalName	"Hist_Check_Date"
+}
+Field	"Historical Net Wages/Pay Run"
+{
+	ArraySize	"0"
+	Datatype	"DLR11_$S2"
+	LookupForm	""
+	PhysicalName	"Historical_Net_Wages"
+}
+Field	"Emp ID"
+{
+	ArraySize	"0"
+	Datatype	"STR15_Employee_ID_I"
+	LookupForm	""
+	PhysicalName	"EMPID_I"
+}
+Field	"Trigger_Count"
+{
+	ArraySize	"0"
+	Datatype	"INT4"
+	LookupForm	""
+	PhysicalName	"Trigger_Count"
+}
+Field	"Trigger_List"
+{
+	ArraySize	"100"
+	Datatype	"INT4"
+	LookupForm	""
+	PhysicalName	"Trigger_List"
+}
+Field	"EX_CM_Exclude_Bank_ACH_CB"
+{
+	ArraySize	"0"
+	Datatype	"EX exclude bank from ACH"
+	LookupForm	""
+	PhysicalName	"EX_CM_Exclude_Bank_ACH_C"
+}
+Field	"RNC_DD_CheckBox"
+{
+	ArraySize	"0"
+	Datatype	"CB"
+	LookupForm	""
+	PhysicalName	"RNCDDCB"
+}
+Field	"EX_LineDeleted"
+{
+	ArraySize	"0"
+	Datatype	"boolean"
+	LookupForm	""
+	PhysicalName	"EX_LineDeleted"
+}

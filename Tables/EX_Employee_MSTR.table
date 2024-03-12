@@ -1,0 +1,206 @@
+Table	"EX_Employee_MSTR"
+{
+	AllowActiveLocking	"false"
+	DatabaseType	"SQL"
+	DexRowTimestamp	"false"
+	DisplayName	"EX Employee MSTR"
+	FourByteHeader	"true"
+	PhysicalName	"EX00100"
+	Restriction	""
+	Series	"Payroll"
+	TableType	"Standard"
+	~Fields
+	{
+		TableField	"EX_Caymanian_Flag"		
+		{
+			Encrypt	"false"
+			Field	"EX_Caymanian_Flag"
+			Position	"7"
+		}
+		TableField	"EX_Comments"		
+		{
+			Encrypt	"false"
+			Field	"EX_Comments"
+			Position	"23"
+		}
+		TableField	"EX_Drivers_License"		
+		{
+			Encrypt	"false"
+			Field	"EX_Drivers_License"
+			Position	"21"
+		}
+		TableField	"EX_Drivers_License_Expiry"		
+		{
+			Encrypt	"false"
+			Field	"EX_Drivers_License_Expiry"
+			Position	"22"
+		}
+		TableField	"EX_MarriedToCaymanian_Flag"		
+		{
+			Encrypt	"false"
+			Field	"EX_MarriedToCaymanian_Flag"
+			Position	"8"
+		}
+		TableField	"EX_Nationality"		
+		{
+			Encrypt	"false"
+			Field	"EX_Nationality"
+			Position	"1"
+		}
+		TableField	"EX_PR_Skip"		
+		{
+			Encrypt	"false"
+			Field	"EX_PR_Skip"
+			Position	"15"
+		}
+		TableField	"EX_PR_Skip_Set_By"		
+		{
+			Encrypt	"false"
+			Field	"EX_PR_Skip_Set_By"
+			Position	"17"
+		}
+		TableField	"EX_PR_Skip_Set_Date"		
+		{
+			Encrypt	"false"
+			Field	"EX_PR_Skip_Set_Date"
+			Position	"16"
+		}
+		TableField	"EX_PR_Skip_UnSet_By"		
+		{
+			Encrypt	"false"
+			Field	"EX_PR_Skip_UnSet_By"
+			Position	"19"
+		}
+		TableField	"EX_PR_Skip_UnSet_Date"		
+		{
+			Encrypt	"false"
+			Field	"EX_PR_Skip_UnSet_Date"
+			Position	"18"
+		}
+		TableField	"EX_Permit_Type"		
+		{
+			Encrypt	"false"
+			Field	"EX_Permit_Type"
+			Position	"2"
+		}
+		TableField	"EX_Reason_for_Leaving"		
+		{
+			Encrypt	"false"
+			Field	"EX_Reason_for_Leaving"
+			Position	"20"
+		}
+		TableField	"EX_WP_AnnualFeeDeadline"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_AnnualFeeDeadline"
+			Position	"6"
+		}
+		TableField	"EX_WP_Contractor"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_Contractor"
+			Position	"13"
+		}
+		TableField	"EX_WP_Exempted"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_Exempted"
+			Position	"10"
+		}
+		TableField	"EX_WP_Expiry_Date"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_Expiry_Date"
+			Position	"4"
+		}
+		TableField	"EX_WP_Holder_Flag"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_Holder_Flag"
+			Position	"14"
+		}
+		TableField	"EX_WP_Issue_Date"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_Issue_Date"
+			Position	"3"
+		}
+		TableField	"EX_WP_Perm_Res"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_Perm_Res"
+			Position	"11"
+		}
+		TableField	"EX_WP_Perm_Res_WERC"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_Perm_Res_WERC"
+			Position	"12"
+		}
+		TableField	"EX_WP_ReEntryExpiryDate"		
+		{
+			Encrypt	"false"
+			Field	"EX_WP_ReEntryExpiryDate"
+			Position	"5"
+		}
+		TableField	"Employee ID"		
+		{
+			Encrypt	"false"
+			Field	"Employee ID"
+			Position	"0"
+		}
+		TableField	"Ex_Mrd_to_CaymanianWERC"		
+		{
+			Encrypt	"false"
+			Field	"Ex_Mrd_to_CaymanianWERC"
+			Position	"9"
+		}
+	}
+	~Keys
+	{
+		Key	"EX_Employee_MSTR_Key11"		
+		{
+			Clustered	"true"
+			Compress	"false"
+			CreateIndex	"true"
+			DisableDeletes	"false"
+			DisableFirsts	"false"
+			DisableGets	"false"
+			DisableInserts	"false"
+			DisableLasts	"false"
+			DisableNexts	"false"
+			Duplicates	"false"
+			Modifiable	"true"
+			Position	"0"
+			Primary	"true"
+			Segments
+			{
+				KeySegment	"Employee ID"				
+				{
+					Component	""
+					Descending	"false"
+					IgnoreCase	"true"
+					NoCombining	"false"
+					NoLengthByte	"false"
+					Position	"0"
+				}
+			}
+		}
+	}
+	~Relationships
+	{
+		Relationship	"UPR_MSTR"		
+		{
+			Fields
+			{
+				RelationshipField	"00000"				
+				{
+					Field	"Employee ID"
+				}
+			}
+			Key	"1 ; UPR_MSTR_Key1"
+			RelatedTable	"UPR_MSTR"
+			RelationshipType	"OneToOne"
+		}
+	}
+}

@@ -1,0 +1,73 @@
+Procedure	"Trig_ddEmpEntry_Save_Record"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{}
+local string l_where;
+local	integer	nCountRecs;
+
+{if not required (window Scroll of form ddEmpEntry) then
+	warning \"nt all required\";
+end if;}
+
+if 'Save Record' of window ddEmpEntry of form ddEmpEntry  then
+	
+	range clear table RNC_ddEmpAcctMstr_EXT;
+		set 'Employee ID' of table RNC_ddEmpAcctMstr_EXT to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		clear IndexLong of table RNC_ddEmpAcctMstr_EXT;
+	range start table RNC_ddEmpAcctMstr_EXT;
+			set 'Employee ID' of table RNC_ddEmpAcctMstr_EXT to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		fill IndexLong of table RNC_ddEmpAcctMstr_EXT;
+	range end table RNC_ddEmpAcctMstr_EXT;
+	remove range table RNC_ddEmpAcctMstr_EXT;
+	range clear table RNC_ddEmpAcctMstr_EXT;
+	
+	range clear table EX_DD_Banks;
+		set 'Employee ID' of table EX_DD_Banks to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		clear Index of table EX_DD_Banks;
+	range start table EX_DD_Banks;
+		set 'Employee ID' of table EX_DD_Banks to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		fill Index of table EX_DD_Banks;
+	range end table EX_DD_Banks;
+	remove range table EX_DD_Banks;
+	range clear table EX_DD_Banks;
+	
+	get first table ddEmpLineTemp;
+	while err() = OKAY do
+		set nCountRecs to nCountRecs + 1;
+		
+		clear table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+		set 'Employee ID' of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set IndexLong of table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to IndexLong  of table ddEmpLineTemp;
+		get table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry);
+		
+		copy from table ('(L) ref_RNC_ddEmpAcctMstr_TMP' of window ddEmpEntry of form ddEmpEntry) to table RNC_ddEmpAcctMstr_EXT;
+		set 'Employee ID' of table RNC_ddEmpAcctMstr_EXT to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set IndexLong of table RNC_ddEmpAcctMstr_EXT to nCountRecs;
+		
+		save table RNC_ddEmpAcctMstr_EXT;
+		
+		clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong  of table ddEmpLineTemp;
+		get table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		
+		copy from table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to table EX_DD_Banks;
+		set 'Employee ID' of table EX_DD_Banks to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set Index of table EX_DD_Banks to nCountRecs;
+		
+		save table EX_DD_Banks;
+		
+		get next table ddEmpLineTemp;
+	end while;
+end if;
+	
+	
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

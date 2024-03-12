@@ -1,0 +1,37 @@
+Procedure	"Startup_Login_Trigger"
+{
+	Core	"System"
+	Documentation	""
+	Script	"{}
+
+{create tables}
+if 'SQL Server' of globals > 0 then
+            {Check if User login as an Administraor}
+ 	if ('User ID' of globals = \"sa\") or ('User ID' of globals = \"DYNSA\") then
+                       
+		{First parameter is createTable procedure script name and seconds parameter is table name not physical or display name}
+		
+		{SYSTEM Level Tables}
+		call EX_Create_Table, \"EX_Nationality\",true; {this is a system leval table - we want nationality to be consistant right through the database}
+		
+		
+		{Financial Series Tables}
+		call EX_Create_Table, \"EX_CM_Bank_MSTR\",false;  
+		
+		{COMPANY Level Tables}
+		call EX_Create_Table, \"EX_Employee_MSTR\",false;
+		call EX_Create_Table, \"EX_DD_Banks\",false;
+		call EX_Create_Table, \"EX_PR_Skip_Temp\",false;
+		call EX_Create_Table, \"EX_WORK_Post\",false;      
+		call EX_Create_Table, \"EX_PayrollChangesTrxDetail\",false;  
+		call EX_Create_Table, \"EX_PayrollChangesTrxDetailExcpt\",false;  
+		
+     end if;
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

@@ -1,0 +1,18 @@
+Procedure	"EX_Open_Commands_Form"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"
+if isopen(form EX_Commands) = false then
+
+	{Open the form}
+	open form EX_Commands;
+	
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

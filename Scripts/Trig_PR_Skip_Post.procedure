@@ -1,0 +1,58 @@
+Procedure	"Trig_PR_Skip_Post"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+reset the skip flag...
+}
+{
+set the skip flag...
+}
+
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+{ copy all employee's that are already flagged as inactive to EXTPR001 - we need to be sure we do not reset them...}
+
+l_sql_status = SQL_Connect(l_sql_connect);
+l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);	
+
+l_sql_command = \"update UPR00100 set INACTIVE = 0 WHERE EMPLOYID IN (SELECT EMPLOYID FROM EX00100 WHERE EX_PR_Skip = 1) AND EMPLOYID NOT IN (SELECT EMPLOYID FROM EXTPR001)\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status  = SQL_Clear(l_sql_connect);
+
+l_sql_command = \"update UPR00700 set INACTIVE = 0 WHERE EMPLOYID IN (SELECT EMPLOYID FROM EX00100 WHERE EX_PR_Skip = 1) AND EMPLOYID NOT IN (SELECT EMPLOYID FROM EXTPR001)\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status  = SQL_Clear(l_sql_connect);
+
+l_sql_command = \"update UPR00600 set INACTIVE = 0 WHERE EMPLOYID IN (SELECT EMPLOYID FROM EX00100 WHERE EX_PR_Skip = 1) AND EMPLOYID NOT IN (SELECT EMPLOYID FROM EXTPR001)\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status  = SQL_Clear(l_sql_connect);
+
+l_sql_command = \"update UPR00500 set INACTIVE = 0 WHERE EMPLOYID IN (SELECT EMPLOYID FROM EX00100 WHERE EX_PR_Skip = 1) AND EMPLOYID NOT IN (SELECT EMPLOYID FROM EXTPR001)\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status  = SQL_Clear(l_sql_connect);
+
+l_sql_command = \"update UPR00400 set INACTIVE = 0 WHERE EMPLOYID IN (SELECT EMPLOYID FROM EX00100 WHERE EX_PR_Skip = 1) AND EMPLOYID NOT IN (SELECT EMPLOYID FROM EXTPR001)\";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status  = SQL_Clear(l_sql_connect);
+
+
+
+
+l_sql_status  = SQL_Terminate(l_sql_connect);
+
+
+run report EX_PR_Skipped_Emps;
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

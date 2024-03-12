@@ -1,0 +1,38 @@
+Procedure	"SAE_DDEmpEntry_LINE_PRE_Trigger_AFTER"
+{
+	Core	"Sales"
+	Documentation	""
+	Script	"{}
+local	string sTable;
+local	text	sql;
+local	integer	iCount;
+
+if empty('Employee ID' of window ddEmpEntry of form ddEmpEntry) then
+	abort script;
+else
+		{debug 'Employee ID' of window ddEmpEntry of form ddEmpEntry;}
+
+		clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		get first table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		sTable = Table_GetOSName(table EX_DD_Banks_Temp);
+
+		clear table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		set 'Employee ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to 'Employee ID' of window ddEmpEntry of form ddEmpEntry;
+		set Index of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry) to IndexLong of window Scroll of form ddEmpEntry;
+		get table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+		if err() = OKAY then
+			set 'Bank ID' of window Scroll of form ddEmpEntry to 'Bank ID' of table ('(L) ref_EX_DD_Banks_Temp' of window ddEmpEntry of form ddEmpEntry);
+				
+		else
+			clear 'Bank ID' of window Scroll of form ddEmpEntry;
+		end if;
+
+{	end if;}
+end if;"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}

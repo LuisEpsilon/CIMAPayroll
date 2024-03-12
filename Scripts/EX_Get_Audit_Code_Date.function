@@ -1,0 +1,24 @@
+Function	"EX_Get_Audit_Code_Date"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"function returns date r_HistCheckDate;
+
+in string i_AuditCtrlCode;
+
+local date l_HistCheckDate;
+
+release table UPR_Check_HIST;
+range clear table UPR_Check_HIST;
+set 'Audit Control Code' of table UPR_Check_HIST to i_AuditCtrlCode;
+clear 'Check Number' of table UPR_Check_HIST;
+range start table UPR_Check_HIST;
+fill 'Check Number' of table UPR_Check_HIST;
+range end table UPR_Check_HIST;
+get first table UPR_Check_HIST;
+if err() = OKAY then
+	l_HistCheckDate = 'Check Date' of table UPR_Check_HIST;
+	r_HistCheckDate = l_HistCheckDate;
+end if;"
+	UserProperties	""
+}

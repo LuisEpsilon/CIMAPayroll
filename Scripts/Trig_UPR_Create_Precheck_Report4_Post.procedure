@@ -1,0 +1,361 @@
+Procedure	"Trig_UPR_Create_Precheck_Report4_Post"
+{
+	Core	"Payroll"
+	Documentation	""
+	Script	"{
+	this script will run BEFORE The triggering script to add the data needed for CIMA
+	
+}
+inout	table		UPR_Precheck_TEMP;
+inout	dollar		l_Gross_Wages;
+inout	dollar		l_TOT_TOT_Charged_Tips;
+inout	dollar		l_TOT_TOT_Reported_Tips;
+inout	dollar		l_TOT_TOT_Advanced_PayBack;
+inout	dollar		l_TOT_TOT_Advanced_EIC;
+inout	dollar		l_TOT_Business_Exp_Non_Wages;
+inout	dollar		l_Benefits;
+inout	dollar		l_Deductions;
+inout	dollar		l_Taxes;
+inout	dollar		l_Net_Wages;
+inout	dollar		l_TOT_TOT_Uncollected_Taxes;
+
+local long l_sql_connect;
+local long l_sql_status;
+local long l_sql_data_status;
+local text l_sql_command,l_text;
+
+local long l_count;
+local string l_table, l_string1, l_string2,l_string3, l_string_amt; 
+
+local currency l_temp_amount;
+
+local integer x,y;
+
+l_count = 100000;
+
+
+{warning (l_table);}
+
+l_sql_status = SQL_Connect(l_sql_connect);
+l_sql_command = \"USE \" + 'Intercompany ID' of globals;
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_Clear(l_sql_connect);
+
+{--					Paycode Summary by Department/Paycode							--}
+
+for x = 1 to 3 do
+	release table UPR_Precheck_TEMP;
+	clear table UPR_Precheck_TEMP;
+	set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+	increment l_count;
+	set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+	change table UPR_Precheck_TEMP;
+	set 'String 132' of table UPR_Precheck_TEMP to \" \";
+	save table UPR_Precheck_TEMP;
+end for;
+
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"Paycode Summary by Department/Paycode\", LEADING,\" \", 77);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"--------------------------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+
+l_sql_command = \"select PAYRCORD,DEPRTMNT, SUM(TOTALPAY) from UPR10203 group by PAYRCORD,DEPRTMNT \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+
+while l_sql_status <> 31 do
+
+	l_sql_data_status = SQL_GetData(l_sql_connect,1,l_string1);
+	l_sql_data_status = SQL_GetData(l_sql_connect,2,l_string2);
+	l_sql_data_status = SQL_GetData(l_sql_connect,3,l_temp_amount);
+	l_string1 = trim(l_string1);
+	l_string2 = trim(l_string2);
+	
+	l_string3 = pad(l_string1, LEADING, \" \", 40 +  length(l_string1));
+	l_string3 = pad(l_string3, TRAILING,\" \", 48);
+	l_string3 = l_string3 + pad(l_string2,  TRAILING,\" \", 20);
+	l_string_amt = format(l_temp_amount ,true, true, 2, MINUSNEG);
+	l_string3 = l_string3 + pad(l_string_amt, LEADING, \" \", 16);
+	
+	
+	
+	release table UPR_Precheck_TEMP;
+	clear table UPR_Precheck_TEMP;
+	set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+	increment l_count;
+	set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+	change table UPR_Precheck_TEMP;
+	set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+	save table UPR_Precheck_TEMP;
+	
+	l_sql_status = SQL_FetchNext(l_sql_connect);
+end while;
+
+{		pay code totals					}
+
+l_sql_status  = SQL_Clear(l_sql_connect);
+l_sql_command = \"select SUM(TOTALPAY) from UPR10203 \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+l_sql_data_status = SQL_GetData(l_sql_connect,1,l_temp_amount);
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(format(l_temp_amount ,true, true, 2, MINUSNEG),LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+
+
+{--						Benefits by benefit code					--}
+for x = 1 to 3 do
+	release table UPR_Precheck_TEMP;
+	clear table UPR_Precheck_TEMP;
+	set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+	increment l_count;
+	set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+	change table UPR_Precheck_TEMP;
+	set 'String 132' of table UPR_Precheck_TEMP to \" \";
+	save table UPR_Precheck_TEMP;
+end for;
+
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"Benefits by Benefit Codes\", LEADING,\" \", 65);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"--------------------------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+l_sql_status  = SQL_Clear(l_sql_connect);
+l_sql_command = \"select BENEFIT, sum(TOTLBNFT) from UPR10205 group by BENEFIT \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+
+while l_sql_status <> 31 do
+
+	l_sql_data_status = SQL_GetData(l_sql_connect,1,l_string1);
+	l_sql_data_status = SQL_GetData(l_sql_connect,2,l_temp_amount);
+	l_string1 = trim(l_string1);
+	
+	l_string3 = pad(l_string1, LEADING, \" \", 40 +  length(l_string1));
+	l_string3 = pad(l_string3, TRAILING,\" \", 60);
+	l_string_amt = format(l_temp_amount ,true, true, 2, MINUSNEG);
+	l_string3 = l_string3 + pad(l_string_amt, LEADING, \" \", 24);
+	
+
+	release table UPR_Precheck_TEMP;
+	clear table UPR_Precheck_TEMP;
+	set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+	increment l_count;
+	set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+	change table UPR_Precheck_TEMP;
+	set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+	save table UPR_Precheck_TEMP;
+	
+	l_sql_status = SQL_FetchNext(l_sql_connect);
+end while;
+
+{		benefit	 totals					}
+
+l_sql_status  = SQL_Clear(l_sql_connect);
+l_sql_command = \"select SUM(TOTLBNFT) from UPR10205 \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+l_sql_data_status = SQL_GetData(l_sql_connect,1,l_temp_amount);
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(format(l_temp_amount ,true, true, 2, MINUSNEG),LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+
+{			Deduction details							}
+for x = 1 to 3 do
+	release table UPR_Precheck_TEMP;
+	clear table UPR_Precheck_TEMP;
+	set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+	increment l_count;
+	set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+	change table UPR_Precheck_TEMP;
+	set 'String 132' of table UPR_Precheck_TEMP to \" \";
+	save table UPR_Precheck_TEMP;
+end for;
+
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"Deduction Summary by Deduction Code\", LEADING,\" \", 75);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"--------------------------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+l_sql_status  = SQL_Clear(l_sql_connect);
+l_sql_command = \"select DEDUCTON, SUM(TTLDEDTN) from UPR10204 GROUP BY DEDUCTON  \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+
+while l_sql_status <> 31 do
+
+	l_sql_data_status = SQL_GetData(l_sql_connect,1,l_string1);
+	l_sql_data_status = SQL_GetData(l_sql_connect,2,l_temp_amount);
+	l_string1 = trim(l_string1);
+	
+	l_string3 = pad(l_string1, LEADING, \" \", 40 +  length(l_string1));
+	l_string3 = pad(l_string3, TRAILING,\" \", 60);
+	l_string_amt = format(l_temp_amount ,true, true, 2, MINUSNEG);
+	l_string3 = l_string3 + pad(l_string_amt, LEADING, \" \", 24);
+	
+
+	release table UPR_Precheck_TEMP;
+	clear table UPR_Precheck_TEMP;
+	set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+	increment l_count;
+	set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+	change table UPR_Precheck_TEMP;
+	set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+	save table UPR_Precheck_TEMP;
+	
+	l_sql_status = SQL_FetchNext(l_sql_connect);
+end while;
+
+{		Deduction totals					}
+l_sql_status  = SQL_Clear(l_sql_connect);
+l_sql_command = \"select SUM(TTLDEDTN) from UPR10204 \";
+l_sql_status  = SQL_Execute(l_sql_connect,l_sql_command);
+l_sql_status = SQL_FetchNext(l_sql_connect);
+l_sql_data_status = SQL_GetData(l_sql_connect,1,l_temp_amount);
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(format(l_temp_amount ,true, true, 2, MINUSNEG),LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+release table UPR_Precheck_TEMP;
+clear table UPR_Precheck_TEMP;
+set 'Employee ID' of table UPR_Precheck_TEMP to \"ZZZZZZZZZZZZZZZ\";
+increment l_count;
+set 'Sequence Number' of table UPR_Precheck_TEMP to l_count;
+change table UPR_Precheck_TEMP;
+l_string3 = pad(\"------------------------\",LEADING,\" \",84);
+set 'String 132' of table UPR_Precheck_TEMP to l_string3;
+save table UPR_Precheck_TEMP;
+
+l_sql_status  = SQL_Clear(l_sql_connect);
+l_sql_status  = SQL_Terminate(l_sql_connect);
+
+"
+	ServiceAction	""
+	ServiceCustomAciton	""
+	ServiceEnabled	"FALSE"
+	ServiceRawRequest	"FALSE"
+	ServiceUriTemplate	""
+	UserProperties	""
+}
